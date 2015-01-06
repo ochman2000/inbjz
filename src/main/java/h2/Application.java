@@ -37,13 +37,8 @@ public class Application {
         System.out.println("Querying for customer records where first_name = 'Josh':");
         List<Customer> results = jdbcTemplate.query(
                 "select * from customers where first_name = ?", new Object[] { "Josh" },
-                new RowMapper<Customer>() {
-                    @Override
-                    public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        return new Customer(rs.getLong("id"), rs.getString("first_name"),
-                                rs.getString("last_name"));
-                    }
-                });
+                (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"),
+                        rs.getString("last_name")));
 
         for (Customer customer : results) {
             System.out.println(customer);
