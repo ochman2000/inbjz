@@ -1,4 +1,4 @@
-package h2;
+package pl.lodz.p.h2;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,9 +8,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
-public class Application {
+public class Database {
 
-    public Application(String query) {
+    private JdbcTemplate jdbcTemplate;
+
+    public Database(String query) {
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
@@ -18,8 +20,11 @@ public class Application {
         dataSource.setUrl("jdbc:h2:mem");
         dataSource.setPassword("");
 
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate = new JdbcTemplate(dataSource);
+        init(jdbcTemplate);
+    }
 
+    private void init(JdbcTemplate jdbcTemplate) {
         System.out.println("Creating tables");
         jdbcTemplate.execute("drop table customers if exists");
         jdbcTemplate.execute("create table customers(" +
@@ -33,15 +38,22 @@ public class Application {
                     "INSERT INTO customers(first_name,last_name) values(?,?)",
                     name[0], name[1]);
         }
+    }
 
-        System.out.println("Querying for customer records where first_name = 'Josh':");
-        List<Customer> results = jdbcTemplate.query(
-                "select * from customers where first_name = ?", new Object[] { "Josh" },
-                (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"),
-                        rs.getString("last_name")));
-
-        for (Customer customer : results) {
-            System.out.println(customer);
-        }
+    public List<String[]> executeStmt(String sql) {
+        System.out.println("Querying: " + sql);
+        List<String[]> strLst = jdbcTemplate.query(sql,
+                new RowMapper<String[]>() {
+                    @Override
+                    public String[] mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        int columnCount = rs.getMetaData().getColumnCount();
+                        String[] row = new String[columnCount];
+                        for (int i = 0; i < columnCount; i++) {
+                            row[i] = rs.getString(i + 1);
+                        }
+                        return row;
+                    }
+                });
+        return strLst;
     }
 }

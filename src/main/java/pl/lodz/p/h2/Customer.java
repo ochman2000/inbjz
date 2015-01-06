@@ -1,4 +1,4 @@
-package h2;
+package pl.lodz.p.h2;
 
 public class Customer {
     private long id;
