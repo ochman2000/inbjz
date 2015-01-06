@@ -14,5 +14,4 @@ public class GreetingController {
         Thread.sleep(3000); // simulated delay
         return new Greeting("Hello, " + message.getName() + "!");
     }
-
 }
