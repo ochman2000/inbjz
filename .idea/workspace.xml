@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cfef687-b166-4895-b1cf-58e247a8d365" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="DELETED" beforePath="C:\Users\Lukasz\IdeaProjects\INBJZ\INJZB.iml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Lukasz\IdeaProjects\INBJZ\src\main\INJZB.iml" afterPath="$PROJECT_DIR$/src/main/INBJZ.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/1.11/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="INJZB.iws" />
