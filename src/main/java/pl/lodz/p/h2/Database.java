@@ -12,7 +12,7 @@ public class Database {
 
     private JdbcTemplate jdbcTemplate;
 
-    public Database(String query) {
+    public Database() {
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
