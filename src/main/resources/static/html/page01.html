@@ -1,72 +1,215 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/gen-bootstrap_7.css">
+        <link rel="stylesheet" type="text/css" href="../css/gen-pmSelectAutocomplete_7.css">
+        <link rel="stylesheet" type="text/css" href="../css/gen-ifirmaWO_7.css">
+        <link rel="stylesheet" type="text/css" href="../css/gen-ifirma_7.css">
+        <link rel="stylesheet" type="text/css" href="../css/style_7.css">
 
-    <title>Hello WebSocket</title>
-    <script src="../js/sockjs-0.3.4.js"></script>
-    <script src="../js/stomp.js"></script>
-    <script type="text/javascript">
-        var stompClient = null;
+        <title>Hello WebSocket</title>
+        <script src="../js/sockjs-0.3.4.js"></script>
+        <script src="../js/stomp.js"></script>
+        <script type="text/javascript">
+            var stompClient = null;
 
-        function setConnected(connected) {
-            document.getElementById('connect').disabled = connected;
-            document.getElementById('disconnect').disabled = !connected;
-            document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
-            document.getElementById('response').innerHTML = '';
-        }
+            function setConnected(connected) {
+                document.getElementById('connect').disabled = connected;
+                document.getElementById('disconnect').disabled = !connected;
+                document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
+                document.getElementById('response').innerHTML = '';
+            }
 
-        function connect() {
-            var socket = new SockJS('/hello');
-            stompClient = Stomp.over(socket);
-            stompClient.connect({}, function(frame) {
-                setConnected(true);
-                console.log('Connected: ' + frame);
-                stompClient.subscribe('/topic/greetings', function(greeting){
-                    showGreeting(JSON.parse(greeting.body).content);
+            function connect() {
+                var socket = new SockJS('/hello');
+                stompClient = Stomp.over(socket);
+                stompClient.connect({}, function(frame) {
+                    setConnected(true);
+                    console.log('Connected: ' + frame);
+                    stompClient.subscribe('/topic/greetings', function(greeting){
+                        showGreeting(JSON.parse(greeting.body).content);
+                    });
                 });
-            });
-        }
+            }
 
-        function disconnect() {
-            stompClient.disconnect();
-            setConnected(false);
-            console.log("Disconnected");
-        }
+            function disconnect() {
+                stompClient.disconnect();
+                setConnected(false);
+                console.log("Disconnected");
+            }
 
-        function sendName() {
-            var name = document.getElementById('name').value;
-            stompClient.send("/app/hello", {}, JSON.stringify({ 'name': name }));
-        }
+            function sendName() {
+                var name = document.getElementById('name').value;
+                stompClient.send("/app/hello", {}, JSON.stringify({ 'name': name }));
+            }
 
-        function showGreeting(message) {
-            var response = document.getElementById('response');
-            var p = document.createElement('p');
-            p.style.wordWrap = 'break-word';
-            p.appendChild(document.createTextNode(message));
-            response.appendChild(p);
-        }
-    </script>
-</head>
-<body>
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being enabled. Please enable
-    Javascript and reload this page!</h2></noscript>
-<div>
-    <div>
-        <button id="connect" onclick="connect();">Połącz</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">Rozłącz</button>
-    </div>
-    <div id="conversationDiv">
-        <label>Wpisz zapytanie:&nbsp&nbsp&nbsp&nbsp</label><input type="text" id="name" />
-        <button id="sendName" onclick="sendName();">Send</button>
-        <p id="response"></p>
-    </div>
-</div>
-</body>
+            function showGreeting(message) {
+                var response = document.getElementById('response');
+                var p = document.createElement('p');
+                p.style.wordWrap = 'break-word';
+                p.appendChild(document.createTextNode(message));
+                response.appendChild(p);
+            }
+
+
+        </script>
+    </head>
+    <body class="WlascicielEdit TrybModyfikacja SubMenuHidden Status-N" lang="pl-PL">
+        <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+            enabled. Please enable
+            Javascript and reload this page!</h2></noscript>
+        <div>
+            <br><br>
+
+            <div>
+                <button id="connect" onclick="connect();">Połącz</button>
+                <button id="disconnect" disabled="disabled" onclick="disconnect();">Rozłącz</button>
+            </div>
+            <br><br>
+
+            <div id="conversationDiv">
+                <label>Wpisz zapytanie:&nbsp&nbsp&nbsp&nbsp</label><input type="text" id="name"/>
+                <button id="sendName" onclick="sendName();">Send</button>
+                <p id="response"></p>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content-wrapper">
+                        <div id="titleUpdateContainer" updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7">
+                            <div class="wrapper">
+
+
+                                <form name="f_0_0_1_21_11_5_7_1_7_1" method="post" class="form-horizontal"
+                                      action="https://www.ifirma.pl/cgi-bin/WebObjects/ifirma.woa/wo/7.0.0.1.21.11.5.7.1.7.1">
+
+                                    <div id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_ramka" class="panel panel-default"
+                                         updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1">
+                                        <div id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_content"
+                                             updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3">
+                                            <div class="panel-body">
+
+
+                                                <div id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_ramka"
+                                                     class="panel panel-default"
+                                                     updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">
+                                                            Adres Zamieszkania
+                                                        </h3>
+
+                                                        <div style="display: none;" class="box-opt right"
+                                                             id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_zwRoz">
+                                                        </div>
+                                                    </div>
+                                                    <div id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_content"
+                                                         updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3">
+                                                        <div class="panel-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover _sekcjaAdres"
+                                                                       id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_tabela"
+                                                                       style="width:100%;">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="" style="width:30%">
+                                                                        </th>
+                                                                        <th class="col-md-1">PIT-5</th>
+                                                                        <th class="col-md-1">VAT-7</th>
+                                                                        <th class="col-md-1">DRA</th>
+                                                                        <th class="col-md-1">Faktura</th>
+                                                                        <th class="col-md-1"> UPL/OPL</th>
+                                                                        <th>
+                                                                        </th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td class="opis">Ulica, numer domu / numer lokalu</td>
+                                                                        <td class="kropki center">
+                                                                            <span class="glyphicon glyphicon-ok"
+                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_9_1_icon"></span>
+                                                                        </td>
+                                                                        <td class=" kropki center">
+                                                                            <span class="glyphicon glyphicon-ok"
+                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_11_1_icon"></span>
+                                                                        </td>
+                                                                        <td class=" kropki center"></td>
+                                                                        <td class=" kropki center"></td>
+                                                                        <td class=" kropki center">
+                                                                            <span class="glyphicon glyphicon-ok"
+                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_13_1_icon"></span>
+                                                                        </td>
+                                                                        <td class="form-group-table">
+                                                                            <input placeholder="Ulica" maxlength="50"
+                                                                                   class="form-control form-control"
+                                                                                   value="Ul. Bukowińska"
+                                                                                   name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.15.pmwo"
+                                                                                   type="text">
+                                                                            <input placeholder="Dom" maxlength="9"
+                                                                                   class="form-control col-md-1" value="8"
+                                                                                   name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.17.pmwo"
+                                                                                   type="text">
+                                                                            <input placeholder="Lokal" maxlength="10"
+                                                                                   class="form-control col-md-1" value="511"
+                                                                                   name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.19.pmwo"
+                                                                                   type="text">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Kod, Miejscowość</td>
+                                                                        <td class="text-center">
+                                                                            <span class="glyphicon glyphicon-ok"
+                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_21_1_icon"></span>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <span class="glyphicon glyphicon-ok"
+                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_23_1_icon"></span>
+                                                                        </td>
+                                                                        <td class="text-center"></td>
+                                                                        <td class="text-center"></td>
+                                                                        <td class="text-center">
+                                                                            <span class="glyphicon glyphicon-ok"
+                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_25_1_icon"></span>
+                                                                        </td>
+                                                                        <td class="form-group-table">
+                                                                            <input autocomplete="off" placeholder="kod pocztowy"
+                                                                                   maxlength="8"
+                                                                                   class="form-control kod col-md-2 pmAutocompleteInput"
+                                                                                   id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_27_2_1_kodACI"
+                                                                                   value="02-703"
+                                                                                   name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.27.2.1.0.pmwo"
+                                                                                   type="text">
+                                                                            <input class="_kodPocztowy"
+                                                                                   id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_27_2_1_kodAC"
+                                                                                   value="02-703"
+                                                                                   name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.27.2.1.2"
+                                                                                   type="hidden">
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

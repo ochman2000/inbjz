@@ -1,0 +1,139 @@
+.pmSelect {
+  position: relative;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  background-image: url('../../img/pmSelect_7.1.8.5.png');
+  background-repeat: no-repeat;
+  background-position: right 3px;
+  padding-right: 21px !important;
+}
+.pmSelectStrzalki {
+  cursor: default;
+}
+.pmSelect.pmAutocompleteActive {
+  background-position: right -15px;
+}
+.pmAutocomplete {
+  padding: 0px;
+  min-width: 0;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #5bc0de;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pmAutocomplete.pmAutocompleteDown {
+  margin-top: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(82, 168, 236, 0.6);
+  overflow: auto;
+}
+.pmAutocomplete.pmAutocompleteDown div.status {
+  -webkit-border-radius: 0px 0px 3px 3px;
+  -moz-border-radius: 0px 0px 3px 3px;
+  border-radius: 0px 0px 3px 3px;
+}
+.pmAutocomplete.pmAutocompleteUp {
+  border-bottom: none;
+  -webkit-border-radius: 3px 3px 0px 0px;
+  -moz-border-radius: 3px 3px 0px 0px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 -4px 8px rgba(82, 168, 236, 0.6);
+}
+.pmAutocomplete.pmAutocompleteUp div.status {
+  -webkit-border-radius: 3px 3px 0px 0px;
+  -moz-border-radius: 3px 3px 0px 0px;
+  border-radius: 3px 3px 0px 0px;
+}
+.pmAutocomplete .allItems {
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+.pmAutocomplete .items {
+  margin: 0;
+  padding: 0;
+}
+.pmAutocomplete .item,
+.pmAutocomplete .group {
+  color: #999999;
+  padding: 2px 6px;
+  background-color: #fff;
+}
+.pmAutocomplete .item {
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 6px 3px;
+}
+.pmAutocomplete .item:hover {
+  color: #fff !important;
+  background-color: #0F9FDC;
+  text-decoration: none;
+}
+.pmAutocomplete .item:hover nobr {
+  color: #fff;
+}
+.pmAutocomplete .active {
+  color: #222222 !important;
+  background-color: #eeeeee !important;
+  display: block;
+}
+.pmAutocomplete .active:hover {
+  color: #222222 !important;
+  background-color: #eeeeee !important;
+}
+.pmAutocomplete .active:hover nobr {
+  color: #222222;
+}
+.pmAutocomplete .item nobr {
+  color: #333333;
+}
+.pmAutocomplete div.status {
+  padding: 4px;
+  line-height: 1.428571429;
+  color: #fff;
+  font-size: 11px;
+  background: none repeat scroll 0 0 #5bc0de;
+}
+.pmAutocomplete .filtry {
+  background: none repeat scroll 0 0 #5bc0de;
+  color: #fff;
+  padding: 4px;
+  line-height: 1.428571429;
+}
+.pmAutocomplete .filtry > div {
+  padding: 0;
+}
+.pmAutocomplete .filtry > div > div {
+  padding: 2px 5px;
+}
+.pmAutocomplete span.status {
+  white-space: nowrap;
+}
+.pmAutocomplete dfn {
+  display: block;
+  font-style: normal;
+}
+.pmAutocomplete dfn strong {
+  color: #85d0e7;
+}
+.pmAutocomplete strong {
+  color: #5bc0de;
+}
+.pmAutocomplete .group {
+  font-weight: bold;
+  padding-left: 3px;
+}
+.pmAutocompleteInput {
+  background-image: url('../../img/pmAutocomplete_7.1.8.5.png');
+  background-repeat: no-repeat;
+  background-position: right 8px;
+  padding-right: 21px !important;
+}
