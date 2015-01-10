@@ -1,4 +1,4 @@
 build
 target
+.gradle
 /.idea/workspace.xml
-/.gradle
