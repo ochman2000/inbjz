@@ -9,14 +9,10 @@
     <meta name="author" content="Łukasz Ochmański">
     <title>Interaktywne nauczanie bazodanowych języków zapytań</title>
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../css/gen-bootstrap_7.css">
-    <link rel="stylesheet" type="text/css" href="../../css/gen-pmSelectAutocomplete_7.css">
     <link rel="stylesheet" type="text/css" href="../../css/gen-ifirmaWO_7.css">
-    <link rel="stylesheet" type="text/css" href="../../css/gen-ifirma_7.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style_7.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../../css/navbar-fixed-top.css" rel="stylesheet">
@@ -102,7 +98,7 @@
                             <li><a href="../deadlines.html">Terminy</a></li>
                             <li><a href="../history.html">Historia</a></li>
                             <li class="divider"></li>
-                            <li><a href="advanced.html">Zaawansowane</a></li>
+                            <li><a href="../advanced.html">Zaawansowane</a></li>
                             <li><a href="../help.html">Pomoc</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Wyloguj</a></li>
@@ -122,312 +118,168 @@
             <h3>Zadanie 2</h3><br>
             <h4>Treść:</h4>
             <h4>Pokaż wszystkie dane zawarte w tabeli CUSTOMERS</h4>
-            <br><br>
             <div id="content">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="content-wrapper">
-                            <div id="titleUpdateContainer" updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7">
+                            <div id="titleUpdateContainer">
                                 <div class="wrapper">
-
-
                                     <form name="f_0_0_1_21_11_5_7_1_7_1" method="post" class="form-horizontal"
                                           action="https://www.ifirma.pl/cgi-bin/WebObjects/ifirma.woa/wo/7.0.0.1.21.11.5.7.1.7.1">
-
-                                        <div id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_ramka" class="panel panel-default"
-                                             updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1">
-                                            <div id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_content"
-                                                 updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3">
+                                        <div class="panel panel-default">
+                                            <div>
+                                                <div style="padding-left: 15px;">Wynik zapytania:</div>
                                                 <div class="panel-body">
-
-
-                                                    <div id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_ramka"
-                                                         class="panel panel-default"
-                                                         updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1">
+                                                    <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h3 class="panel-title">
-                                                                Adres Zamieszkania
+                                                                Customers
                                                             </h3>
-
-                                                            <div style="display: none;" class="box-opt right"
-                                                                 id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_zwRoz">
+                                                            <div style="display: none;" class="box-opt right">
                                                             </div>
                                                         </div>
-                                                        <div id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_content"
-                                                             updateurl="/cgi-bin/WebObjects/ifirma.woa/ajax/7.0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3">
+                                                        <div>
                                                             <div class="panel-body">
                                                                 <div class="table-responsive">
-                                                                    <table class="table table-bordered table-hover" id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_tabela"
-                                                                           style="width:100%;">
+                                                                    <table class="table table-bordered table-hover" id="actual_table" style="width:100%;">
                                                                         <thead>
                                                                         <tr>
-                                                                            <th class="opis_firma">Wymagane do prawidłowego wygenerowania</th>
-                                                                            <th class="col-md-1">PIT-5</th>
-                                                                            <th class="col-md-1">VAT-7</th>
-                                                                            <th class="col-md-1">DRA</th>
-                                                                            <th class="col-md-1">Faktura</th>
-                                                                            <th class="col-md-1">UPL/OPL</th>
-                                                                            <th class="col-md-6">
-                                                                            </th>
+                                                                            <th class="col-md-1">ID</th>
+                                                                            <th class="col-md-1">FIRST_NAME</th>
+                                                                            <th class="col-md-1">LAST_NAME</th>
+                                                                            <th class="col-md-1">TELEPHONE</th>
+                                                                            <th class="col-md-1">EMAIL</th>
                                                                         </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                         <tr>
-                                                                            <td>Nazwa</td>
-                                                                            <td class="center kropki">
-                <span class="glyphicon glyphicon-ok"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_7_1_icon"></span>
-                                                                            </td>
-                                                                            <td class="center kropki">
-                <span class="glyphicon glyphicon-ok"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_9_icon"></span>
-                                                                            </td>
-                                                                            <td class="center kropki"></td>
-                                                                            <td class="center kropki">
-                <span class="glyphicon glyphicon-ok"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_11_icon"></span>
-                                                                            </td>
-                                                                            <td class="center kropki">
-                                                                            </td>
-                                                                            <td>
-                                                                                <span class="strong">Łukasz Ochmański Autocommit</span>
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>Nazwa skrócona</td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center">
-                <span class="glyphicon glyphicon-ok"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_21_icon"></span>
-                                                                            </td>
-                                                                            <td class="text-center">
-                <span class="glyphicon glyphicon-ok"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_23_icon"></span>
-                                                                            </td>
-                                                                            <td class="text-center"></td>
-                                                                            <td>
-                                                                                <span class="strong">AutoCommIT</span>
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>REGON</td>
-                                                                            <td class="text-center">
-                <span class="glyphicon glyphicon-ok"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_29_1_icon"></span>
-                                                                            </td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center">
-                <span class="glyphicon glyphicon-ok"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_31_icon"></span>
-                                                                            </td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="center kropki"></td>
-                                                                            <td>
-                                                                                <span class="strong"> 101346298 </span>
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>Firma prowadzi sprzedaż zwolnioną</td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td>
-                <span class="glyphicon glyphicon-ban-circle"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_37_3_2_1_icon"></span>
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>Firma ewidencjonuje sprzedaż na kasie fiskalnej</td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td>
-                <span class="glyphicon glyphicon-ban-circle"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_39_3_2_1_icon"></span>
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="WymaganeDoWygenerowania">Data rejestracji</td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td>
-                                                                                <span class="left strong">01-10-2014</span>
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="WymaganeDoWygenerowania">Data rozpoczęcia działalności</td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td>
-                                                                                <span class="left strong">09/2014</span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="WymaganeDoWygenerowania">Data pierwszego księgowania w serwisie</td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td>
-                                                                                <span class="left strong">10-2014</span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Data rozpoczęcia działalności jako płatnik VAT</td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td></td>
-                                                                            <td>
-                                                                                <span class="strong"> 09/2014 </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Wskaźnik sprzedaży VAT</td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td>
-                                                                                <span class="strong"> 100% </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Złożono VAT-R/UE</td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td>
-                <span class="glyphicon glyphicon-ok-circle"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_57_0_1_icon"></span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Numer GIOŚ</td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center">
-                <span class="glyphicon glyphicon-ok"
-                      id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_2_1_3_3_1_3_1_1_1_1_3_3_1_1_63_icon"></span>
-                                                                            </td>
-                                                                            <td class="text-center"></td>
-                                                                            <td>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Miejsce wystawiania
-                                                                                faktur
-                                                                            </td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td>
-                                                                                Warszawa
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
-
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="padding-left: 15px;">Oczekiwany rezultat:</div>
+                                                <div class="panel-body">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">
+                                                                Customers
+                                                            </h3>
+                                                            <div style="display: none;" class="box-opt right">
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="panel-body">
                                                                 <div class="table-responsive">
-                                                                    <table class="table table-bordered table-hover _sekcjaAdres"
-                                                                           id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_tabela"
-                                                                           style="width:100%;">
+                                                                    <table class="table table-bordered table-hover" id="excpected_table" style="width:100%;">
                                                                         <thead>
                                                                         <tr>
-                                                                            <th class="" style="width:30%">
-                                                                            </th>
-                                                                            <th class="col-md-1">PIT-5</th>
-                                                                            <th class="col-md-1">VAT-7</th>
-                                                                            <th class="col-md-1">DRA</th>
-                                                                            <th class="col-md-1">Faktura</th>
-                                                                            <th class="col-md-1"> UPL/OPL</th>
-                                                                            <th>
-                                                                            </th>
+                                                                            <th class="col-md-1">ID</th>
+                                                                            <th class="col-md-1">FIRST_NAME</th>
+                                                                            <th class="col-md-1">LAST_NAME</th>
+                                                                            <th class="col-md-1">TELEPHONE</th>
+                                                                            <th class="col-md-1">EMAIL</th>
                                                                         </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                         <tr>
-                                                                            <td class="opis">Ulica, numer domu / numer lokalu</td>
-                                                                            <td class="kropki center">
-                                                                            <span class="glyphicon glyphicon-ok"
-                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_9_1_icon"></span>
-                                                                            </td>
-                                                                            <td class=" kropki center">
-                                                                            <span class="glyphicon glyphicon-ok"
-                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_11_1_icon"></span>
-                                                                            </td>
-                                                                            <td class=" kropki center"></td>
-                                                                            <td class=" kropki center"></td>
-                                                                            <td class=" kropki center">
-                                                                            <span class="glyphicon glyphicon-ok"
-                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_13_1_icon"></span>
-                                                                            </td>
-                                                                            <td class="form-group-table">
-                                                                                <input placeholder="Ulica" maxlength="50"
-                                                                                       class="form-control form-control"
-                                                                                       value="Ul. Bukowińska"
-                                                                                       name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.15.pmwo"
-                                                                                       type="text">
-                                                                                <input placeholder="Dom" maxlength="9"
-                                                                                       class="form-control col-md-1" value="8"
-                                                                                       name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.17.pmwo"
-                                                                                       type="text">
-                                                                                <input placeholder="Lokal" maxlength="10"
-                                                                                       class="form-control col-md-1" value="511"
-                                                                                       name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.19.pmwo"
-                                                                                       type="text">
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>Kod, Miejscowość</td>
-                                                                            <td class="text-center">
-                                                                            <span class="glyphicon glyphicon-ok"
-                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_21_1_icon"></span>
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                            <span class="glyphicon glyphicon-ok"
-                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_23_1_icon"></span>
-                                                                            </td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center"></td>
-                                                                            <td class="text-center">
-                                                                            <span class="glyphicon glyphicon-ok"
-                                                                                  id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_25_1_icon"></span>
-                                                                            </td>
-                                                                            <td class="form-group-table">
-                                                                                <input autocomplete="off" placeholder="kod pocztowy"
-                                                                                       maxlength="8"
-                                                                                       class="form-control kod col-md-2 pmAutocompleteInput"
-                                                                                       id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_27_2_1_kodACI"
-                                                                                       value="02-703"
-                                                                                       name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.27.2.1.0.pmwo"
-                                                                                       type="text">
-                                                                                <input class="_kodPocztowy"
-                                                                                       id="js_0_0_1_21_11_5_7_1_7_1_1_0_1_0_1_3_3_1_3_1_1_3_2_1_3_3_1_3_1_1_1_1_3_3_1_1_27_2_1_kodAC"
-                                                                                       value="02-703"
-                                                                                       name="0.0.1.21.11.5.7.1.7.1.1.0.1.0.1.3.3.1.3.1.1.3.2.1.3.3.1.3.1.1.1.1.3.3.1.1.27.2.1.2"
-                                                                                       type="hidden">
-                                                                            </td>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>John</td>
+                                                                            <td>Kowalski</td>
+                                                                            <td>1123456789</td>
+                                                                            <td>john@kowalski.com.pl</td>
                                                                         </tr>
                                                                         </tbody>
                                                                     </table>
@@ -476,8 +328,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
 
 </body>
 </html>

@@ -596,13 +596,6 @@ table .alert {
 .input-group-addon a:hover span.glyphicon {
   color: #222;
 }
-.dropdown-menu {
-  left: auto;
-  right: 0;
-  box-shadow: 0 4px 8px rgba(82, 168, 236, 0.6) !important;
-  border: 1px solid #5bc0de;
-  padding: 0;
-}
 .ZmianyMiesiaca .dropdown-menu {
   left: 0;
   right: auto;
