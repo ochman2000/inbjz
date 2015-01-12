@@ -23,6 +23,58 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="../../js/jquery.js"></script>
+    <script>
+    $(function(){
+      $("#includedContent").load("query.html");
+    });
+    </script>
+
+    <script src="../../js/sockjs-0.3.4.js"></script>
+    <script src="../../js/stomp.js"></script>
+    <script type="text/javascript">
+            var stompClient = null;
+
+            function setConnected(connected) {
+                document.getElementById('connect').disabled = connected;
+                document.getElementById('disconnect').disabled = !connected;
+                document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
+                document.getElementById('response').innerHTML = '';
+            }
+
+            function connect() {
+                var socket = new SockJS('/hello');
+                stompClient = Stomp.over(socket);
+                stompClient.connect({}, function(frame) {
+                    setConnected(true);
+                    console.log('Connected: ' + frame);
+                    stompClient.subscribe('/topic/greetings', function(greeting){
+                        showGreeting(JSON.parse(greeting.body).content);
+                    });
+                });
+            }
+
+            function disconnect() {
+                stompClient.disconnect();
+                setConnected(false);
+                console.log("Disconnected");
+            }
+
+            function sendName() {
+                var name = document.getElementById('name').value;
+                stompClient.send("/app/hello", {}, JSON.stringify({ 'name': name }));
+            }
+
+            function showGreeting(message) {
+                var response = document.getElementById('response');
+                var p = document.createElement('p');
+                p.style.wordWrap = 'break-word';
+                p.appendChild(document.createTextNode(message));
+                response.appendChild(p);
+            }
+
+        </script>
+
 </head>
 
 <body class="WlascicielEdit TrybModyfikacja Status-N" lang="pl-PL">
@@ -118,6 +170,7 @@
             <h3>Zadanie 2</h3><br>
             <h4>Treść:</h4>
             <h4>Pokaż wszystkie dane zawarte w tabeli CUSTOMERS</h4>
+            <div id="includedContent"></div>
             <div id="content">
                 <div class="row">
                     <div class="col-md-12">
@@ -328,7 +381,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../js/jquery.js"></script>
     <script src="../../js/bootstrap.js"></script>
 
 </body>
