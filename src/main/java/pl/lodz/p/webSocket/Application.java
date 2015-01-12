@@ -1,4 +1,4 @@
-package hello;
+package pl.lodz.p.webSocket;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-package hello;
+package pl.lodz.p.webSocket;
 
 public class HelloMessage {
 

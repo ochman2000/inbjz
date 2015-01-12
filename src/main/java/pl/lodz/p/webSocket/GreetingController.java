@@ -1,4 +1,4 @@
-package hello;
+package pl.lodz.p.webSocket;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
