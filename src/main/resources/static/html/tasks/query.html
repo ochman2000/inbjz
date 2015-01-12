@@ -1,36 +1,23 @@
-<div>
+<br><br>
+<div id="conversationDiv">
+
+    <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked=""> Query
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Execute
+        </label>
+    </div>
     <br><br>
-    <div id="conversationDiv">
 
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Query
-            </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Execute
-            </label>
-        </div>
-        <br><br>
-        <div>
-            <textarea id="name" class="form-control text-left"
-                      rows="4" style="min-width: 10px; max-width: 600px;"
+    <div style="min-width: 10px; max-width: 600px; margin-bottom: 20px; display: table-row; width:100%;">
+            <textarea id="name" class="form-control text-left" rows="4" style="width:600px; max-width:600px;"
                       placeholder="Wpisz zapytanie" aria-describedby="basic-addon1"></textarea>
-        </div>
-        <br>
-
-        <button type="button" id="sendName" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
-            Loading state
+        <button type="button" id="sendName" data-loading-text="Loading..."
+                class="btn btn-primary pull-right" autocomplete="off"
+                style="margin-top:10px">Wykonaj
         </button>
-
-        <script>
-          $('#sendName').on('click', function () {
-            var $btn = $(this).button('loading');
-            connect();
-            sendName();
-            disconnect();
-            $btn.button('reset');
-          })
-        </script>
-        <p id="response"></p>
     </div>
 </div>
+<br><br>
