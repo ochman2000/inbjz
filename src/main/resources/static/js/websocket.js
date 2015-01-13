@@ -10,20 +10,47 @@ function connect() {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/greetings', function(greeting){
-            showGreeting(JSON.parse(greeting.body).content);
-        });
+        subscribeToAll();
     });
 }
 
+function greetingsCallBack(greeting) {
+    showGreeting(JSON.parse(greeting.body).content);
+}
+
+function executeCallBack(statement) {
+    alert('Trying to execute: '+statement);
+}
+
+function queryCallBack(statement) {
+    buildResultTables(JSON.parse(statement.body).content);
+}
+
+function subscribeToAll() {
+    var sub1 = stompClient.subscribe('/topic/greetings', greetingsCallBack);
+    var sub2 = stompClient.subscribe('/topic/execute', executeCallBack);
+    var sub3 = stompClient.subscribe('/topic/query', queryCallBack);
+}
+
 function disconnect() {
-    stompClient.disconnect();
-    console.log("Disconnected");
+    stompClient.disconnect(function() {
+        console.log("Disconnected");
+    });
 }
 
 function sendQuery() {
     var query = $('#queryTextArea').val();
-    stompClient.send("/app/hello", {}, JSON.stringify({ 'query': query }));
+    stompClient.send("/app/query", {}, JSON.stringify({ 'query': query }));
+}
+
+function buildResultTables(result) {
+    var response = document.getElementById('response');
+    var p = document.createElement('p');
+    p.style.wordWrap = 'break-word';
+    p.appendChild(document.createTextNode(result));
+    response.appendChild(p);
+
+    $('#sendQueryBtn').button('reset');
 }
 
 function showGreeting(message) {

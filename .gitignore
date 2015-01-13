@@ -2,3 +2,5 @@ build
 target
 .gradle
 /.idea/workspace.xml
+mem.h2.db
+mem.trace.db
