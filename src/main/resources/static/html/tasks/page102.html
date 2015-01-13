@@ -35,18 +35,10 @@
     <script type="text/javascript">
             var stompClient = null;
 
-            function setConnected(connected) {
-                document.getElementById('connect').disabled = connected;
-                document.getElementById('disconnect').disabled = !connected;
-                document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
-                document.getElementById('response').innerHTML = '';
-            }
-
             function connect() {
                 var socket = new SockJS('/hello');
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function(frame) {
-                    setConnected(true);
                     console.log('Connected: ' + frame);
                     stompClient.subscribe('/topic/greetings', function(greeting){
                         showGreeting(JSON.parse(greeting.body).content);
@@ -56,7 +48,6 @@
 
             function disconnect() {
                 stompClient.disconnect();
-                setConnected(false);
                 console.log("Disconnected");
             }
 
@@ -78,283 +69,283 @@
 </head>
 
 <body class="WlascicielEdit TrybModyfikacja Status-N" lang="pl-PL">
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">INBJZ</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="../../index.html">Home</a></li>
-                    <li class="active"><a href="../tasks.html">Zadania</a></li>
-                    <li><a href="../about.html">O projekcie</a></li>
-                    <li><a href="../contact.html">Kontakt</a></li>
-                    <li><a href="../news.html">Komunikaty</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Materiały naukowe
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="http://www.w3schools.com/sql/">W3Schools</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Oracle</li>
-                            <li><a href="http://www.techonthenet.com/oracle/">Tech ON THE Net</a></li>
-                            <li><a href="http://psoug.org/browse.htm?cid=4">PSOUG.org</a></li>
-                            <li><a href="https://asktom.oracle.com">Ask Tom Oracle</a></li>
-                            <li><a href="http://www.dba-oracle.com">Burleson Consulting</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">SQL Server</li>
-                            <li><a href="http://msdn.microsoft.com/en-us/library/ms167593%28v=sql.105%29.aspx">MSDN</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">H2</li>
-                            <li><a href="http://www.h2database.com/html/tutorial.html">H2 Database</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">PostreSQL</li>
-                            <li><a href="http://www.postgresqltutorial.com">PostreSQL tutorial</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Dokumentacja
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="http://docs.oracle.com/database/121/index.htm">Oracle</a></li>
-                            <li><a href="http://msdn.microsoft.com/en-us/library/bb545450.aspx">SQL Server</a></li>
-                            <li><a href="http://www.h2database.com/html/main.html">H2</a></li>
-                            <li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
-                            <li><a href="">DB2</a></li>
-                            <li><a href="">Derby</a></li>
-                            <li><a href="">HSQLDB</a></li>
-                            <li><a href="">MySQL</a></li>
-                            <li><a href="">ODBC</a></li>
-                            <li><a href="">SQLite</a></li>
-                            <li><a href="">Sybase</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ustawienia
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="../profile.html">Profil</a></li>
-                            <li><a href="../tasks.html">Zadania</a></li>
-                            <li><a href="../grades.html">Twoje oceny</a></li>
-                            <li><a href="../stats.html">Statystyka ocen</a></li>
-                            <li><a href="../deadlines.html">Terminy</a></li>
-                            <li><a href="../history.html">Historia</a></li>
-                            <li class="divider"></li>
-                            <li><a href="../advanced.html">Zaawansowane</a></li>
-                            <li><a href="../help.html">Pomoc</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Wyloguj</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </nav>
-
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">INBJZ</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li class="active"><a href="../tasks.html">Zadania</a></li>
+                <li><a href="../about.html">O projekcie</a></li>
+                <li><a href="../contact.html">Kontakt</a></li>
+                <li><a href="../news.html">Komunikaty</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Materiały naukowe
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://www.w3schools.com/sql/">W3Schools</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Oracle</li>
+                        <li><a href="http://www.techonthenet.com/oracle/">Tech ON THE Net</a></li>
+                        <li><a href="http://psoug.org/browse.htm?cid=4">PSOUG.org</a></li>
+                        <li><a href="https://asktom.oracle.com">Ask Tom Oracle</a></li>
+                        <li><a href="http://www.dba-oracle.com">Burleson Consulting</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">SQL Server</li>
+                        <li><a href="http://msdn.microsoft.com/en-us/library/ms167593%28v=sql.105%29.aspx">MSDN</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">H2</li>
+                        <li><a href="http://www.h2database.com/html/tutorial.html">H2 Database</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">PostreSQL</li>
+                        <li><a href="http://www.postgresqltutorial.com">PostreSQL tutorial</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Dokumentacja
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://docs.oracle.com/database/121/index.htm">Oracle</a></li>
+                        <li><a href="http://msdn.microsoft.com/en-us/library/bb545450.aspx">SQL Server</a></li>
+                        <li><a href="http://www.h2database.com/html/main.html">H2</a></li>
+                        <li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
+                        <li><a href="">DB2</a></li>
+                        <li><a href="">Derby</a></li>
+                        <li><a href="">HSQLDB</a></li>
+                        <li><a href="">MySQL</a></li>
+                        <li><a href="">ODBC</a></li>
+                        <li><a href="">SQLite</a></li>
+                        <li><a href="">Sybase</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ustawienia
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="../profile.html">Profil</a></li>
+                        <li><a href="../tasks.html">Zadania</a></li>
+                        <li><a href="../grades.html">Twoje oceny</a></li>
+                        <li><a href="../stats.html">Statystyka ocen</a></li>
+                        <li><a href="../deadlines.html">Terminy</a></li>
+                        <li><a href="../history.html">Historia</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../advanced.html">Zaawansowane</a></li>
+                        <li><a href="../help.html">Pomoc</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Wyloguj</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
 
-        <!-- Main component for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <h2>Część I</h2>
-            <h3>Zadanie 2</h3><br>
-            <h4>Treść:</h4>
-            <h4>Pokaż wszystkie dane zawarte w tabeli CUSTOMERS</h4>
-            <div id="includedContent"></div>
-            <div id="content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="content-wrapper">
-                            <div id="titleUpdateContainer">
-                                <div class="wrapper">
-                                    <form name="f_0_0_1_21_11_5_7_1_7_1" method="post" class="form-horizontal"
-                                          action="https://www.ifirma.pl/cgi-bin/WebObjects/ifirma.woa/wo/7.0.0.1.21.11.5.7.1.7.1">
-                                        <div class="panel panel-default">
-                                            <div>
-                                                <div style="padding-left: 15px; padding-top: 15px;">Wynik zapytania:</div>
-                                                <div class="panel-body">
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h3 class="panel-title">
-                                                                Customers
-                                                            </h3>
-                                                            <div style="display: none;" class="box-opt right">
-                                                            </div>
+<div class="container">
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h2>Część I</h2>
+        <h3>Zadanie 2</h3><br>
+        <h4>Treść:</h4>
+        <h4>Pokaż wszystkie dane zawarte w tabeli CUSTOMERS</h4>
+        <div id="includedContent"></div>
+        <div id="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content-wrapper">
+                        <div id="titleUpdateContainer">
+                            <div class="wrapper">
+                                <form name="f_0_0_1_21_11_5_7_1_7_1" method="post" class="form-horizontal"
+                                      action="https://www.ifirma.pl/cgi-bin/WebObjects/ifirma.woa/wo/7.0.0.1.21.11.5.7.1.7.1">
+                                    <div class="panel panel-default">
+                                        <div>
+                                            <div style="padding-left: 15px; padding-top: 15px;">Wynik zapytania:</div>
+                                            <div class="panel-body">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">
+                                                            Customers
+                                                        </h3>
+                                                        <div style="display: none;" class="box-opt right">
                                                         </div>
-                                                        <div>
-                                                            <div class="panel-body">
-                                                                <div class="table-responsive">
-                                                                    <table class="table table-bordered table-hover" id="actual_table" style="width:100%;">
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th class="col-md-1">ID</th>
-                                                                            <th class="col-md-1">FIRST_NAME</th>
-                                                                            <th class="col-md-1">LAST_NAME</th>
-                                                                            <th class="col-md-1">TELEPHONE</th>
-                                                                            <th class="col-md-1">EMAIL</th>
-                                                                        </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="panel-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover" id="actual_table" style="width:100%;">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="col-md-1">ID</th>
+                                                                        <th class="col-md-1">FIRST_NAME</th>
+                                                                        <th class="col-md-1">LAST_NAME</th>
+                                                                        <th class="col-md-1">TELEPHONE</th>
+                                                                        <th class="col-md-1">EMAIL</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div style="padding-left: 15px;">Oczekiwany rezultat:</div>
-                                                <div class="panel-body">
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h3 class="panel-title">
-                                                                Customers
-                                                            </h3>
-                                                            <div style="display: none;" class="box-opt right">
-                                                            </div>
+                                            </div>
+                                            <div style="padding-left: 15px;">Oczekiwany rezultat:</div>
+                                            <div class="panel-body">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">
+                                                            Customers
+                                                        </h3>
+                                                        <div style="display: none;" class="box-opt right">
                                                         </div>
-                                                        <div>
-                                                            <div class="panel-body">
-                                                                <div class="table-responsive">
-                                                                    <table class="table table-bordered table-hover" id="excpected_table" style="width:100%;">
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th class="col-md-1">ID</th>
-                                                                            <th class="col-md-1">FIRST_NAME</th>
-                                                                            <th class="col-md-1">LAST_NAME</th>
-                                                                            <th class="col-md-1">TELEPHONE</th>
-                                                                            <th class="col-md-1">EMAIL</th>
-                                                                        </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>John</td>
-                                                                            <td>Kowalski</td>
-                                                                            <td>1123456789</td>
-                                                                            <td>john@kowalski.com.pl</td>
-                                                                        </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="panel-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover" id="excpected_table" style="width:100%;">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="col-md-1">ID</th>
+                                                                        <th class="col-md-1">FIRST_NAME</th>
+                                                                        <th class="col-md-1">LAST_NAME</th>
+                                                                        <th class="col-md-1">TELEPHONE</th>
+                                                                        <th class="col-md-1">EMAIL</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>John</td>
+                                                                        <td>Kowalski</td>
+                                                                        <td>1123456789</td>
+                                                                        <td>john@kowalski.com.pl</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
+
+
+    </div>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
                 var disqus_shortname = 'inbjz'; // required: replace example with your forum shortname
 
@@ -366,22 +357,27 @@
                 })();
 
             </script>
-        <noscript>
-            Please enable JavaScript to view the
-            <a href="https://disqus.com/?ref_noscript">
-                comments powered by Disqus.
-            </a>
-        </noscript>
+    <noscript>
+        Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">
+            comments powered by Disqus.
+        </a>
+    </noscript>
 
 
-    </div>
-    <!-- /container -->
+</div>
+<!-- /container -->
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../js/bootstrap.js"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../../js/bootstrap.js"></script>
+<script>
+        $().ready(function() {
+            connect();
+        });
+    </script>
 
 </body>
 </html>

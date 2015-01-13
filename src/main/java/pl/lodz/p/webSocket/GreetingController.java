@@ -16,7 +16,7 @@ public class GreetingController {
     @SendTo("/topic/greetings")
     public Greeting greeting(HelloMessage message) throws Exception {
         Database database = new Database();
-        List<String[]> result = database.executeStmt(message.getName());
+        List<String[]> result = database.executeStmt(message.getQuery());
         StringBuilder sb = new StringBuilder();
         for (String[] row : result) {
             sb.append(Arrays.toString(row));

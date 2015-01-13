@@ -13,23 +13,22 @@
     <span class="label label-danger pull-right">Błąd</span>
     <br><br>
 
-    <div style="">
+    <div>
         <textarea aria-describedby="basic-addon1" placeholder="Wpisz zapytanie"
                   style="resize: none;" rows="4"
-                  class="form-control text-left" id="name"></textarea>
+                  class="form-control text-left" id="queryTextArea"></textarea>
         <button style="margin-top:10px"
                 autocomplete="off" class="btn btn-primary pull-right"
-                data-loading-text="Loading..." id="sendName" type="button">Wykonaj
+                data-loading-text="Loading..." id="sendQueryBtn" type="button">Wykonaj
         </button>
     </div>
 
     <script>
-          $('#sendName').on('click', function () {
-            var $btn = $(this).button('loading');
-            sendName();
-            $btn.button('reset');
-          })
-        </script>
+        $('#sendQueryBtn').on('click', function () {
+        var $btn = $(this).button('loading');
+        sendQuery();
+        })
+    </script>
     <p id="response"></p>
 
 </div>
