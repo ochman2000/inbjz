@@ -25,7 +25,7 @@ public class QueryController {
     }
 
     @MessageMapping("/execute")
-    @SendTo("/type/execute")
+    @SendTo("/topic/execute")
     public InbjzResultSet execute(Query message) throws Exception {
         Database database = new Database();
         List<String[]> result = database.executeQuery(message.getQuery());
@@ -38,7 +38,7 @@ public class QueryController {
     }
 
     @MessageMapping("/query")
-    @SendTo("/type/query")
+    @SendTo("/topic/query")
     public InbjzResultSet select(Query message) throws Exception {
         Database database = new Database();
         List<String[]> result = database.executeQuery(message.getQuery());
