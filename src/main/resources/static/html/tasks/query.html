@@ -1,23 +1,25 @@
 <br><br>
-<div id="conversationDiv" style="max-width: 600px; min-width: 100px;">
+<div style="min-width: 100px; width: 100%;" class="input-group" id="conversationDiv">
 
-    <div class="btn-group" data-toggle="buttons">
+    <div data-toggle="buttons" class="btn-group">
         <label class="btn btn-primary active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked=""> Query
+            <input type="radio" checked="" autocomplete="off" id="option1" name="options"> Query
         </label>
         <label class="btn btn-primary">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Execute
+            <input type="radio" autocomplete="off" id="option2" name="options"> Execute
         </label>
     </div>
-    <span class="label label-success pull-right">Success</span>
+    <span class="label label-success pull-right">Sukces</span>
+    <span class="label label-danger pull-right">Błąd</span>
     <br><br>
 
-    <div style="min-width: 10px; max-width: 600px; margin-bottom: 20px; display: table-row; width:100%;">
-        <textarea id="name" class="form-control text-left" rows="4" style="width: 600px; max-width: 600px;"
-                  placeholder="Wpisz zapytanie" aria-describedby="basic-addon1"></textarea>
-        <button type="button" id="sendName" data-loading-text="Loading..."
-                class="btn btn-primary pull-right" autocomplete="off"
-                style="margin-top:10px">Wykonaj
+    <div style="">
+        <textarea aria-describedby="basic-addon1" placeholder="Wpisz zapytanie"
+                  style="resize: none;" rows="4"
+                  class="form-control text-left" id="name"></textarea>
+        <button style="margin-top:10px"
+                autocomplete="off" class="btn btn-primary pull-right"
+                data-loading-text="Loading..." id="sendName" type="button">Wykonaj
         </button>
     </div>
 
