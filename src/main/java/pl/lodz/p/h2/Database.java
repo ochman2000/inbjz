@@ -40,7 +40,7 @@ public class Database {
         }
     }
 
-    public List<String[]> executeStmt(String sql) {
+    public List<String[]> executeQuery(String sql) {
         System.out.println("Querying: " + sql);
         List<String[]> strLst = jdbcTemplate.query(sql,
                 new RowMapper<String[]>() {

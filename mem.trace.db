@@ -22,7 +22,7 @@ org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
 	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
 	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
-	at pl.lodz.p.h2.Database.executeStmt(Database.java:45)
+	at executeQuery(Database.java:45)
 	at pl.lodz.p.webSocket.GreetingController.greeting(GreetingController.java:19)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

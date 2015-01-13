@@ -1,10 +1,12 @@
 package pl.lodz.p.webSocket;
 
-public class Greeting {
+public class InbjzResultSet {
     
     private String content;
+    private String expected;
+    private String actual;
 
-    public Greeting(String content) {
+    public InbjzResultSet(String content) {
         this.content = content;
     }
 
