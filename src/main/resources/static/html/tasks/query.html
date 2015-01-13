@@ -1,5 +1,5 @@
 <br><br>
-<div id="conversationDiv">
+<div id="conversationDiv" style="max-width: 600px; min-width: 100px;">
 
     <div class="btn-group" data-toggle="buttons">
         <label class="btn btn-primary active">
@@ -9,15 +9,26 @@
             <input type="radio" name="options" id="option2" autocomplete="off"> Execute
         </label>
     </div>
+    <span class="label label-success pull-right">Success</span>
     <br><br>
 
     <div style="min-width: 10px; max-width: 600px; margin-bottom: 20px; display: table-row; width:100%;">
-            <textarea id="name" class="form-control text-left" rows="4" style="width:600px; max-width:600px;"
-                      placeholder="Wpisz zapytanie" aria-describedby="basic-addon1"></textarea>
+        <textarea id="name" class="form-control text-left" rows="4" style="width: 600px; max-width: 600px;"
+                  placeholder="Wpisz zapytanie" aria-describedby="basic-addon1"></textarea>
         <button type="button" id="sendName" data-loading-text="Loading..."
                 class="btn btn-primary pull-right" autocomplete="off"
                 style="margin-top:10px">Wykonaj
         </button>
     </div>
+
+    <script>
+          $('#sendName').on('click', function () {
+            var $btn = $(this).button('loading');
+            sendName();
+            $btn.button('reset');
+          })
+        </script>
+    <p id="response"></p>
+
 </div>
 <br><br>
