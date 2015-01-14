@@ -25,9 +25,15 @@
 
     <script>
         $('#sendQueryBtn').on('click', function () {
-        var $btn = $(this).button('loading');
-        sendQuery();
-        })
+            var $btn = $(this).button('loading');
+            sendQuery();
+        });
+        $('#queryTextArea').keypress(function (e) {
+            if (e.ctrlKey && e.keyCode == 13) {
+                var $btn = $('#sendQueryBtn').button('loading');
+                sendQuery();
+            }
+        });
     </script>
     <p id="response"></p>
 
