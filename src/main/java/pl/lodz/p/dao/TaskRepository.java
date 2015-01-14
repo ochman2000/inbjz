@@ -1,4 +1,6 @@
-package pl.lodz.p.core;
+package pl.lodz.p.dao;
+
+import pl.lodz.p.core.Task;
 
 import java.util.List;
 

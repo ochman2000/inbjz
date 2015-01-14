@@ -22,10 +22,15 @@ public class QueryService {
     @Transactional
     public InbjzResultSet select(Query message) {
         DatabaseDao database = new DatabaseImpl();
-        List<String[]> result = database.executeQuery(message.getQuery());
+        List<String[]> actual = database.executeQuery(message.getQuery());
         InbjzResultSet res = new InbjzResultSet();
-        res.setActual(result);
-        res.setExpected(result);
+        String[] actualHeaders = {"ID", "FIRST_NAME", "LAST_NAME"};
+        res.setActualHeaders(actualHeaders);
+        res.setActual(actual);
+        String[] expectedHeaders = actualHeaders;
+        res.setExpectedHeaders(expectedHeaders);
+        List<String[]> expected = actual;
+        res.setExpected(expected);
         res.setTaskId(1);
         res.setContent("String representation of this result");
         return res;

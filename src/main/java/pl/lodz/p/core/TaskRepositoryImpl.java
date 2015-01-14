@@ -1,5 +1,7 @@
 package pl.lodz.p.core;
 
+import pl.lodz.p.dao.TaskRepository;
+
 import java.util.List;
 
 /**

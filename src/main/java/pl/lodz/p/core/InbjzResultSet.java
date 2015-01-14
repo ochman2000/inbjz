@@ -6,7 +6,9 @@ public class InbjzResultSet {
 
     private String content;
     private int taskId;
+    private String[] expectedHeaders;
     private List<String[]> expected;
+    private String[] actualHeaders;
     private List<String[]> actual;
     private List<Integer> missingRowsId;
     private List<Integer> extraRowsId;
@@ -85,4 +87,19 @@ public class InbjzResultSet {
         this.extraRows = extraRows;
     }
 
+    public String[] getExpectedHeaders() {
+        return expectedHeaders;
+    }
+
+    public void setExpectedHeaders(String[] expectedHeaders) {
+        this.expectedHeaders = expectedHeaders;
+    }
+
+    public String[] getActualHeaders() {
+        return actualHeaders;
+    }
+
+    public void setActualHeaders(String[] actualHeaders) {
+        this.actualHeaders = actualHeaders;
+    }
 }
