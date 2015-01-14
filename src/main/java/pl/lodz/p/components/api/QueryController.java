@@ -1,4 +1,4 @@
-package pl.lodz.p.webSocket;
+package pl.lodz.p.components.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -6,11 +6,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import pl.lodz.p.core.InbjzResultSet;
 import pl.lodz.p.core.Query;
-import pl.lodz.p.dao.DatabaseDao;
-import pl.lodz.p.h2.DatabaseImpl;
-
-import java.util.Arrays;
-import java.util.List;
+import pl.lodz.p.components.service.QueryService;
 
 @Controller
 public class QueryController {
