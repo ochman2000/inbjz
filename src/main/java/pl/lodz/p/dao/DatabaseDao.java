@@ -11,4 +11,6 @@ public interface DatabaseDao {
     void executeStmt(String sql);
 
     void update(String sql);
+
+    String[] getLabels(String sql);
 }

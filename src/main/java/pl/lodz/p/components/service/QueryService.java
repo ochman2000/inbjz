@@ -24,7 +24,7 @@ public class QueryService {
         DatabaseDao database = new DatabaseImpl();
         List<String[]> actual = database.executeQuery(message.getQuery());
         InbjzResultSet res = new InbjzResultSet();
-        String[] actualHeaders = {"ID", "FIRST_NAME", "LAST_NAME"};
+        String[] actualHeaders = database.getLabels(message.getQuery());
         res.setActualHeaders(actualHeaders);
         res.setActual(actual);
         String[] expectedHeaders = actualHeaders;

@@ -3,10 +3,13 @@ package pl.lodz.p.h2;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
 import pl.lodz.p.dao.DatabaseDao;
 
 public class DatabaseImpl implements DatabaseDao {
@@ -59,6 +62,11 @@ public class DatabaseImpl implements DatabaseDao {
         return strLst;
     }
 
+    public List<String[]> getResultsWithLabels(String sql) {
+        List<Map<String, Object>> table = jdbcTemplate.queryForList(sql);
+        return null;
+    }
+
     @Override
     public void executeStmt(String sql) {
 
@@ -67,5 +75,21 @@ public class DatabaseImpl implements DatabaseDao {
     @Override
     public void update(String sql) {
 
+    }
+
+    @Override
+    public String[] getLabels(String sql) {
+        System.out.println("Querying: " + sql);
+        SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
+        if (rs==null) return new String[] {"null"};
+        SqlRowSetMetaData metaData = rs.getMetaData();
+        String[] columns = metaData.getColumnNames();
+        String[] columnNames = new String[columns.length];
+        for (int i=0; i<columns.length; i++) {
+            String columnLabel = metaData.getColumnLabel(i+1);
+            columnNames[i] = columnLabel != null ? columnLabel : metaData.getColumnName(i+1);
+        }
+
+        return columnNames;
     }
 }
