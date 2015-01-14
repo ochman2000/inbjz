@@ -23,9 +23,21 @@ function executeCallBack(statement) {
 }
 
 function queryCallBack(statement) {
-    $("#resultContent").load("result.html", function() {
-        buildResultTables(JSON.parse(statement.body));
-    });
+    var response = JSON.parse(statement.body);
+
+    if (response.success === false) {
+        $("#resultContent").load("console.html", function() {
+            buildErrorBox(response);
+        });
+    } else if (response.mode === 'execute') {
+        $("#resultContent").load("console.html", function() {
+            buildConsoleBox(response);
+        });
+    } else {
+        $("#resultContent").load("result.html", function() {
+            buildResultTables(response);
+        });
+    }
 }
 
 function subscribeToAll() {
@@ -48,6 +60,24 @@ function sendQuery() {
 function sendExecuteStmt() {
     var query = $('#queryTextArea').val();
     stompClient.send("/app/execute", {}, JSON.stringify({ 'query': query }));
+}
+
+function buildErrorBox(result) {
+    $('#consoleBox').empty();
+    var cosnoleBox = document.getElementById('consoleBox');
+    var text = document.createTextNode(result.errorMessage);
+    consoleBox.appendChild(text);
+
+    $('#sendQueryBtn').button('reset');
+}
+
+function buildConsoleBox(result) {
+    $('#consoleBox').empty();
+    var cosnoleBox = document.getElementById('consoleBox');
+    var text = document.createTextNode(result.consoleOutput);
+    consoleBox.appendChild(text);
+
+    $('#sendQueryBtn').button('reset');
 }
 
 function buildResultTables(result) {

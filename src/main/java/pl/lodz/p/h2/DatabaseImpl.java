@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -18,6 +19,7 @@ public class DatabaseImpl implements DatabaseDao {
 
     private JdbcTemplate jdbcTemplate;
     private Logger logger = Application.getCustomLogger();
+    private static DatabaseImpl instance;
 
 
     public DatabaseImpl() {
@@ -30,6 +32,10 @@ public class DatabaseImpl implements DatabaseDao {
 
         jdbcTemplate = new JdbcTemplate(dataSource);
         init(jdbcTemplate);
+    }
+
+    public static DatabaseImpl getInstance() {
+        return instance = instance == null ? new DatabaseImpl() : instance;
     }
 
     private void init(JdbcTemplate jdbcTemplate) {
@@ -49,7 +55,7 @@ public class DatabaseImpl implements DatabaseDao {
     }
 
     @Override
-    public List<String[]> executeQuery(String sql) {
+    public List<String[]> executeQuery(String sql) throws SQLException {
         logger.info("Querying: " + sql);
         List<String[]> strLst = jdbcTemplate.query(sql,
                 new RowMapper<String[]>() {
@@ -72,13 +78,24 @@ public class DatabaseImpl implements DatabaseDao {
     }
 
     @Override
-    public void executeStmt(String sql) {
-
+    public String executeStmt(String sql) {
+        try {
+            jdbcTemplate.execute(sql);
+        } catch (DuplicateKeyException e) {
+            return e.getCause().getMessage();
+        }
+        return sql +" executed.";
     }
 
     @Override
-    public void update(String sql) {
-
+    public String update(String sql) {
+        int rows;
+        try {
+            rows = jdbcTemplate.update(sql);
+        } catch (DuplicateKeyException e) {
+            return e.getCause().getMessage();
+        }
+        return rows + " row"+ (rows==1 ? "" : "s") +" affected.";
     }
 
     @Override

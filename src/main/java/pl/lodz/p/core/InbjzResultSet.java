@@ -7,6 +7,8 @@ public class InbjzResultSet {
     private String content;
     private int taskId;
     private boolean success;
+    private String mode;
+    private String consoleOutput;
     private String errorMessage;
     private String[] expectedHeaders;
     private List<String[]> expected;
@@ -31,6 +33,22 @@ public class InbjzResultSet {
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(Mode mode) {
+        this.mode = mode == Mode.EXECUTE ? "execute" : "query";
+    }
+
+    public String getConsoleOutput() {
+        return consoleOutput;
+    }
+
+    public void setConsoleOutput(String consoleOutput) {
+        this.consoleOutput = consoleOutput;
     }
 
     public String getErrorMessage() {
