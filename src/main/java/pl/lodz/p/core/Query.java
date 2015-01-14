@@ -1,4 +1,4 @@
-package pl.lodz.p.webSocket;
+package pl.lodz.p.core;
 
 public class Query {
 

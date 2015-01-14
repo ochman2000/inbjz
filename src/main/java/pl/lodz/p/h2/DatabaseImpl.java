@@ -7,12 +7,13 @@ import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+import pl.lodz.p.dao.DatabaseDao;
 
-public class Database {
+public class DatabaseImpl implements DatabaseDao {
 
     private JdbcTemplate jdbcTemplate;
 
-    public Database() {
+    public DatabaseImpl() {
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
@@ -40,6 +41,7 @@ public class Database {
         }
     }
 
+    @Override
     public List<String[]> executeQuery(String sql) {
         System.out.println("Querying: " + sql);
         List<String[]> strLst = jdbcTemplate.query(sql,
@@ -55,5 +57,15 @@ public class Database {
                     }
                 });
         return strLst;
+    }
+
+    @Override
+    public void executeStmt(String sql) {
+
+    }
+
+    @Override
+    public void update(String sql) {
+
     }
 }

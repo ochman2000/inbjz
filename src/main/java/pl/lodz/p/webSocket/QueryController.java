@@ -3,7 +3,9 @@ package pl.lodz.p.webSocket;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import pl.lodz.p.h2.Database;
+import pl.lodz.p.core.Query;
+import pl.lodz.p.dao.DatabaseDao;
+import pl.lodz.p.h2.DatabaseImpl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +16,7 @@ public class QueryController {
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
     public InbjzResultSet greeting(Query message) throws Exception {
-        Database database = new Database();
+        DatabaseDao database = new DatabaseImpl();
         List<String[]> result = database.executeQuery(message.getQuery());
         StringBuilder sb = new StringBuilder();
         for (String[] row : result) {
@@ -27,7 +29,7 @@ public class QueryController {
     @MessageMapping("/execute")
     @SendTo("/topic/execute")
     public InbjzResultSet execute(Query message) throws Exception {
-        Database database = new Database();
+        DatabaseDao database = new DatabaseImpl();
         List<String[]> result = database.executeQuery(message.getQuery());
         StringBuilder sb = new StringBuilder();
         for (String[] row : result) {
@@ -40,7 +42,7 @@ public class QueryController {
     @MessageMapping("/query")
     @SendTo("/topic/query")
     public InbjzResultSet select(Query message) throws Exception {
-        Database database = new Database();
+        DatabaseDao database = new DatabaseImpl();
         List<String[]> result = database.executeQuery(message.getQuery());
         StringBuilder sb = new StringBuilder();
         for (String[] row : result) {
