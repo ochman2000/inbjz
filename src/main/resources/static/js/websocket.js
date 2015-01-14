@@ -6,7 +6,7 @@ $(function(){
 var stompClient = null;
 
 function connect() {
-    var socket = new SockJS('/hello');
+    var socket = new SockJS('/inbjz');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
@@ -41,6 +41,11 @@ function disconnect() {
 function sendQuery() {
     var query = $('#queryTextArea').val();
     stompClient.send("/app/query", {}, JSON.stringify({ 'query': query }));
+}
+
+function sendExecuteStmt() {
+    var query = $('#queryTextArea').val();
+    stompClient.send("/app/execute", {}, JSON.stringify({ 'query': query }));
 }
 
 function buildResultTables(result) {

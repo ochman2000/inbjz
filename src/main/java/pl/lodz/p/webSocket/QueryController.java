@@ -3,6 +3,7 @@ package pl.lodz.p.webSocket;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import pl.lodz.p.core.InbjzResultSet;
 import pl.lodz.p.core.Query;
 import pl.lodz.p.dao.DatabaseDao;
 import pl.lodz.p.h2.DatabaseImpl;
@@ -44,11 +45,11 @@ public class QueryController {
     public InbjzResultSet select(Query message) throws Exception {
         DatabaseDao database = new DatabaseImpl();
         List<String[]> result = database.executeQuery(message.getQuery());
-        StringBuilder sb = new StringBuilder();
-        for (String[] row : result) {
-            sb.append(Arrays.toString(row));
-            sb.append("\n");
-        }
-        return new InbjzResultSet(sb.toString());
+        InbjzResultSet res = new InbjzResultSet();
+        res.setActual(result);
+        res.setExpected(result);
+        res.setTaskId(1);
+        res.setContent("String representation of this result");
+        return res;
     }
 }
