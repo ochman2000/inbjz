@@ -1,4 +1,4 @@
-package pl.lodz.p.webSocket;
+package pl.lodz.p.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

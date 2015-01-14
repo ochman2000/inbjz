@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -11,10 +12,13 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
 import pl.lodz.p.dao.DatabaseDao;
+import pl.lodz.p.config.Application;
 
 public class DatabaseImpl implements DatabaseDao {
 
     private JdbcTemplate jdbcTemplate;
+    private Logger logger = Application.getCustomLogger();
+
 
     public DatabaseImpl() {
 
@@ -29,7 +33,7 @@ public class DatabaseImpl implements DatabaseDao {
     }
 
     private void init(JdbcTemplate jdbcTemplate) {
-        System.out.println("Creating tables");
+        logger.info("Creating tables");
         jdbcTemplate.execute("drop table customers if exists");
         jdbcTemplate.execute("create table customers(" +
                 "id serial, first_name varchar(255), last_name varchar(255))");
@@ -46,7 +50,7 @@ public class DatabaseImpl implements DatabaseDao {
 
     @Override
     public List<String[]> executeQuery(String sql) {
-        System.out.println("Querying: " + sql);
+        logger.info("Querying: " + sql);
         List<String[]> strLst = jdbcTemplate.query(sql,
                 new RowMapper<String[]>() {
                     @Override

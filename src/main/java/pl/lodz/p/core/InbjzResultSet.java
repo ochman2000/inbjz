@@ -6,6 +6,8 @@ public class InbjzResultSet {
 
     private String content;
     private int taskId;
+    private boolean success;
+    private String errorMessage;
     private String[] expectedHeaders;
     private List<String[]> expected;
     private String[] actualHeaders;
@@ -21,6 +23,22 @@ public class InbjzResultSet {
 
     public InbjzResultSet(String content) {
         this.content = content;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 
     public String getContent() {
