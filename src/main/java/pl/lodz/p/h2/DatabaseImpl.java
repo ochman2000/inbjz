@@ -79,22 +79,13 @@ public class DatabaseImpl implements DatabaseDao {
 
     @Override
     public String executeStmt(String sql) {
-        try {
-            jdbcTemplate.execute(sql);
-        } catch (DuplicateKeyException e) {
-            return e.getCause().getMessage();
-        }
+        jdbcTemplate.execute(sql);
         return sql +" executed.";
     }
 
     @Override
     public String update(String sql) {
-        int rows;
-        try {
-            rows = jdbcTemplate.update(sql);
-        } catch (DuplicateKeyException e) {
-            return e.getCause().getMessage();
-        }
+        int rows = jdbcTemplate.update(sql);
         return rows + " row"+ (rows==1 ? "" : "s") +" affected.";
     }
 

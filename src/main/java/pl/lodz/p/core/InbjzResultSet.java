@@ -7,6 +7,7 @@ public class InbjzResultSet {
     private String content;
     private int taskId;
     private boolean success;
+    private boolean correct;
     private String mode;
     private String consoleOutput;
     private String errorMessage;
@@ -33,6 +34,14 @@ public class InbjzResultSet {
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public boolean isCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
     }
 
     public String getMode() {

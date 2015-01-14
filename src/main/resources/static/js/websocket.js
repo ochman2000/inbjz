@@ -28,15 +28,28 @@ function queryCallBack(statement) {
     if (response.success === false) {
         $("#resultContent").load("console.html", function() {
             buildErrorBox(response);
+            setSuccess(false);
         });
     } else if (response.mode === 'execute') {
         $("#resultContent").load("console.html", function() {
             buildConsoleBox(response);
+            setSuccess(true);
         });
     } else {
         $("#resultContent").load("result.html", function() {
             buildResultTables(response);
+            setSuccess(response.correct);
         });
+    }
+}
+
+function setSuccess(boolean) {
+    if (boolean) {
+        $('#succesLabel').show();
+        $('#failLabel').hide();
+    } else {
+        $('#succesLabel').hide();
+        $('#failLabel').show();
     }
 }
 
@@ -82,6 +95,11 @@ function buildConsoleBox(result) {
 
 function buildResultTables(result) {
     var actualTable, tableBody, tableHeader, expectedTable;
+
+    $('#full-query').empty();
+    var query = $('#queryTextArea').val();
+    var label = document.getElementById('full-query');
+    label.appendChild(document.createTextNode(query));
 
     $('#actual_table').empty();
     actualTable = document.getElementById('actual_table');

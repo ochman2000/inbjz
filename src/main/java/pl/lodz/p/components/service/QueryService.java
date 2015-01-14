@@ -1,6 +1,7 @@
 package pl.lodz.p.components.service;
 
 import org.h2.jdbc.JdbcSQLException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.stereotype.Service;
@@ -38,18 +39,15 @@ public class QueryService {
             actual = database.executeQuery(message.getQuery());
             actualHeaders = database.getLabels(message.getQuery());
         } catch (UncategorizedSQLException | JdbcSQLException e) {
-            logger.severe(e.getClass()+" "+e.getMessage());
-            res.setSuccess(false);
             if (e.getMessage().endsWith("[90002-176]")) {
                 return update(message);
-//                res.setErrorMessage("Aby wykonać polecenie typu DDL "
-//                        "należy jawnie wskazać tryb przyciskiem EXECUTE w lewym górnym rogu panelu i " +
-//                        "wykonać polecenie ponownie.");
             } else {
+                logger.severe(e.getClass()+" "+e.getMessage());
+                res.setSuccess(false);
                 res.setErrorMessage(e.getCause().getMessage());
             }
             return res;
-        } catch (SQLException | BadSqlGrammarException e) {
+        } catch (DuplicateKeyException | SQLException | BadSqlGrammarException e) {
             logger.severe(e.getClass()+" "+e.getMessage());
             res.setSuccess(false);
             res.setErrorMessage(e.getCause().getMessage());
@@ -63,9 +61,33 @@ public class QueryService {
         res.setExpected(expected);
         res.setTaskId(message.getTaskId());
         res.setSuccess(true);
+        res.setCorrect(equals(actual, expected));
         res.setContent("String representation of this result");
         return res;
     }
+
+    private boolean equals(List<String[]> actual, List<String[]> expected) {
+        if (actual==null && expected==null) {
+            return true;
+        }
+        if (actual.size()!=expected.size()) {
+            return false;
+        }
+        if (actual.size()>0) {
+            if (actual.get(0).length!=expected.get(0).length) {
+                return false;
+            }
+        }
+        for (int i=0; i<actual.size(); i++) {
+            for (int j=0; j<actual.get(i).length; j++) {
+                if (!actual.get(i)[j].equals(expected.get(i)[j])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 
     public InbjzResultSet greeting(Query message) {
         DatabaseDao database = DatabaseImpl.getInstance();
@@ -90,7 +112,7 @@ public class QueryService {
         res.setMode(Mode.EXECUTE);
         try {
             output = database.executeStmt(message.getQuery());
-        } catch (UncategorizedSQLException | JdbcSQLException e) {
+        } catch (DuplicateKeyException | UncategorizedSQLException | JdbcSQLException e) {
             logger.severe(e.getClass()+" "+e.getMessage());
             res.setSuccess(false);
             res.setErrorMessage(e.getCause().getMessage());
@@ -115,7 +137,7 @@ public class QueryService {
         res.setMode(Mode.EXECUTE);
         try {
             output = database.update(message.getQuery());
-        } catch (UncategorizedSQLException e) {
+        } catch (DuplicateKeyException | UncategorizedSQLException e) {
             logger.severe(e.getClass()+" "+e.getMessage());
             res.setSuccess(false);
             res.setErrorMessage(e.getCause().getMessage());
