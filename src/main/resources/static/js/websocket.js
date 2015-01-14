@@ -49,37 +49,51 @@ function sendExecuteStmt() {
 }
 
 function buildResultTables(result) {
-    var actualTable = document.getElementById('actual_table');
+    var actualTable, tableBody, tableHeader, expectedTable;
 
+    actualTable = document.getElementById('actual_table');
+    tableHeader = getTableHeader(result.actualHeaders);
+    tableBody = getTableBody(result.actual);
+    actualTable.appendChild(tableHeader);
+    actualTable.appendChild(tableBody);
+
+    expectedTable = document.getElementById('expected_table');
+    tableHeader = getTableHeader(result.expectedHeaders);
+    tableBody = getTableBody(result.expected);
+    expectedTable.appendChild(tableHeader);
+    expectedTable.appendChild(tableBody);
+
+    $('#sendQueryBtn').button('reset');
+}
+
+function getTableHeader(header) {
     var tableHeader = document.createElement('thead');
     var tableHeaderRow = document.createElement('tr');
-    var h = result.actualHeaders;
-    for (x in h) {
+    for (x in header) {
         var tableRow = document.createElement('th');
-        console.log(h[x]);
+        console.log(header[x]);
         tableRow.className = 'col-md-1';
-        tableRow.appendChild(document.createTextNode(h[x]));
+        tableRow.appendChild(document.createTextNode(header[x]));
         tableHeaderRow.appendChild(tableRow);
     }
     tableHeader.appendChild(tableHeaderRow);
-    actualTable.appendChild(tableHeader);
+    return tableHeader;
+}
 
+function getTableBody(rows) {
     var tableBody = document.createElement('tbody');
-    h = result.actual;
-    for (m in h) {
+    for (m in rows) {
         var tableRow = document.createElement('tr');
-        var l = h[m];
-        for (k in l) {
-            console.log(l[k]);
+        var data = rows[m];
+        for (k in data) {
+            console.log(data[k]);
             var tableData = document.createElement('td');
-            tableData.appendChild(document.createTextNode(l[k]));
+            tableData.appendChild(document.createTextNode(data[k]));
             tableRow.appendChild(tableData);
         }
         tableBody.appendChild(tableRow);
     }
-    actualTable.appendChild(tableBody);
-
-    $('#sendQueryBtn').button('reset');
+    return tableBody;
 }
 
 function showGreeting(message) {
