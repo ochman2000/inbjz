@@ -23,7 +23,9 @@ function executeCallBack(statement) {
 }
 
 function queryCallBack(statement) {
-    buildResultTables(JSON.parse(statement.body));
+    $("#resultContent").load("result.html", function() {
+        buildResultTables(JSON.parse(statement.body));
+    });
 }
 
 function subscribeToAll() {
@@ -51,12 +53,14 @@ function sendExecuteStmt() {
 function buildResultTables(result) {
     var actualTable, tableBody, tableHeader, expectedTable;
 
+    $('#actual_table').empty();
     actualTable = document.getElementById('actual_table');
     tableHeader = getTableHeader(result.actualHeaders);
     tableBody = getTableBody(result.actual);
     actualTable.appendChild(tableHeader);
     actualTable.appendChild(tableBody);
 
+    $('#expected_table').empty();
     expectedTable = document.getElementById('expected_table');
     tableHeader = getTableHeader(result.expectedHeaders);
     tableBody = getTableBody(result.expected);
