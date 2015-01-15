@@ -2337,3 +2337,2451 @@ s [42001-176]
 01-15 01:34:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "S[*] "; expected "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"; SQL statement:
 s [42001-176]
+01-15 01:55:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+--select * from customers
+insert into customers values (1, 'Lukasz', 'Ochmanski') [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 01:55:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+--select * from customers
+insert into customers values (5, 'Lukasz', 'Ochmanski') [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 01:55:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+--select * from customers
+insert into customers values (5, 'Lukasz', 'Ochmanski') [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 01:55:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CUSTOMERS
+INSERT INTO[*] CUSTOMERS VALUES (5, 'Lukasz', 'Ochmanski') "; SQL statement:
+select * from customers
+insert into customers values (5, 'Lukasz', 'Ochmanski') [42000-176]
+01-15 01:56:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+--select * from customers
+--insert into customers values (5, 'Lukasz', 'Ochmanski')
+delete from customers where id=5 [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 01:57:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+--select * from customers
+insert into customers values (5, 'Lukasz', 'Ochmanski')
+--delete from customers where id=5 [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:05:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE HR..[*]REGIONS
+    ( REGION_ID      INT 
+       CONSTRAINT  REGION_ID_NN NOT NULL
+    , REGION_NAME    VARCHAR(25) 
+    ); "; expected "identifier"; SQL statement:
+CREATE TABLE HR..regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    ); [42001-176]
+01-15 02:05:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+CREATE TABLE regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    ); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:06:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE HR..[*]REGIONS
+    ( REGION_ID      INT 
+       CONSTRAINT  REGION_ID_NN NOT NULL
+    , REGION_NAME    VARCHAR(25) 
+    );
+GO
+
+ALTER TABLE HR..REGIONS ADD CONSTRAINT REG_ID_PK PRIMARY KEY (REGION_ID) ;
+GO "; expected "identifier"; SQL statement:
+CREATE TABLE HR..regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    );
+GO
+
+ALTER TABLE HR..regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id) ;
+GO [42001-176]
+01-15 02:06:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+CREATE TABLE regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    );
+GO
+
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id) ;
+GO [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:06:34 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REGIONS" already exists; SQL statement:
+CREATE TABLE regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    );
+GO
+
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id) ;
+GO [42101-176]
+01-15 02:07:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+CREATE TABLE regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    );
+
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:07:01 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REGIONS" already exists; SQL statement:
+CREATE TABLE regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    );
+
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id) ; [42101-176]
+01-15 02:07:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+CREATE TABLE regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    );
+
+--ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:07:04 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "REGIONS" already exists; SQL statement:
+CREATE TABLE regions
+    ( region_id      INT 
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25) 
+    );
+
+--ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id) ; [42101-176]
+01-15 02:07:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:10:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "IF[*] EXISTS(SELECT 1 FROM MASTER.DBO.SYSDATABASES WHERE NAME = 'HR') DROP DATABASE HR "; expected "INSERT, {"; SQL statement:
+if exists(select 1 from master.dbo.sysdatabases where name = 'HR') drop database HR [42001-176]
+01-15 02:10:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE DATABASE[*] HR"; expected "OR, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL, GLOBAL, TEMP, TEMPORARY, TABLE, PRIMARY, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE HR [42001-176]
+01-15 02:14:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table regions if exists;
+CREATE TABLE regions
+    ( region_id      INT
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25)
+    );
+
+
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id);
+
+drop table countries if exists;
+CREATE TABLE countries
+    ( country_id      CHAR(2)
+       CONSTRAINT  country_id_nn NOT NULL
+    , country_name    VARCHAR(40)
+    , region_id       INT
+    , CONSTRAINT     country_c_id_pk
+        	     PRIMARY KEY (country_id)
+    ) ;
+
+
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id);
+
+drop table locations if exists;
+CREATE TABLE locations
+    ( location_id    INT NOT NULL
+    , street_address VARCHAR(40)
+    , postal_code    VARCHAR(12)
+    , city       VARCHAR(30)
+	CONSTRAINT     loc_city_nn  NOT NULL
+    , state_province VARCHAR(25)
+    , country_id     CHAR(2)
+    ) ;
+
+
+ALTER TABLE locations ADD CONSTRAINT loc_id_pk PRIMARY KEY (location_id);
+ALTER TABLE locations ADD CONSTRAINT loc_c_id_fk FOREIGN KEY (country_id) REFERENCES countries(country_id) ;
+
+drop table departments if exists;
+CREATE TABLE departments
+    ( department_id    INT NOT NULL
+    , department_name  VARCHAR(30)
+	CONSTRAINT  dept_name_nn  NOT NULL
+    , manager_id       INT
+    , location_id      INT
+    ) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_id_pk PRIMARY KEY (department_id);
+ALTER TABLE departments ADD CONSTRAINT dept_loc_fk FOREIGN KEY (location_id) REFERENCES locations (location_id);
+
+drop table jobs if exists;
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     MONEY
+    , max_salary     MONEY
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         MONEY
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id);
+
+drop table job_history if exists;
+CREATE TABLE job_history
+    ( employee_id   INT
+	 CONSTRAINT    jhist_employee_nn  NOT NULL
+    , start_date    DATETIME
+	CONSTRAINT    jhist_start_date_nn  NOT NULL
+    , end_date      DATETIME
+	CONSTRAINT    jhist_end_date_nn  NOT NULL
+    , job_id        VARCHAR(10)
+	CONSTRAINT    jhist_job_nn  NOT NULL
+    , department_id INT
+    , CONSTRAINT    jhist_date_interval
+                    CHECK (end_date > start_date)
+    ) ;
+
+
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_id_st_date_pk PRIMARY KEY (employee_id, start_date);
+ALTER TABLE job_history ADD CONSTRAINT jhist_job_fk FOREIGN KEY (job_id) REFERENCES jobs(job_id);
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_fk FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+ALTER TABLE job_history ADD CONSTRAINT jhist_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:14:22 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "MONEY"; SQL statement:
+
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     MONEY
+    , max_salary     MONEY
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         MONEY
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id);
+
+drop table job_history if exists;
+CREATE TABLE job_history
+    ( employee_id   INT
+	 CONSTRAINT    jhist_employee_nn  NOT NULL
+    , start_date    DATETIME
+	CONSTRAINT    jhist_start_date_nn  NOT NULL
+    , end_date      DATETIME
+	CONSTRAINT    jhist_end_date_nn  NOT NULL
+    , job_id        VARCHAR(10)
+	CONSTRAINT    jhist_job_nn  NOT NULL
+    , department_id INT
+    , CONSTRAINT    jhist_date_interval
+                    CHECK (end_date > start_date)
+    ) ;
+
+
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_id_st_date_pk PRIMARY KEY (employee_id, start_date);
+ALTER TABLE job_history ADD CONSTRAINT jhist_job_fk FOREIGN KEY (job_id) REFERENCES jobs(job_id);
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_fk FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+ALTER TABLE job_history ADD CONSTRAINT jhist_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id) ; [50004-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:3963)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3826)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5723)
+	at org.h2.command.Parser.parseCreate(Parser.java:4122)
+	at org.h2.command.Parser.parsePrepared(Parser.java:351)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:33)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:37)
+	at org.h2.command.CommandList.update(CommandList.java:44)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:132)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:535)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:532)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:546)
+	at pl.lodz.p.h2.DatabaseImpl.update(DatabaseImpl.java:88)
+	at pl.lodz.p.components.service.QueryService.update(QueryService.java:153)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:47)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:17:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table regions if exists;
+CREATE TABLE regions
+    ( region_id      INT
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25)
+    );
+
+
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id);
+
+drop table countries if exists;
+CREATE TABLE countries
+    ( country_id      CHAR(2)
+       CONSTRAINT  country_id_nn NOT NULL
+    , country_name    VARCHAR(40)
+    , region_id       INT
+    , CONSTRAINT     country_c_id_pk
+        	     PRIMARY KEY (country_id)
+    ) ;
+
+
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id);
+
+drop table locations if exists;
+CREATE TABLE locations
+    ( location_id    INT NOT NULL
+    , street_address VARCHAR(40)
+    , postal_code    VARCHAR(12)
+    , city       VARCHAR(30)
+	CONSTRAINT     loc_city_nn  NOT NULL
+    , state_province VARCHAR(25)
+    , country_id     CHAR(2)
+    ) ;
+
+
+ALTER TABLE locations ADD CONSTRAINT loc_id_pk PRIMARY KEY (location_id);
+ALTER TABLE locations ADD CONSTRAINT loc_c_id_fk FOREIGN KEY (country_id) REFERENCES countries(country_id) ;
+
+drop table departments if exists;
+CREATE TABLE departments
+    ( department_id    INT NOT NULL
+    , department_name  VARCHAR(30)
+	CONSTRAINT  dept_name_nn  NOT NULL
+    , manager_id       INT
+    , location_id      INT
+    ) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_id_pk PRIMARY KEY (department_id);
+ALTER TABLE departments ADD CONSTRAINT dept_loc_fk FOREIGN KEY (location_id) REFERENCES locations (location_id);
+
+drop table jobs if exists;
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     DECIMAL(10,2)
+    , max_salary     DECIMAL(10,2)
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         DECIMAL(10,2)
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id);
+
+drop table job_history if exists;
+CREATE TABLE job_history
+    ( employee_id   INT
+	 CONSTRAINT    jhist_employee_nn  NOT NULL
+    , start_date    DATETIME
+	CONSTRAINT    jhist_start_date_nn  NOT NULL
+    , end_date      DATETIME
+	CONSTRAINT    jhist_end_date_nn  NOT NULL
+    , job_id        VARCHAR(10)
+	CONSTRAINT    jhist_job_nn  NOT NULL
+    , department_id INT
+    , CONSTRAINT    jhist_date_interval
+                    CHECK (end_date > start_date)
+    ) ;
+
+
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_id_st_date_pk PRIMARY KEY (employee_id, start_date);
+ALTER TABLE job_history ADD CONSTRAINT jhist_job_fk FOREIGN KEY (job_id) REFERENCES jobs(job_id);
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_fk FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+ALTER TABLE job_history ADD CONSTRAINT jhist_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:17:03 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "
+ALTER TABLE JOB_HISTORY ADD CONSTRAINT JHIST_EMP_FK FOREIGN KEY (EMPLOYEE_ID) REFERENCES EMPLOYEES(EMPLOYEE_ID)
+ALTER[*] TABLE JOB_HISTORY ADD CONSTRAINT JHIST_DEPT_FK FOREIGN KEY (DEPARTMENT_ID) REFERENCES DEPARTMENTS(DEPARTMENT_ID) ; "; SQL statement:
+
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_fk FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+ALTER TABLE job_history ADD CONSTRAINT jhist_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id) ; [42000-176]
+01-15 02:17:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table regions if exists;
+CREATE TABLE regions
+    ( region_id      INT
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25)
+    );
+ [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:17:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:17:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table countries if exists;
+CREATE TABLE countries
+    ( country_id      CHAR(2)
+       CONSTRAINT  country_id_nn NOT NULL
+    , country_name    VARCHAR(40)
+    , region_id       INT
+    , CONSTRAINT     country_c_id_pk
+        	     PRIMARY KEY (country_id)
+    ) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:18:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:18:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:18:34 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Constraint "COUNTR_REG_FK" already exists; SQL statement:
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [90045-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:99)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:73)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:132)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:535)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:532)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:546)
+	at pl.lodz.p.h2.DatabaseImpl.update(DatabaseImpl.java:88)
+	at pl.lodz.p.components.service.QueryService.update(QueryService.java:153)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:47)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:19:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP CONSTRAINT[*] COUNTR_REG_FK IF EXISTS;
+                                                                                                          ; "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+drop constraint countr_reg_fk if exists;
+--ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [42001-176]
+01-15 02:19:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP CONSTRAINT[*] COUNTR_REG_FK;
+                                                                                                          ; "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+drop constraint countr_reg_fk;
+--ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [42001-176]
+01-15 02:23:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+ALTER TABLE regions drop CONSTRAINT reg_id_pk if exists;
+--ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:24:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table regions if exists;
+CREATE TABLE regions
+    ( region_id      INT
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25)
+    );
+
+ALTER TABLE regions drop CONSTRAINT reg_id_pk if exists;
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id);
+
+drop table countries if exists;
+CREATE TABLE countries
+    ( country_id      CHAR(2)
+       CONSTRAINT  country_id_nn NOT NULL
+    , country_name    VARCHAR(40)
+    , region_id       INT
+    , CONSTRAINT     country_c_id_pk
+        	     PRIMARY KEY (country_id)
+    ) ;
+
+ALTER TABLE countries drop CONSTRAINT countr_reg_fk if exists;
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table regions if exists;
+CREATE TABLE regions
+    ( region_id      INT
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25)
+    );
+
+ALTER TABLE regions drop CONSTRAINT reg_id_pk if exists;
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id);
+
+drop table countries if exists;
+CREATE TABLE countries
+    ( country_id      CHAR(2)
+       CONSTRAINT  country_id_nn NOT NULL
+    , country_name    VARCHAR(40)
+    , region_id       INT
+    , CONSTRAINT     country_c_id_pk
+        	     PRIMARY KEY (country_id)
+    ) ;
+
+ALTER TABLE countries drop CONSTRAINT countr_reg_fk if exists;
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table regions if exists;
+CREATE TABLE regions
+    ( region_id      INT
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25)
+    );
+
+ALTER TABLE regions drop CONSTRAINT reg_id_pk if exists;
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id);
+
+drop table countries if exists;
+CREATE TABLE countries
+    ( country_id      CHAR(2)
+       CONSTRAINT  country_id_nn NOT NULL
+    , country_name    VARCHAR(40)
+    , region_id       INT
+    , CONSTRAINT     country_c_id_pk
+        	     PRIMARY KEY (country_id)
+    ) ;
+
+ALTER TABLE countries drop CONSTRAINT countr_reg_fk if exists;
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table locations if exists;
+CREATE TABLE locations
+    ( location_id    INT NOT NULL
+    , street_address VARCHAR(40)
+    , postal_code    VARCHAR(12)
+    , city       VARCHAR(30)
+	CONSTRAINT     loc_city_nn  NOT NULL
+    , state_province VARCHAR(25)
+    , country_id     CHAR(2)
+    ) ;
+
+
+ALTER TABLE locations ADD CONSTRAINT loc_id_pk PRIMARY KEY (location_id);
+ALTER TABLE locations ADD CONSTRAINT loc_c_id_fk FOREIGN KEY (country_id) REFERENCES countries(country_id) ;
+
+drop table departments if exists;
+CREATE TABLE departments
+    ( department_id    INT NOT NULL
+    , department_name  VARCHAR(30)
+	CONSTRAINT  dept_name_nn  NOT NULL
+    , manager_id       INT
+    , location_id      INT
+    ) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table locations if exists;
+CREATE TABLE locations
+    ( location_id    INT NOT NULL
+    , street_address VARCHAR(40)
+    , postal_code    VARCHAR(12)
+    , city       VARCHAR(30)
+	CONSTRAINT     loc_city_nn  NOT NULL
+    , state_province VARCHAR(25)
+    , country_id     CHAR(2)
+    ) ;
+
+
+ALTER TABLE locations ADD CONSTRAINT loc_id_pk PRIMARY KEY (location_id);
+ALTER TABLE locations ADD CONSTRAINT loc_c_id_fk FOREIGN KEY (country_id) REFERENCES countries(country_id) ;
+
+drop table departments if exists;
+CREATE TABLE departments
+    ( department_id    INT NOT NULL
+    , department_name  VARCHAR(30)
+	CONSTRAINT  dept_name_nn  NOT NULL
+    , manager_id       INT
+    , location_id      INT
+    ) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+ [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table jobs if exists;
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     DECIMAL(10,2)
+    , max_salary     DECIMAL(10,2)
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         DECIMAL(10,2)
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table jobs if exists;
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     DECIMAL(10,2)
+    , max_salary     DECIMAL(10,2)
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         DECIMAL(10,2)
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table jobs if exists;
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     DECIMAL(10,2)
+    , max_salary     DECIMAL(10,2)
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         DECIMAL(10,2)
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id) [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table jobs if exists;
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     DECIMAL(10,2)
+    , max_salary     DECIMAL(10,2)
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         DECIMAL(10,2)
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:25:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "
+
+
+ALTER TABLE DEPARTMENTS ADD CONSTRAINT DEPT_MGR_FK FOREIGN KEY (MANAGER_ID) REFERENCES EMPLOYEES (EMPLOYEE_ID "; expected "ASC, DESC, NULLS, ,, )"; SQL statement:
+
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id [42001-176]
+01-15 02:25:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table jobs if exists;
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     DECIMAL(10,2)
+    , max_salary     DECIMAL(10,2)
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         DECIMAL(10,2)
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:26:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+ [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:26:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+
+drop table job_history if exists;
+CREATE TABLE job_history
+    ( employee_id   INT
+	 CONSTRAINT    jhist_employee_nn  NOT NULL
+    , start_date    DATETIME
+	CONSTRAINT    jhist_start_date_nn  NOT NULL
+    , end_date      DATETIME
+	CONSTRAINT    jhist_end_date_nn  NOT NULL
+    , job_id        VARCHAR(10)
+	CONSTRAINT    jhist_job_nn  NOT NULL
+    , department_id INT
+    , CONSTRAINT    jhist_date_interval
+                    CHECK (end_date > start_date)
+    ) ;
+
+
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_id_st_date_pk PRIMARY KEY (employee_id, start_date);
+ALTER TABLE job_history ADD CONSTRAINT jhist_job_fk FOREIGN KEY (job_id) REFERENCES jobs(job_id);
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_fk FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+ALTER TABLE job_history ADD CONSTRAINT jhist_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:26:11 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "
+ALTER TABLE JOB_HISTORY ADD CONSTRAINT JHIST_EMP_FK FOREIGN KEY (EMPLOYEE_ID) REFERENCES EMPLOYEES(EMPLOYEE_ID)
+ALTER[*] TABLE JOB_HISTORY ADD CONSTRAINT JHIST_DEPT_FK FOREIGN KEY (DEPARTMENT_ID) REFERENCES DEPARTMENTS(DEPARTMENT_ID) ; "; SQL statement:
+
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_fk FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+ALTER TABLE job_history ADD CONSTRAINT jhist_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id) ; [42000-176]
+01-15 02:26:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+
+drop table job_history if exists;
+CREATE TABLE job_history
+    ( employee_id   INT
+	 CONSTRAINT    jhist_employee_nn  NOT NULL
+    , start_date    DATETIME
+	CONSTRAINT    jhist_start_date_nn  NOT NULL
+    , end_date      DATETIME
+	CONSTRAINT    jhist_end_date_nn  NOT NULL
+    , job_id        VARCHAR(10)
+	CONSTRAINT    jhist_job_nn  NOT NULL
+    , department_id INT
+    , CONSTRAINT    jhist_date_interval
+                    CHECK (end_date > start_date)
+    ) ;
+
+
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_id_st_date_pk PRIMARY KEY (employee_id, start_date);
+ALTER TABLE job_history ADD CONSTRAINT jhist_job_fk FOREIGN KEY (job_id) REFERENCES jobs(job_id);
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_fk FOREIGN KEY (employee_id) REFERENCES employees(employee_id);
+ALTER TABLE job_history ADD CONSTRAINT jhist_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id) ; [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+01-15 02:26:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table regions if exists;
+CREATE TABLE regions
+    ( region_id      INT
+       CONSTRAINT  region_id_nn NOT NULL
+    , region_name    VARCHAR(25)
+    );
+
+ALTER TABLE regions ADD CONSTRAINT reg_id_pk PRIMARY KEY (region_id);
+
+drop table countries if exists;
+CREATE TABLE countries
+    ( country_id      CHAR(2)
+       CONSTRAINT  country_id_nn NOT NULL
+    , country_name    VARCHAR(40)
+    , region_id       INT
+    , CONSTRAINT     country_c_id_pk
+        	     PRIMARY KEY (country_id)
+    ) ;
+
+ALTER TABLE countries ADD CONSTRAINT countr_reg_fk FOREIGN KEY (region_id) REFERENCES regions(region_id);
+
+drop table locations if exists;
+CREATE TABLE locations
+    ( location_id    INT NOT NULL
+    , street_address VARCHAR(40)
+    , postal_code    VARCHAR(12)
+    , city       VARCHAR(30)
+	CONSTRAINT     loc_city_nn  NOT NULL
+    , state_province VARCHAR(25)
+    , country_id     CHAR(2)
+    ) ;
+
+
+ALTER TABLE locations ADD CONSTRAINT loc_id_pk PRIMARY KEY (location_id);
+ALTER TABLE locations ADD CONSTRAINT loc_c_id_fk FOREIGN KEY (country_id) REFERENCES countries(country_id) ;
+
+drop table departments if exists;
+CREATE TABLE departments
+    ( department_id    INT NOT NULL
+    , department_name  VARCHAR(30)
+	CONSTRAINT  dept_name_nn  NOT NULL
+    , manager_id       INT
+    , location_id      INT
+    ) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_id_pk PRIMARY KEY (department_id);
+ALTER TABLE departments ADD CONSTRAINT dept_loc_fk FOREIGN KEY (location_id) REFERENCES locations (location_id);
+
+drop table jobs if exists;
+CREATE TABLE jobs
+    ( job_id         VARCHAR(10) NOT NULL
+    , job_title      VARCHAR(35)
+	CONSTRAINT     job_title_nn  NOT NULL
+    , min_salary     DECIMAL(10,2)
+    , max_salary     DECIMAL(10,2)
+    ) ;
+
+
+ALTER TABLE jobs ADD CONSTRAINT job_id_pk PRIMARY KEY(job_id) ;
+
+drop table employees if exists;
+CREATE TABLE employees
+    ( employee_id    INT NOT NULL
+    , first_name     VARCHAR(20)
+    , last_name      VARCHAR(25)
+	 CONSTRAINT     emp_last_name_nn  NOT NULL
+    , email          VARCHAR(25)
+	CONSTRAINT     emp_email_nn  NOT NULL
+    , phone_number   VARCHAR(20)
+    , hire_date      DATETIME
+	CONSTRAINT     emp_hire_date_nn  NOT NULL
+    , job_id         VARCHAR(10)
+	CONSTRAINT     emp_job_nn  NOT NULL
+    , salary         DECIMAL(10,2)
+    , commission_pct DECIMAL(2,2)
+    , manager_id     INT
+    , department_id  INT
+    , CONSTRAINT     emp_salary_min
+                     CHECK (salary > 0)
+    , CONSTRAINT     emp_email_uk
+                     UNIQUE (email)
+    ) ;
+
+
+ALTER TABLE employees ADD CONSTRAINT emp_emp_id_pk PRIMARY KEY (employee_id);
+ALTER TABLE employees ADD CONSTRAINT emp_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id);
+ALTER TABLE employees ADD CONSTRAINT emp_job_fk FOREIGN KEY (job_id) REFERENCES jobs (job_id);
+ALTER TABLE employees ADD CONSTRAINT emp_manager_fk FOREIGN KEY (manager_id) REFERENCES employees(employee_id) ;
+
+
+ALTER TABLE departments ADD CONSTRAINT dept_mgr_fk FOREIGN KEY (manager_id) REFERENCES employees (employee_id);
+
+drop table job_history if exists;
+CREATE TABLE job_history
+    ( employee_id   INT
+	 CONSTRAINT    jhist_employee_nn  NOT NULL
+    , start_date    DATETIME
+	CONSTRAINT    jhist_start_date_nn  NOT NULL
+    , end_date      DATETIME
+	CONSTRAINT    jhist_end_date_nn  NOT NULL
+    , job_id        VARCHAR(10)
+	CONSTRAINT    jhist_job_nn  NOT NULL
+    , department_id INT
+    , CONSTRAINT    jhist_date_interval
+                    CHECK (end_date > start_date)
+    ) ;
+
+
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_id_st_date_pk PRIMARY KEY (employee_id, start_date);
+ALTER TABLE job_history ADD CONSTRAINT jhist_job_fk FOREIGN KEY (job_id) REFERENCES jobs(job_id);
+ALTER TABLE job_history ADD CONSTRAINT jhist_emp_fk FOREIGN KEY (employee_id) REFERENCES employees(employee_id);
+ALTER TABLE job_history ADD CONSTRAINT jhist_dept_fk FOREIGN KEY (department_id) REFERENCES departments(department_id); [90002-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.Prepared.query(Prepared.java:213)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.CommandList.query(CommandList.java:50)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:452)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:402)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:468)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:478)
+	at pl.lodz.p.h2.DatabaseImpl.executeQuery(DatabaseImpl.java:60)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:43)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:708)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:644)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$7fceb7d3.select(<generated>)
+	at pl.lodz.p.components.api.QueryController.select(QueryController.java:37)
+	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:105)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:451)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:363)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:80)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:409)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:345)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$1.run(ExecutorSubscribableChannel.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)

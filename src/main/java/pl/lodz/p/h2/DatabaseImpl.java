@@ -1,5 +1,9 @@
 package pl.lodz.p.h2;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -40,6 +44,7 @@ public class DatabaseImpl implements DatabaseDao {
 
     private void init(JdbcTemplate jdbcTemplate) {
         logger.info("Creating tables");
+        jdbcTemplate.execute(HR.script);
         jdbcTemplate.execute("drop table customers if exists");
         jdbcTemplate.execute("create table customers(" +
                 "id serial, first_name varchar(255), last_name varchar(255))");
