@@ -28,19 +28,23 @@ public class QueryService {
     private Logger logger = Application.getCustomLogger();
 
     @Transactional
-    public InbjzResultSet select(Request message) {
-        DatabaseDao database = DatabaseImpl.getInstance();
-
+    public InbjzResultSet select(Request request) {
+        DatabaseDao database;
+        if ("execute".equals(request.getMode())) {
+            database = DatabaseImpl.getInstance();
+        } else {
+            database = new DatabaseImpl();
+        }
         List<String[]> actual = null;
         String[] actualHeaders = new String[]{"null"};
         InbjzResultSet res = new InbjzResultSet();
         res.setMode(Mode.QUERY);
         try {
-            actual = database.executeQuery(message.getQuery());
-            actualHeaders = database.getLabels(message.getQuery());
+            actual = database.executeQuery(request.getQuery());
+            actualHeaders = database.getLabels(request.getQuery());
         } catch (UncategorizedSQLException | JdbcSQLException e) {
             if (e.getMessage().endsWith("[90002-176]")) {
-                return update(message);
+                return update(request);
             } else {
                 logger.severe(e.getClass()+" "+e.getMessage());
                 res.setSuccess(false);
@@ -59,7 +63,7 @@ public class QueryService {
         res.setExpectedHeaders(expectedHeaders);
         List<String[]> expected = actual;
         res.setExpected(expected);
-        res.setTaskId(message.getTaskId());
+        res.setTaskId(request.getTaskId());
         res.setSuccess(true);
         res.setCorrect(equals(actual, expected));
         res.setContent("String representation of this result");
@@ -105,13 +109,18 @@ public class QueryService {
         return new InbjzResultSet(sb.toString());
     }
 
-    public InbjzResultSet execute(Request message) {
-        DatabaseDao database = DatabaseImpl.getInstance();
+    public InbjzResultSet execute(Request request) {
+        DatabaseDao database;
+        if ("execute".equals(request.getMode())) {
+            database = DatabaseImpl.getInstance();
+        } else {
+            database = new DatabaseImpl();
+        }
         InbjzResultSet res = new InbjzResultSet();
         String output;
         res.setMode(Mode.EXECUTE);
         try {
-            output = database.executeStmt(message.getQuery());
+            output = database.executeStmt(request.getQuery());
         } catch (DuplicateKeyException | UncategorizedSQLException | JdbcSQLException e) {
             logger.severe(e.getClass()+" "+e.getMessage());
             res.setSuccess(false);
@@ -123,7 +132,7 @@ public class QueryService {
             res.setErrorMessage(e.getCause().getMessage());
             return res;
         }
-        res.setTaskId(message.getTaskId());
+        res.setTaskId(request.getTaskId());
         res.setSuccess(true);
         res.setConsoleOutput(output);
         res.setContent("String representation of this result");
@@ -131,7 +140,12 @@ public class QueryService {
     }
 
     public InbjzResultSet update(Request request) {
-        DatabaseDao database = DatabaseImpl.getInstance();
+        DatabaseImpl database;
+        if ("execute".equals(request.getMode())) {
+            database = DatabaseImpl.getInstance();
+        } else {
+            database = new DatabaseImpl();
+        }
         InbjzResultSet res = new InbjzResultSet();
         String output;
         res.setMode(Mode.EXECUTE);
