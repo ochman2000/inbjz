@@ -67,7 +67,14 @@ function disconnect() {
 
 function sendQuery() {
     var query = $('#queryTextArea').val();
-    stompClient.send("/app/query", {}, JSON.stringify({ 'query': query }));
+    var taskId = $('#taskId').text();
+    var mode = $('#option1').is(':checked');
+    if (mode) {
+        mode = 'query';
+    } else {
+        mode = 'execute';
+    }
+    stompClient.send("/app/query", {}, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
 }
 
 function sendExecuteStmt() {

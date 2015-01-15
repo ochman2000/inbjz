@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.lodz.p.config.Application;
 import pl.lodz.p.core.InbjzResultSet;
 import pl.lodz.p.core.Mode;
-import pl.lodz.p.core.Query;
+import pl.lodz.p.core.Request;
 import pl.lodz.p.dao.DatabaseDao;
 import pl.lodz.p.h2.DatabaseImpl;
 
@@ -28,7 +28,7 @@ public class QueryService {
     private Logger logger = Application.getCustomLogger();
 
     @Transactional
-    public InbjzResultSet select(Query message) {
+    public InbjzResultSet select(Request message) {
         DatabaseDao database = DatabaseImpl.getInstance();
 
         List<String[]> actual = null;
@@ -89,7 +89,7 @@ public class QueryService {
     }
 
 
-    public InbjzResultSet greeting(Query message) {
+    public InbjzResultSet greeting(Request message) {
         DatabaseDao database = DatabaseImpl.getInstance();
         List<String[]> result = null;
         try {
@@ -105,7 +105,7 @@ public class QueryService {
         return new InbjzResultSet(sb.toString());
     }
 
-    public InbjzResultSet execute(Query message) {
+    public InbjzResultSet execute(Request message) {
         DatabaseDao database = DatabaseImpl.getInstance();
         InbjzResultSet res = new InbjzResultSet();
         String output;
@@ -130,13 +130,13 @@ public class QueryService {
         return res;
     }
 
-    public InbjzResultSet update(Query message) {
+    public InbjzResultSet update(Request request) {
         DatabaseDao database = DatabaseImpl.getInstance();
         InbjzResultSet res = new InbjzResultSet();
         String output;
         res.setMode(Mode.EXECUTE);
         try {
-            output = database.update(message.getQuery());
+            output = database.update(request.getQuery());
         } catch (DuplicateKeyException | UncategorizedSQLException e) {
             logger.severe(e.getClass()+" "+e.getMessage());
             res.setSuccess(false);
@@ -148,7 +148,7 @@ public class QueryService {
             res.setErrorMessage(e.getCause().getMessage());
             return res;
         }
-        res.setTaskId(message.getTaskId());
+        res.setTaskId(request.getTaskId());
         res.setSuccess(true);
         res.setConsoleOutput(output);
         res.setContent("String representation of this result");
