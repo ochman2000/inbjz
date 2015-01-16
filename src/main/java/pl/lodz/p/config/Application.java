@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 public class Application {
 
     public static void main(String[] args) {
+        getCustomLogger();
         SpringApplication.run(Application.class, args);
     }
 
@@ -46,6 +47,7 @@ public class Application {
             });
             Logger.getGlobal().addHandler(conHdlr);
             Logger.getGlobal().setLevel(Level.FINE);
+            Logger.getGlobal().info("Custom Logger created");
             return Logger.getGlobal();
         }
 

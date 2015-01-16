@@ -17,12 +17,12 @@ import pl.lodz.p.config.Application;
 public class DatabaseImpl implements DatabaseDao {
 
     private JdbcTemplate jdbcTemplate;
-    private Logger logger = Application.getCustomLogger();
+    private Logger logger;
     private static DatabaseImpl instance;
 
 
     public DatabaseImpl() {
-
+        logger = Logger.getGlobal();
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
         dataSource.setUsername("sa");
@@ -39,8 +39,19 @@ public class DatabaseImpl implements DatabaseDao {
 
     private void init(JdbcTemplate jdbcTemplate) {
         logger.info("Creating tables");
-
+        logger.info("Creating schema HR");
         jdbcTemplate.execute(DatabaseUtils.getHrSchema());
+        logger.info("Inserting data to HR");
+        jdbcTemplate.execute(DatabaseUtils.getHrData());
+        logger.info("Inserting data finished.");
+        logger.info("Creaating schema test_pracownicy");
+        jdbcTemplate.execute(DatabaseUtils.getTworzPracownicy());
+        jdbcTemplate.execute(DatabaseUtils.getWstawDanePracownicy());
+        logger.info("Inserting data finished.");
+//        createCustomers(jdbcTemplate);
+    }
+
+    private void createCustomers(JdbcTemplate jdbcTemplate) {
         jdbcTemplate.execute("drop table customers if exists");
         jdbcTemplate.execute("create table customers(" +
                 "id serial, first_name varchar(255), last_name varchar(255))");
@@ -92,7 +103,6 @@ public class DatabaseImpl implements DatabaseDao {
 
     @Override
     public String[] getLabels(String sql) {
-        System.out.println("Querying: " + sql);
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
         if (rs==null) return new String[] {"null"};
         SqlRowSetMetaData metaData = rs.getMetaData();

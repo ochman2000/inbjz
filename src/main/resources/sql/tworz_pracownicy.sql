@@ -1,57 +1,50 @@
+drop schema TEST_PRACOWNICY if exists;
+create schema TEST_PRACOWNICY;
 
---DROP TABLE pracownicy CASCADE CONSTRAINTS;
---DROP TABLE prac_archiw CASCADE CONSTRAINTS;
---DROP TABLE stanowiska CASCADE CONSTRAINTS;
---DROP TABLE dzialy CASCADE CONSTRAINTS;
---DROP TABLE taryfikator CASCADE CONSTRAINTS;
-
---CREATE DATABASE test_pracownicy;
-GO
-CREATE TABLE test_pracownicy.dbo.dzialy (
+CREATE TABLE test_pracownicy.dzialy (
 id_dzialu	int, 
 nazwa	VARCHAR(15), 
 siedziba VARCHAR(15),
 CONSTRAINT dzialy_primary_key PRIMARY KEY (id_dzialu)
 );
-GO
-CREATE TABLE test_pracownicy.dbo.taryfikator (
-kategoria	int, 
+
+CREATE TABLE test_pracownicy.taryfikator (
+kateria	int, 
 od int, 
 do int
  );
-GO
-CREATE TABLE test_pracownicy.dbo.stanowiska (
+
+CREATE TABLE test_pracownicy.stanowiska (
 stanowisko	VARCHAR(18),
-placa_min money, 
-placa_max	money, 
+placa_min DECIMAL(10,2), 
+placa_max	DECIMAL(10,2), 
 CONSTRAINT stan_primary_key PRIMARY KEY (stanowisko)
 );
-GO
-CREATE TABLE test_pracownicy.dbo.pracownicy (
+
+CREATE TABLE test_pracownicy.pracownicy (
 nr_akt int, 
 nazwisko	VARCHAR(20), 
 stanowisko VARCHAR(18),
 kierownik int CONSTRAINT prac_self_key REFERENCES pracownicy (nr_akt), 
 data_zatr	DATETIME, 
 data_zwol	DATETIME, 
-placa MONEY, 
-dod_funkcyjny MONEY, 
-prowizja MONEY, 
+placa DECIMAL(10,2), 
+dod_funkcyjny DECIMAL(10,2), 
+prowizja DECIMAL(10,2), 
 id_dzialu	INT,
 CONSTRAINT prac_primary_key PRIMARY KEY (nr_akt), 
 CONSTRAINT prac_foreign_key FOREIGN KEY (id_dzialu) REFERENCES dzialy (id_dzialu)
 );
-GO
-CREATE TABLE test_pracownicy.dbo.prac_archiw (
+
+CREATE TABLE test_pracownicy.prac_archiw (
 nr_akt INT, 
 nazwisko VARCHAR(20), 
 stanowisko VARCHAR(18),
 kierownik INT, 
 data_zatr DATETIME, 
 data_zwol DATETIME, 
-placa MONEY, 
-dod_funkcyjny MONEY DEFAULT 0, 
-prowizja MONEY DEFAULT 0, 
+placa DECIMAL(10,2), 
+dod_funkcyjny DECIMAL(10,2) DEFAULT 0, 
+prowizja DECIMAL(10,2) DEFAULT 0, 
 id_dzialu	INT
  );
-GO

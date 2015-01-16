@@ -25,8 +25,8 @@ public class DatabaseUtils {
     public static void refreshAll() {
         HR_SCHEMA = getScript("sql/hr_schemat.sql");
         HR_DATA = getScript("sql/hr_dane.sql");
-        TWORZ_PRACOWNICY = getScript("sql/wstaw_dane.sql");
-        WSTAW_DANE_PRACOWNICY = getScript("sql/tworz_pracownicy.sql");
+        TWORZ_PRACOWNICY = getScript("sql/tworz_pracownicy.sql");
+        WSTAW_DANE_PRACOWNICY = getScript("sql/wstaw_dane_prac.sql");
     }
 
     public static String getHrSchema() {
@@ -38,21 +38,21 @@ public class DatabaseUtils {
 
     public static String getHrData() {
         if (HR_DATA==null) {
-            HR_DATA = getScript("sql/hr_data.sql");
+            HR_DATA = getScript("sql/hr_dane.sql");
         }
         return HR_DATA;
     }
 
     public static String getTworzPracownicy() {
         if (TWORZ_PRACOWNICY==null) {
-            TWORZ_PRACOWNICY = getScript("sql/wstaw_dane.sql");
+            TWORZ_PRACOWNICY = getScript("sql/tworz_pracownicy.sql");
         }
         return TWORZ_PRACOWNICY;
     }
 
     public static String getWstawDanePracownicy() {
         if (WSTAW_DANE_PRACOWNICY==null) {
-            WSTAW_DANE_PRACOWNICY = getScript("sql/tworz_pracownicy.sql");
+            WSTAW_DANE_PRACOWNICY = getScript("sql/wstaw_dane_prac.sql");
         }
         return WSTAW_DANE_PRACOWNICY;
     }
@@ -65,6 +65,10 @@ public class DatabaseUtils {
             lines = Files.readAllLines(path);
         } catch (IOException | URISyntaxException e) {
             Logger.getGlobal().severe(e.getMessage());
+            return null;
+        } catch (Throwable t) {
+            Logger.getGlobal().severe(t.getCause().getMessage());
+            return null;
         }
         StringBuilder sb = new StringBuilder();
         for (String s : lines) {
@@ -93,9 +97,15 @@ public class DatabaseUtils {
         int separator = s.indexOf("!/");
         String entryName = s.substring(separator + 2);
         URI fileURI = URI.create(s.substring(0, separator));
-
-        FileSystem fs = FileSystems.newFileSystem(fileURI,
-                Collections.<String, Object>emptyMap());
+        FileSystem fs;
+        try {
+             fs = FileSystems.getFileSystem(fileURI);
+        } catch (FileSystemNotFoundException e) {
+            fs = FileSystems.newFileSystem(fileURI,
+                    Collections.<String, Object>emptyMap());
+//        } catch (FileSystemAlreadyExistsException e ) {
+//
+        }
         return fs.getPath(entryName);
     }
 }

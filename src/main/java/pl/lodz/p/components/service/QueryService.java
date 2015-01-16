@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 @Service
 public class QueryService {
 
-    private Logger logger = Application.getCustomLogger();
+    private Logger logger = Logger.getGlobal();
 
     @Transactional
     public InbjzResultSet select(Request request) {
