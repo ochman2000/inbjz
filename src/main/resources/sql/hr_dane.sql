@@ -1,171 +1,171 @@
 
-INSERT INTO HR..regions VALUES 
+INSERT INTO regions VALUES 
         ( 1
         , 'Europe' 
         );
 
-INSERT INTO HR..regions VALUES 
+INSERT INTO regions VALUES 
         ( 2
         , 'Americas' 
         );
 
-INSERT INTO HR..regions VALUES 
+INSERT INTO regions VALUES 
         ( 3
         , 'Asia' 
         );
 
-INSERT INTO HR..regions VALUES 
+INSERT INTO regions VALUES 
         ( 4
         , 'Middle East and Africa' 
         );
 
 GO
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'IT'
         , 'Italy'
         , 1 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'JP'
         , 'Japan'
 	, 3 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'US'
         , 'United States of America'
         , 2 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'CA'
         , 'Canada'
         , 2 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'CN'
         , 'China'
         , 3 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'IN'
         , 'India'
         , 3 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'AU'
         , 'Australia'
         , 3 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'ZW'
         , 'Zimbabwe'
         , 4 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'SG'
         , 'Singapore'
         , 3 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'UK'
         , 'United Kingdom'
         , 1 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'FR'
         , 'France'
         , 1 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'DE'
         , 'Germany'
         , 1 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'ZM'
         , 'Zambia'
         , 4 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'EG'
         , 'Egypt'
         , 4 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'BR'
         , 'Brazil'
         , 2 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'CH'
         , 'Switzerland'
         , 1 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'NL'
         , 'Netherlands'
         , 1 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'MX'
         , 'Mexico'
         , 2 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'KW'
         , 'Kuwait'
         , 4 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'IL'
         , 'Israel'
         , 4 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'DK'
         , 'Denmark'
         , 1 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'HK'
         , 'HongKong'
         , 3 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'NG'
         , 'Nigeria'
         , 4 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'AR'
         , 'Argentina'
         , 2 
         );
 
-INSERT INTO HR..countries VALUES 
+INSERT INTO countries VALUES 
         ( 'BE'
         , 'Belgium'
         , 1 
@@ -173,7 +173,7 @@ INSERT INTO HR..countries VALUES
 
 GO
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1000 
         , '1297 Via Cola di Rie'
         , '00989'
@@ -182,7 +182,7 @@ INSERT INTO HR..locations VALUES
         , 'IT'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1100 
         , '93091 Calle della Testa'
         , '10934'
@@ -191,7 +191,7 @@ INSERT INTO HR..locations VALUES
         , 'IT'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1200 
         , '2017 Shinjuku-ku'
         , '1689'
@@ -200,7 +200,7 @@ INSERT INTO HR..locations VALUES
         , 'JP'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1300 
         , '9450 Kamiya-cho'
         , '6823'
@@ -209,7 +209,7 @@ INSERT INTO HR..locations VALUES
         , 'JP'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1400 
         , '2014 Jabberwocky Rd'
         , '26192'
@@ -218,7 +218,7 @@ INSERT INTO HR..locations VALUES
         , 'US'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1500 
         , '2011 Interiors Blvd'
         , '99236'
@@ -227,7 +227,7 @@ INSERT INTO HR..locations VALUES
         , 'US'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1600 
         , '2007 Zagora St'
         , '50090'
@@ -236,7 +236,7 @@ INSERT INTO HR..locations VALUES
         , 'US'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1700 
         , '2004 Charade Rd'
         , '98199'
@@ -245,7 +245,7 @@ INSERT INTO HR..locations VALUES
         , 'US'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1800 
         , '147 Spadina Ave'
         , 'M5V 2L7'
@@ -254,7 +254,7 @@ INSERT INTO HR..locations VALUES
         , 'CA'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 1900 
         , '6092 Boxwood St'
         , 'YSW 9T2'
@@ -263,7 +263,7 @@ INSERT INTO HR..locations VALUES
         , 'CA'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2000 
         , '40-5-12 Laogianggen'
         , '190518'
@@ -272,7 +272,7 @@ INSERT INTO HR..locations VALUES
         , 'CN'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2100 
         , '1298 Vileparle (E)'
         , '490231'
@@ -281,7 +281,7 @@ INSERT INTO HR..locations VALUES
         , 'IN'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2200 
         , '12-98 Victoria Street'
         , '2901'
@@ -290,7 +290,7 @@ INSERT INTO HR..locations VALUES
         , 'AU'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2300 
         , '198 Clementi North'
         , '540198'
@@ -299,7 +299,7 @@ INSERT INTO HR..locations VALUES
         , 'SG'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2400 
         , '8204 Arthur St'
         , NULL
@@ -308,7 +308,7 @@ INSERT INTO HR..locations VALUES
         , 'UK'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2500 
         , 'Magdalen Centre, The Oxford Science Park'
         , 'OX9 9ZB'
@@ -317,7 +317,7 @@ INSERT INTO HR..locations VALUES
         , 'UK'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2600 
         , '9702 Chester Road'
         , '09629850293'
@@ -326,7 +326,7 @@ INSERT INTO HR..locations VALUES
         , 'UK'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2700 
         , 'Schwanthalerstr. 7031'
         , '80925'
@@ -335,7 +335,7 @@ INSERT INTO HR..locations VALUES
         , 'DE'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2800 
         , 'Rua Frei Caneca 1360 '
         , '01307-002'
@@ -344,7 +344,7 @@ INSERT INTO HR..locations VALUES
         , 'BR'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 2900 
         , '20 Rue des Corps-Saints'
         , '1730'
@@ -353,7 +353,7 @@ INSERT INTO HR..locations VALUES
         , 'CH'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 3000 
         , 'Murtenstrasse 921'
         , '3095'
@@ -362,7 +362,7 @@ INSERT INTO HR..locations VALUES
         , 'CH'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 3100 
         , 'Pieter Breughelstraat 837'
         , '3029SK'
@@ -371,7 +371,7 @@ INSERT INTO HR..locations VALUES
         , 'NL'
         );
 
-INSERT INTO HR..locations VALUES 
+INSERT INTO locations VALUES 
         ( 3200 
         , 'Mariano Escobedo 9991'
         , '11932'
@@ -382,191 +382,191 @@ INSERT INTO HR..locations VALUES
 
 GO
 
-ALTER TABLE HR..departments NOCHECK CONSTRAINT dept_mgr_fk;
+ALTER TABLE departments NOCHECK CONSTRAINT dept_mgr_fk;
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 10
         , 'Administration'
         , 200
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 20
         , 'Marketing'
         , 201
         , 1800
         );
                                 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 30
         , 'Purchasing'
         , 114
         , 1700
 	);
                 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 40
         , 'Human Resources'
         , 203
         , 2400
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 50
         , 'Shipping'
         , 121
         , 1500
         );
                 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 60 
         , 'IT'
         , 103
         , 1400
         );
                 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 70 
         , 'Public Relations'
         , 204
         , 2700
         );
                 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 80 
         , 'Sales'
         , 145
         , 2500
         );
                 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 90 
         , 'Executive'
         , 100
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 100 
         , 'Finance'
         , 108
         , 1700
         );
                 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 110 
         , 'Accounting'
         , 205
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 120 
         , 'Treasury'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 130 
         , 'Corporate Tax'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 140 
         , 'Control And Credit'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 150 
         , 'Shareholder Services'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 160 
         , 'Benefits'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 170 
         , 'Manufacturing'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 180 
         , 'Construction'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 190 
         , 'Contracting'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 200 
         , 'Operations'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 210 
         , 'IT Support'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 220 
         , 'NOC'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 230 
         , 'IT Helpdesk'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 240 
         , 'Government Sales'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 250 
         , 'Retail Sales'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 260 
         , 'Recruiting'
         , NULL
         , 1700
         );
 
-INSERT INTO HR..departments VALUES 
+INSERT INTO departments VALUES 
         ( 270 
         , 'Payroll'
         , NULL
@@ -575,130 +575,130 @@ INSERT INTO HR..departments VALUES
 
 GO
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'AD_PRES'
         , 'President'
         , 20000
         , 40000
         );
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'AD_VP'
         , 'Administration Vice President'
         , 15000
         , 30000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'AD_ASST'
         , 'Administration Assistant'
         , 3000
         , 6000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'FI_MGR'
         , 'Finance Manager'
         , 8200
         , 16000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'FI_ACCOUNT'
         , 'Accountant'
         , 4200
         , 9000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'AC_MGR'
         , 'Accounting Manager'
         , 8200
         , 16000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'AC_ACCOUNT'
         , 'Public Accountant'
         , 4200
         , 9000
         );
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'SA_MAN'
         , 'Sales Manager'
         , 10000
         , 20000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'SA_REP'
         , 'Sales Representative'
         , 6000
         , 12000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'PU_MAN'
         , 'Purchasing Manager'
         , 8000
         , 15000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'PU_CLERK'
         , 'Purchasing Clerk'
         , 2500
         , 5500
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'ST_MAN'
         , 'Stock Manager'
         , 5500
         , 8500
         );
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'ST_CLERK'
         , 'Stock Clerk'
         , 2000
         , 5000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'SH_CLERK'
         , 'Shipping Clerk'
         , 2500
         , 5500
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'IT_PROG'
         , 'Programmer'
         , 4000
         , 10000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'MK_MAN'
         , 'Marketing Manager'
         , 9000
         , 15000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'MK_REP'
         , 'Marketing Representative'
         , 4000
         , 9000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'HR_REP'
         , 'Human Resources Representative'
         , 4000
         , 9000
         );
 
-INSERT INTO HR..jobs VALUES 
+INSERT INTO jobs VALUES 
         ( 'PR_REP'
         , 'Public Relations Representative'
         , 4500
@@ -707,7 +707,7 @@ INSERT INTO HR..jobs VALUES
 
 GO
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 100
         , 'Steven'
         , 'King'
@@ -721,7 +721,7 @@ INSERT INTO HR..employees VALUES
         , 90
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 101
         , 'Neena'
         , 'Kochhar'
@@ -735,7 +735,7 @@ INSERT INTO HR..employees VALUES
         , 90
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 102
         , 'Lex'
         , 'De Haan'
@@ -749,7 +749,7 @@ INSERT INTO HR..employees VALUES
         , 90
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 103
         , 'Alexander'
         , 'Hunold'
@@ -763,7 +763,7 @@ INSERT INTO HR..employees VALUES
         , 60
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 104
         , 'Bruce'
         , 'Ernst'
@@ -777,7 +777,7 @@ INSERT INTO HR..employees VALUES
         , 60
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 105
         , 'David'
         , 'Austin'
@@ -791,7 +791,7 @@ INSERT INTO HR..employees VALUES
         , 60
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 106
         , 'Valli'
         , 'Pataballa'
@@ -805,7 +805,7 @@ INSERT INTO HR..employees VALUES
         , 60
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 107
         , 'Diana'
         , 'Lorentz'
@@ -819,7 +819,7 @@ INSERT INTO HR..employees VALUES
         , 60
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 108
         , 'Nancy'
         , 'Greenberg'
@@ -833,7 +833,7 @@ INSERT INTO HR..employees VALUES
         , 100
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 109
         , 'Daniel'
         , 'Faviet'
@@ -847,7 +847,7 @@ INSERT INTO HR..employees VALUES
         , 100
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 110
         , 'John'
         , 'Chen'
@@ -861,7 +861,7 @@ INSERT INTO HR..employees VALUES
         , 100
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 111
         , 'Ismael'
         , 'Sciarra'
@@ -875,7 +875,7 @@ INSERT INTO HR..employees VALUES
         , 100
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 112
         , 'Jose Manuel'
         , 'Urman'
@@ -889,7 +889,7 @@ INSERT INTO HR..employees VALUES
         , 100
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 113
         , 'Luis'
         , 'Popp'
@@ -903,7 +903,7 @@ INSERT INTO HR..employees VALUES
         , 100
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 114
         , 'Den'
         , 'Raphaely'
@@ -917,7 +917,7 @@ INSERT INTO HR..employees VALUES
         , 30
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 115
         , 'Alexander'
         , 'Khoo'
@@ -931,7 +931,7 @@ INSERT INTO HR..employees VALUES
         , 30
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 116
         , 'Shelli'
         , 'Baida'
@@ -945,7 +945,7 @@ INSERT INTO HR..employees VALUES
         , 30
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 117
         , 'Sigal'
         , 'Tobias'
@@ -959,7 +959,7 @@ INSERT INTO HR..employees VALUES
         , 30
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 118
         , 'Guy'
         , 'Himuro'
@@ -973,7 +973,7 @@ INSERT INTO HR..employees VALUES
         , 30
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 119
         , 'Karen'
         , 'Colmenares'
@@ -987,7 +987,7 @@ INSERT INTO HR..employees VALUES
         , 30
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 120
         , 'Matthew'
         , 'Weiss'
@@ -1001,7 +1001,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 121
         , 'Adam'
         , 'Fripp'
@@ -1015,7 +1015,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 122
         , 'Payam'
         , 'Kaufling'
@@ -1029,7 +1029,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 123
         , 'Shanta'
         , 'Vollman'
@@ -1043,7 +1043,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 124
         , 'Kevin'
         , 'Mourgos'
@@ -1057,7 +1057,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 125
         , 'Julia'
         , 'Nayer'
@@ -1071,7 +1071,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 126
         , 'Irene'
         , 'Mikkilineni'
@@ -1085,7 +1085,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 127
         , 'James'
         , 'Landry'
@@ -1099,7 +1099,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 128
         , 'Steven'
         , 'Markle'
@@ -1113,7 +1113,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 129
         , 'Laura'
         , 'Bissot'
@@ -1127,7 +1127,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 130
         , 'Mozhe'
         , 'Atkinson'
@@ -1141,7 +1141,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 131
         , 'James'
         , 'Marlow'
@@ -1155,7 +1155,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 132
         , 'TJ'
         , 'Olson'
@@ -1169,7 +1169,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 133
         , 'Jason'
         , 'Mallin'
@@ -1183,7 +1183,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 134
         , 'Michael'
         , 'Rogers'
@@ -1197,7 +1197,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 135
         , 'Ki'
         , 'Gee'
@@ -1211,7 +1211,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 136
         , 'Hazel'
         , 'Philtanker'
@@ -1225,7 +1225,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 137
         , 'Renske'
         , 'Ladwig'
@@ -1239,7 +1239,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 138
         , 'Stephen'
         , 'Stiles'
@@ -1253,7 +1253,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 139
         , 'John'
         , 'Seo'
@@ -1267,7 +1267,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 140
         , 'Joshua'
         , 'Patel'
@@ -1281,7 +1281,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 141
         , 'Trenna'
         , 'Rajs'
@@ -1295,7 +1295,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 142
         , 'Curtis'
         , 'Davies'
@@ -1309,7 +1309,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 143
         , 'Randall'
         , 'Matos'
@@ -1323,7 +1323,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 144
         , 'Peter'
         , 'Vargas'
@@ -1337,7 +1337,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 145
         , 'John'
         , 'Russell'
@@ -1351,7 +1351,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 146
         , 'Karen'
         , 'Partners'
@@ -1365,7 +1365,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 147
         , 'Alberto'
         , 'Errazuriz'
@@ -1379,7 +1379,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 148
         , 'Gerald'
         , 'Cambrault'
@@ -1393,7 +1393,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 149
         , 'Eleni'
         , 'Zlotkey'
@@ -1407,7 +1407,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 150
         , 'Peter'
         , 'Tucker'
@@ -1421,7 +1421,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 151
         , 'David'
         , 'Bernstein'
@@ -1435,7 +1435,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 152
         , 'Peter'
         , 'Hall'
@@ -1449,7 +1449,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 153
         , 'Christopher'
         , 'Olsen'
@@ -1463,7 +1463,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 154
         , 'Nanette'
         , 'Cambrault'
@@ -1477,7 +1477,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 155
         , 'Oliver'
         , 'Tuvault'
@@ -1491,7 +1491,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 156
         , 'Janette'
         , 'King'
@@ -1505,7 +1505,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 157
         , 'Patrick'
         , 'Sully'
@@ -1519,7 +1519,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 158
         , 'Allan'
         , 'McEwen'
@@ -1533,7 +1533,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 159
         , 'Lindsey'
         , 'Smith'
@@ -1547,7 +1547,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 160
         , 'Louise'
         , 'Doran'
@@ -1561,7 +1561,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 161
         , 'Sarath'
         , 'Sewall'
@@ -1575,7 +1575,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 162
         , 'Clara'
         , 'Vishney'
@@ -1589,7 +1589,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 163
         , 'Danielle'
         , 'Greene'
@@ -1603,7 +1603,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 164
         , 'Mattea'
         , 'Marvins'
@@ -1617,7 +1617,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 165
         , 'David'
         , 'Lee'
@@ -1631,7 +1631,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 166
         , 'Sundar'
         , 'Ande'
@@ -1645,7 +1645,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 167
         , 'Amit'
         , 'Banda'
@@ -1659,7 +1659,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 168
         , 'Lisa'
         , 'Ozer'
@@ -1673,7 +1673,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 169  
         , 'Harrison'
         , 'Bloom'
@@ -1687,7 +1687,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 170
         , 'Tayler'
         , 'Fox'
@@ -1701,7 +1701,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 171
         , 'William'
         , 'Smith'
@@ -1715,7 +1715,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 172
         , 'Elizabeth'
         , 'Bates'
@@ -1729,7 +1729,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 173
         , 'Sundita'
         , 'Kumar'
@@ -1743,7 +1743,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 174
         , 'Ellen'
         , 'Abel'
@@ -1757,7 +1757,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 175
         , 'Alyssa'
         , 'Hutton'
@@ -1771,7 +1771,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 176
         , 'Jonathon'
         , 'Taylor'
@@ -1785,7 +1785,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 177
         , 'Jack'
         , 'Livingston'
@@ -1799,7 +1799,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 178
         , 'Kimberely'
         , 'Grant'
@@ -1813,7 +1813,7 @@ INSERT INTO HR..employees VALUES
         , NULL
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 179
         , 'Charles'
         , 'Johnson'
@@ -1827,7 +1827,7 @@ INSERT INTO HR..employees VALUES
         , 80
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 180
         , 'Winston'
         , 'Taylor'
@@ -1841,7 +1841,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 181
         , 'Jean'
         , 'Fleaur'
@@ -1855,7 +1855,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 182
         , 'Martha'
         , 'Sullivan'
@@ -1869,7 +1869,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 183
         , 'Girard'
         , 'Geoni'
@@ -1883,7 +1883,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 184
         , 'Nandita'
         , 'Sarchand'
@@ -1897,7 +1897,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 185
         , 'Alexis'
         , 'Bull'
@@ -1911,7 +1911,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 186
         , 'Julia'
         , 'Dellinger'
@@ -1925,7 +1925,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 187
         , 'Anthony'
         , 'Cabrio'
@@ -1939,7 +1939,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 188
         , 'Kelly'
         , 'Chung'
@@ -1953,7 +1953,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 189
         , 'Jennifer'
         , 'Dilly'
@@ -1967,7 +1967,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 190
         , 'Timothy'
         , 'Gates'
@@ -1981,7 +1981,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 191
         , 'Randall'
         , 'Perkins'
@@ -1995,7 +1995,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 192
         , 'Sarah'
         , 'Bell'
@@ -2009,7 +2009,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 193
         , 'Britney'
         , 'Everett'
@@ -2023,7 +2023,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 194
         , 'Samuel'
         , 'McCain'
@@ -2037,7 +2037,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 195
         , 'Vance'
         , 'Jones'
@@ -2051,7 +2051,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 196
         , 'Alana'
         , 'Walsh'
@@ -2065,7 +2065,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 197
         , 'Kevin'
         , 'Feeney'
@@ -2079,7 +2079,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 198
         , 'Donald'
         , 'OConnell'
@@ -2093,7 +2093,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 199
         , 'Douglas'
         , 'Grant'
@@ -2107,7 +2107,7 @@ INSERT INTO HR..employees VALUES
         , 50
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 200
         , 'Jennifer'
         , 'Whalen'
@@ -2121,7 +2121,7 @@ INSERT INTO HR..employees VALUES
         , 10
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 201
         , 'Michael'
         , 'Hartstein'
@@ -2135,7 +2135,7 @@ INSERT INTO HR..employees VALUES
         , 20
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 202
         , 'Pat'
         , 'Fay'
@@ -2149,7 +2149,7 @@ INSERT INTO HR..employees VALUES
         , 20
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 203
         , 'Susan'
         , 'Mavris'
@@ -2163,7 +2163,7 @@ INSERT INTO HR..employees VALUES
         , 40
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 204
         , 'Hermann'
         , 'Baer'
@@ -2177,7 +2177,7 @@ INSERT INTO HR..employees VALUES
         , 70
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 205
         , 'Shelley'
         , 'Higgins'
@@ -2191,7 +2191,7 @@ INSERT INTO HR..employees VALUES
         , 110
         );
 
-INSERT INTO HR..employees VALUES 
+INSERT INTO employees VALUES 
         ( 206
         , 'William'
         , 'Gietz'
@@ -2206,35 +2206,35 @@ INSERT INTO HR..employees VALUES
         );
 GO
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES (102
        , CAST('13-JAN-1993'AS DATETIME)
        , CAST('24-JUL-1998'AS DATETIME)
        , 'IT_PROG'
        , 60);
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES (101
        , CAST('21-SEP-1989'AS DATETIME)
        , CAST('27-OCT-1993'AS DATETIME)
        , 'AC_ACCOUNT'
        , 110);
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES (101
        , CAST('28-OCT-1993'AS DATETIME)
        , CAST('15-MAR-1997'AS DATETIME)
        , 'AC_MGR'
        , 110);
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES (201
        , CAST('17-FEB-1996'AS DATETIME)
        , CAST('19-DEC-1999'AS DATETIME)
        , 'MK_REP'
        , 20);
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES  (114
         , CAST('24-MAR-1998'AS DATETIME)
         , CAST('31-DEC-1999'AS DATETIME)
@@ -2242,7 +2242,7 @@ VALUES  (114
         , 50
         );
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES  (122
         , CAST('01-JAN-1999'AS DATETIME)
         , CAST('31-DEC-1999'AS DATETIME)
@@ -2250,7 +2250,7 @@ VALUES  (122
         , 50
         );
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES  (200
         , CAST('17-SEP-1987'AS DATETIME)
         , CAST('17-JUN-1993'AS DATETIME)
@@ -2258,7 +2258,7 @@ VALUES  (200
         , 90
         );
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES  (176
         , CAST('24-MAR-1998'AS DATETIME)
         , CAST('31-DEC-1998'AS DATETIME)
@@ -2266,7 +2266,7 @@ VALUES  (176
         , 80
         );
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES  (176
         , CAST('01-JAN-1999'AS DATETIME)
         , CAST('31-DEC-1999'AS DATETIME)
@@ -2274,7 +2274,7 @@ VALUES  (176
         , 80
         );
 
-INSERT INTO HR..job_history
+INSERT INTO job_history
 VALUES  (200
         , CAST('01-JUL-1994'AS DATETIME)
         , CAST('31-DEC-1998'AS DATETIME)
@@ -2284,14 +2284,14 @@ VALUES  (200
 
 GO
 
-ALTER TABLE HR..departments CHECK CONSTRAINT dept_mgr_fk;
+ALTER TABLE departments CHECK CONSTRAINT dept_mgr_fk;
 
 GO
 
-SELECT * FROM HR..countries;
-SELECT * FROM HR..regions;
-SELECT * FROM HR..locations;
-SELECT * FROM HR..departments;
-SELECT * FROM HR..jobs;
-SELECT * FROM HR..employees;
-SELECT * FROM HR..job_history;
+SELECT * FROM countries;
+SELECT * FROM regions;
+SELECT * FROM locations;
+SELECT * FROM departments;
+SELECT * FROM jobs;
+SELECT * FROM employees;
+SELECT * FROM job_history;

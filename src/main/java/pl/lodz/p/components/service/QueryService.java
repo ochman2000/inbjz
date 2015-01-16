@@ -1,6 +1,7 @@
 package pl.lodz.p.components.service;
 
 import org.h2.jdbc.JdbcSQLException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.UncategorizedSQLException;
@@ -29,12 +30,7 @@ public class QueryService {
 
     @Transactional
     public InbjzResultSet select(Request request) {
-        DatabaseDao database;
-        if ("execute".equals(request.getMode())) {
-            database = DatabaseImpl.getInstance();
-        } else {
-            database = new DatabaseImpl();
-        }
+        DatabaseDao database = getDatabase(request);
         List<String[]> actual = null;
         String[] actualHeaders = new String[]{"null"};
         InbjzResultSet res = new InbjzResultSet();
@@ -42,17 +38,36 @@ public class QueryService {
         try {
             actual = database.executeQuery(request.getQuery());
             actualHeaders = database.getLabels(request.getQuery());
-        } catch (UncategorizedSQLException | JdbcSQLException e) {
+        } catch (DuplicateKeyException | UncategorizedSQLException | JdbcSQLException e) {
             if (e.getMessage().endsWith("[90002-176]")) {
-                return update(request);
+                try {
+                    return update(request);
+                } catch (DuplicateKeyException e1) {
+                    logger.severe(e1.getClass()+" "+e1.getMessage());
+                    res.setSuccess(false);
+                    res.setErrorMessage(e1.getCause().getMessage());
+                } catch (DataIntegrityViolationException  | UncategorizedSQLException | SQLException e1) {
+                    logger.severe(e1.getClass()+" "+e1.getMessage());
+                    res.setSuccess(false);
+                    res.setErrorMessage(e1.getCause().getMessage());
+                } catch (Exception e1) {
+                    logger.severe(e1.getClass()+" "+e1.getMessage());
+                    res.setSuccess(false);
+                    res.setErrorMessage(e1.getCause().getMessage());
+                }
             } else {
                 logger.severe(e.getClass()+" "+e.getMessage());
                 res.setSuccess(false);
                 res.setErrorMessage(e.getCause().getMessage());
             }
             return res;
-        } catch (DuplicateKeyException | SQLException | BadSqlGrammarException e) {
-            logger.severe(e.getClass()+" "+e.getMessage());
+        } catch (DataIntegrityViolationException | SQLException e) {
+            logger.severe(e.getClass() + " " + e.getMessage());
+            res.setSuccess(false);
+            res.setErrorMessage(e.getCause().getMessage());
+            return res;
+        } catch (Exception e) {
+            logger.severe(e.getClass() + " " + e.getMessage());
             res.setSuccess(false);
             res.setErrorMessage(e.getCause().getMessage());
             return res;
@@ -93,11 +108,11 @@ public class QueryService {
     }
 
 
-    public InbjzResultSet greeting(Request message) {
-        DatabaseDao database = DatabaseImpl.getInstance();
+    public InbjzResultSet greeting(Request request) {
+        DatabaseDao database = getDatabase(request);
         List<String[]> result = null;
         try {
-            result = database.executeQuery(message.getQuery());
+            result = database.executeQuery(request.getQuery());
         } catch (SQLException e) {
             logger.severe(e.getMessage());
         }
@@ -110,12 +125,7 @@ public class QueryService {
     }
 
     public InbjzResultSet execute(Request request) {
-        DatabaseDao database;
-        if ("execute".equals(request.getMode())) {
-            database = DatabaseImpl.getInstance();
-        } else {
-            database = new DatabaseImpl();
-        }
+        DatabaseDao database = getDatabase(request);
         InbjzResultSet res = new InbjzResultSet();
         String output;
         res.setMode(Mode.EXECUTE);
@@ -139,13 +149,8 @@ public class QueryService {
         return res;
     }
 
-    public InbjzResultSet update(Request request) {
-        DatabaseImpl database;
-        if ("execute".equals(request.getMode())) {
-            database = DatabaseImpl.getInstance();
-        } else {
-            database = new DatabaseImpl();
-        }
+    public InbjzResultSet update(Request request) throws SQLException {
+        DatabaseDao database = getDatabase(request);
         InbjzResultSet res = new InbjzResultSet();
         String output;
         res.setMode(Mode.EXECUTE);
@@ -167,5 +172,15 @@ public class QueryService {
         res.setConsoleOutput(output);
         res.setContent("String representation of this result");
         return res;
+    }
+
+    private DatabaseDao getDatabase(Request request) {
+        DatabaseDao database;
+        if ("execute".equals(request.getMode())) {
+            database = DatabaseImpl.getInstance();
+        } else {
+            database = new DatabaseImpl();
+        }
+        return database;
     }
 }
