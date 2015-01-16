@@ -40,37 +40,14 @@ public class QueryService {
             actualHeaders = database.getLabels(request.getQuery());
         } catch (DuplicateKeyException | UncategorizedSQLException | JdbcSQLException e) {
             if (e.getMessage().endsWith("[90002-176]")) {
-                try {
-                    return update(request);
-                } catch (DuplicateKeyException e1) {
-                    logger.severe(e1.getClass()+" "+e1.getMessage());
-                    res.setSuccess(false);
-                    res.setErrorMessage(e1.getCause().getMessage());
-                } catch (DataIntegrityViolationException  | UncategorizedSQLException | SQLException e1) {
-                    logger.severe(e1.getClass()+" "+e1.getMessage());
-                    res.setSuccess(false);
-                    res.setErrorMessage(e1.getCause().getMessage());
-                } catch (Exception e1) {
-                    logger.severe(e1.getClass()+" "+e1.getMessage());
-                    res.setSuccess(false);
-                    res.setErrorMessage(e1.getCause().getMessage());
-                }
+                return fallBackUpdate(request, res);
             } else {
-                logger.severe(e.getClass()+" "+e.getMessage());
-                res.setSuccess(false);
-                res.setErrorMessage(e.getCause().getMessage());
+                return handleException(e, res);
             }
-            return res;
         } catch (DataIntegrityViolationException | SQLException e) {
-            logger.severe(e.getClass() + " " + e.getMessage());
-            res.setSuccess(false);
-            res.setErrorMessage(e.getCause().getMessage());
-            return res;
+            return handleException(e, res);
         } catch (Exception e) {
-            logger.severe(e.getClass() + " " + e.getMessage());
-            res.setSuccess(false);
-            res.setErrorMessage(e.getCause().getMessage());
-            return res;
+            return handleException(e, res);
         }
         res.setActualHeaders(actualHeaders);
         res.setActual(actual);
@@ -83,6 +60,25 @@ public class QueryService {
         res.setCorrect(equals(actual, expected));
         res.setContent("String representation of this result");
         return res;
+    }
+
+    private InbjzResultSet handleException(Throwable t, InbjzResultSet res) {
+        logger.severe(t.getClass() + " " + t.getMessage());
+        res.setSuccess(false);
+        res.setErrorMessage(t.getCause().getMessage());
+        return res;
+    }
+
+    private InbjzResultSet fallBackUpdate(Request request,InbjzResultSet res) {
+        try {
+            return update(request);
+        } catch (DuplicateKeyException e1) {
+            return handleException(e1, res);
+        } catch (DataIntegrityViolationException | UncategorizedSQLException | SQLException e1) {
+            return handleException(e1, res);
+        } catch (Exception e1) {
+            return handleException(e1, res);
+        }
     }
 
     private boolean equals(List<String[]> actual, List<String[]> expected) {
@@ -132,15 +128,11 @@ public class QueryService {
         try {
             output = database.executeStmt(request.getQuery());
         } catch (DuplicateKeyException | UncategorizedSQLException | JdbcSQLException e) {
-            logger.severe(e.getClass()+" "+e.getMessage());
-            res.setSuccess(false);
-            res.setErrorMessage(e.getCause().getMessage());
-            return res;
+            return handleException(e, res);
         } catch (SQLException | BadSqlGrammarException e) {
-            logger.severe(e.getClass()+" "+e.getMessage());
-            res.setSuccess(false);
-            res.setErrorMessage(e.getCause().getMessage());
-            return res;
+            return handleException(e, res);
+        } catch (Exception e) {
+            return handleException(e, res);
         }
         res.setTaskId(request.getTaskId());
         res.setSuccess(true);
@@ -157,15 +149,9 @@ public class QueryService {
         try {
             output = database.update(request.getQuery());
         } catch (DuplicateKeyException | UncategorizedSQLException e) {
-            logger.severe(e.getClass()+" "+e.getMessage());
-            res.setSuccess(false);
-            res.setErrorMessage(e.getCause().getMessage());
-            return res;
+            return handleException(e, res);
         } catch (BadSqlGrammarException e) {
-            logger.severe(e.getClass()+" "+e.getMessage());
-            res.setSuccess(false);
-            res.setErrorMessage(e.getCause().getMessage());
-            return res;
+            return handleException(e, res);
         }
         res.setTaskId(request.getTaskId());
         res.setSuccess(true);
