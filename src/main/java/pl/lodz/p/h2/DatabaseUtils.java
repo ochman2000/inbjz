@@ -15,13 +15,52 @@ import java.util.logging.Logger;
 /**
  * Created by Łukasz Ochmański on 1/15/2015.
  */
-public class HR {
-    public static String script;
-    static {
-        URL url = Application.class.getClassLoader().getResource("sql/HR.sql");
+public class DatabaseUtils {
+
+    private static String HR_SCHEMA;
+    private static String HR_DATA;
+    private static String TWORZ_PRACOWNICY;
+    private static String WSTAW_DANE_PRACOWNICY;
+
+    public static void refreshAll() {
+        HR_SCHEMA = getScript("sql/hr_schemat.sql");
+        HR_DATA = getScript("sql/hr_dane.sql");
+        TWORZ_PRACOWNICY = getScript("sql/wstaw_dane.sql");
+        WSTAW_DANE_PRACOWNICY = getScript("sql/tworz_pracownicy.sql");
+    }
+
+    public static String getHrSchema() {
+        if (HR_SCHEMA==null) {
+            HR_SCHEMA = getScript("sql/hr_schemat.sql");
+        }
+        return HR_SCHEMA;
+    }
+
+    public static String getHrData() {
+        if (HR_DATA==null) {
+            HR_DATA = getScript("sql/hr_data.sql");
+        }
+        return HR_DATA;
+    }
+
+    public static String getTworzPracownicy() {
+        if (TWORZ_PRACOWNICY==null) {
+            TWORZ_PRACOWNICY = getScript("sql/wstaw_dane.sql");
+        }
+        return TWORZ_PRACOWNICY;
+    }
+
+    public static String getWstawDanePracownicy() {
+        if (WSTAW_DANE_PRACOWNICY==null) {
+            WSTAW_DANE_PRACOWNICY = getScript("sql/tworz_pracownicy.sql");
+        }
+        return WSTAW_DANE_PRACOWNICY;
+    }
+
+    public static String getScript(String resource) {
+        URL url = DatabaseUtils.class.getClassLoader().getResource(resource);
         List<String> lines = null;
         try {
-//          Path path = Paths.get("build/resources/main/sql/HR.sql");
             Path path = resourceToPath(url);
             lines = Files.readAllLines(path);
         } catch (IOException | URISyntaxException e) {
@@ -31,11 +70,10 @@ public class HR {
         for (String s : lines) {
             sb.append(s);
         }
-        script = sb.toString();
-        System.out.println(script);
+        return sb.toString();
     }
 
-    static Path resourceToPath(URL resource)
+    private static Path resourceToPath(URL resource)
             throws IOException,
             URISyntaxException {
 

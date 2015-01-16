@@ -1,16 +1,11 @@
 package pl.lodz.p.h2;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -44,7 +39,8 @@ public class DatabaseImpl implements DatabaseDao {
 
     private void init(JdbcTemplate jdbcTemplate) {
         logger.info("Creating tables");
-        jdbcTemplate.execute(HR.script);
+
+        jdbcTemplate.execute(DatabaseUtils.getHrSchema());
         jdbcTemplate.execute("drop table customers if exists");
         jdbcTemplate.execute("create table customers(" +
                 "id serial, first_name varchar(255), last_name varchar(255))");
