@@ -95,7 +95,10 @@ public class QueryService {
         }
         for (int i=0; i<actual.size(); i++) {
             for (int j=0; j<actual.get(i).length; j++) {
-                if (!actual.get(i)[j].equals(expected.get(i)[j])) {
+                if (actual.get(i)[j]==null && expected.get(i)[j]==null){
+                    continue;
+                }
+                if (actual.get(i)[j]==null || !actual.get(i)[j].equals(expected.get(i)[j])) {
                     return false;
                 }
             }
