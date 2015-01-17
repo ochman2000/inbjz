@@ -1,6 +1,6 @@
 
 $(function(){
-  $("#includedContent").load("query.html");
+  $("#includedContent").load("../query.html");
 });
 
 var stompClient = null;
@@ -26,17 +26,17 @@ function queryCallBack(statement) {
     var response = JSON.parse(statement.body);
 
     if (response.success === false) {
-        $("#resultContent").load("console.html", function() {
+        $("#resultContent").load("../console.html", function() {
             buildErrorBox(response);
             setSuccess(false);
         });
     } else if (response.mode === 'execute') {
-        $("#resultContent").load("console.html", function() {
+        $("#resultContent").load("../console.html", function() {
             buildConsoleBox(response);
             setSuccess(true);
         });
     } else {
-        $("#resultContent").load("result.html", function() {
+        $("#resultContent").load("../result.html", function() {
             buildResultTables(response);
             setSuccess(response.correct);
         });
