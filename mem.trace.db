@@ -7312,3 +7312,6 @@ CREATE SCHEMA kowalski_123456; [90078-176]
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
+01-27 23:56:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "JJ[*] "; SQL statement:
+jj [42000-176]

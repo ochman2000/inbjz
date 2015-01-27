@@ -129,30 +129,37 @@
                 <br>
                 Celem pracy jest stworzenie interaktywnego samouczka wspierającego studentów w nauce
                 bazodanowych języków zapytań. Główną zaletą systemu jest łatwość dostępu i brak konieczności
-                instalacji silników bazodanowych oraz konfiguracji narzędzi typu SQL Server Management Studio.
+                instalacji silników bazodanowych typu Oracle database client czy też konfiguracji narzędzi typu SQL Server Management Studio.
                 Niekiedy konfiguracja przerasta umiejętności studentów, a w najlepszych wypadku pochłania
                 godziny lub dni...<br>
-                Aby tego uniknąć, postanowiłem właśnie stworzyć tę oto stronę.<br><br>
+                Aby tego uniknąć, postanowiłem stworzyć ten oto serwis.<br><br>
+				
+				Kod źródłowy dostępny pod adresem: <a href="https://code.google.com/p/interaktywne-nauczanie-jezykow-bazodanowych/">https://code.google.com/p/interaktywne-nauczanie-jezykow-bazodanowych/</a><br><br>
+				
+				git clone https://ochman2000@code.google.com/p/interaktywne-nauczanie-jezykow-bazodanowych/ <br><br>
+				<br><br>
                 W pracy użyto następujące technologie:<br>
-                Java 8<br>
-                JavaScript<br>
-                jQuery<br>
-                Bootstrap<br>
-                Baza danych H2<br>
-                Spring<br>
-                STOMP (The Simple Text Oriented Messaging Protocol)<br>
-                WebSocket Protocol zgodnie z RFC 6455<br>
+				<ul>
+					<li>Oracle Java 8</li>
+					<li>JavaScript</li>
+					<li>jQuery</li>
+					<li>Bootstrap CSS</li>
+					<li>Baza danych H2</li>
+					<li>Spring Framework</li>
+					<li>STOMP (The Simple Text Oriented Messaging Protocol)</li>
+					<li>WebSocket Protocol zgodnie z RFC 6455</li>
+				</ul><br><br>
                 Główne zagadnienia, nad którymi skupiłem się podczas pracy to:<br>
-                <li>
-                <ul>obsługa sterownika JDBC,</ul>
-                <ul>zastosowanie formatu wiadomości JSON,</ul>
-                <ul>konfiguracja frameworku Spring Boot,</ul>
-                <ul>konfiguracja kontenera serwletów Apache Tomcat,</ul>
-                <ul>integracja front-endu (JavaScript) z backendem w języku Java,</ul>
-                <ul>organizacja struktury projektu,</ul>
-                <ul>rozwiązanie problemu komunikacji pomiędzy stroną WWW i bazą danych, obsługa błędów,</ul>
-                <ul>zmierzenie się z problemem dostępu do bazy danych przez wielu użytkowników w jednej chwili,</ul>
-                </li>
+                <ul>
+					<li>obsługa sterownika JDBC,</li>
+					<li>zastosowanie formatu wiadomości JSON,</li>
+					<li>konfiguracja frameworku Spring Boot,</li>
+					<li>konfiguracja kontenera serwletów Apache Tomcat,</li>
+					<li>integracja front-endu (JavaScript) z backendem w języku Java,</li>
+					<li>organizacja struktury projektu,</li>
+					<li>rozwiązanie problemu komunikacji pomiędzy stroną WWW i bazą danych, obsługa błędów,</li>
+					<li>zmierzenie się z problemem dostępu do bazy danych przez wielu użytkowników w jednej chwili,</li>
+                </ul>
             </h4>
         </div>
         <div id="disqus_thread"></div>
