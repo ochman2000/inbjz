@@ -7,10 +7,7 @@ import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.lodz.p.config.Application;
-import pl.lodz.p.core.InbjzResultSet;
-import pl.lodz.p.core.Mode;
-import pl.lodz.p.core.Request;
+import pl.lodz.p.core.*;
 import pl.lodz.p.dao.DatabaseDao;
 import pl.lodz.p.h2.DatabaseImpl;
 
@@ -34,7 +31,8 @@ public class QueryService {
         List<String[]> actual = null;
         String[] actualHeaders = new String[]{"null"};
         InbjzResultSet res = new InbjzResultSet();
-        res.setMode(Mode.QUERY);
+        res.setTaskId(request.getTaskId());
+        res.setType(Type.QUERY);
         try {
             actual = database.executeQuery(request.getQuery());
             actualHeaders = database.getLabels(request.getQuery());
@@ -56,7 +54,7 @@ public class QueryService {
         List<String[]> expected = actual;
         res.setExpected(expected);
         res.setTaskId(request.getTaskId());
-        res.setSuccess(true);
+        res.setStatus(Status.OK);
         res.setCorrect(equals(actual, expected));
         res.setContent("String representation of this result");
         return res;
@@ -64,7 +62,8 @@ public class QueryService {
 
     private InbjzResultSet handleException(Throwable t, InbjzResultSet res) {
         logger.severe(t.getClass() + " " + t.getMessage());
-        res.setSuccess(false);
+        res.setStatus(Status.ERROR);
+        res.setCorrect(false);
         res.setErrorMessage(t.getCause().getMessage());
         return res;
     }
@@ -127,7 +126,8 @@ public class QueryService {
         DatabaseDao database = getDatabase(request);
         InbjzResultSet res = new InbjzResultSet();
         String output;
-        res.setMode(Mode.EXECUTE);
+        res.setTaskId(request.getTaskId());
+        res.setType(Type.EXECUTE);
         try {
             output = database.executeStmt(request.getQuery());
         } catch (DuplicateKeyException | UncategorizedSQLException | JdbcSQLException e) {
@@ -138,7 +138,8 @@ public class QueryService {
             return handleException(e, res);
         }
         res.setTaskId(request.getTaskId());
-        res.setSuccess(true);
+        res.setStatus(Status.OK);
+        res.setCorrect(true);
         res.setConsoleOutput(output);
         res.setContent("String representation of this result");
         return res;
@@ -148,7 +149,8 @@ public class QueryService {
         DatabaseDao database = getDatabase(request);
         InbjzResultSet res = new InbjzResultSet();
         String output;
-        res.setMode(Mode.EXECUTE);
+        res.setTaskId(request.getTaskId());
+        res.setType(Type.EXECUTE);
         try {
             output = database.update(request.getQuery());
         } catch (DuplicateKeyException | UncategorizedSQLException e) {
@@ -157,7 +159,8 @@ public class QueryService {
             return handleException(e, res);
         }
         res.setTaskId(request.getTaskId());
-        res.setSuccess(true);
+        res.setStatus(Status.OK);
+        res.setCorrect(true);
         res.setConsoleOutput(output);
         res.setContent("String representation of this result");
         return res;
@@ -165,7 +168,7 @@ public class QueryService {
 
     private DatabaseDao getDatabase(Request request) {
         DatabaseDao database;
-        if ("execute".equals(request.getMode())) {
+        if ("real".equals(request.getMode())) {
             database = DatabaseImpl.getInstance();
         } else {
             database = new DatabaseImpl();

@@ -4,19 +4,19 @@ import java.util.List;
 
 public class InbjzResultSet {
 
-    private String content;
+    private String info;
     private int taskId;
-    private boolean success;
+    private String status;
     private boolean correct;
-    private String mode;
+    private String type;
     private String consoleOutput;
     private String errorMessage;
     private String[] expectedHeaders;
     private List<String[]> expected;
     private String[] actualHeaders;
     private List<String[]> actual;
-    private List<Integer> missingRowsId;
-    private List<Integer> extraRowsId;
+    private List<Integer> missingRowIds;
+    private List<Integer> extraRowIds;
     private List<String[]> missingRows;
     private List<String[]> extraRows;
 
@@ -24,16 +24,16 @@ public class InbjzResultSet {
 
     }
 
-    public InbjzResultSet(String content) {
-        this.content = content;
+    public InbjzResultSet(String info) {
+        this.info = info;
     }
 
-    public boolean isSuccess() {
-        return success;
+    public String getStatus() {
+        return status;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public void setStatus(Status status) {
+        this.status = status == Status.ERROR ? "ERROR" : "OK";
     }
 
     public boolean isCorrect() {
@@ -44,12 +44,12 @@ public class InbjzResultSet {
         this.correct = correct;
     }
 
-    public String getMode() {
-        return mode;
+    public String type() {
+        return type;
     }
 
-    public void setMode(Mode mode) {
-        this.mode = mode == Mode.EXECUTE ? "execute" : "query";
+    public void setType(Type type) {
+        this.type = type == Type.EXECUTE ? "execute" : "query";
     }
 
     public String getConsoleOutput() {
@@ -68,12 +68,12 @@ public class InbjzResultSet {
         this.errorMessage = errorMessage;
     }
 
-    public String getContent() {
-        return content;
+    public String getInfo() {
+        return info;
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.info = info;
     }
 
     public int getTaskId() {
@@ -100,20 +100,20 @@ public class InbjzResultSet {
         this.actual = actual;
     }
 
-    public List<Integer> getMissingRowsId() {
-        return missingRowsId;
+    public List<Integer> getMissingRowIds() {
+        return missingRowIds;
     }
 
-    public void setMissingRowsId(List<Integer> missingRowsId) {
-        this.missingRowsId = missingRowsId;
+    public void setMissingRowIds(List<Integer> missingRowIds) {
+        this.missingRowIds = missingRowIds;
     }
 
-    public List<Integer> getExtraRowsId() {
-        return extraRowsId;
+    public List<Integer> getExtraRowIds() {
+        return extraRowIds;
     }
 
-    public void setExtraRowsId(List<Integer> extraRowsId) {
-        this.extraRowsId = extraRowsId;
+    public void setExtraRowIds(List<Integer> extraRowIds) {
+        this.extraRowIds = extraRowIds;
     }
 
     public List<String[]> getMissingRows() {

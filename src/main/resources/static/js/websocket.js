@@ -25,12 +25,12 @@ function executeCallBack(statement) {
 function queryCallBack(statement) {
     var response = JSON.parse(statement.body);
 
-    if (response.success === false) {
+    if (response.status === 'ERROR') {
         $("#resultContent").load("../console.html", function() {
             buildErrorBox(response);
             setSuccess(false);
         });
-    } else if (response.mode === 'execute') {
+    } else if (response.type === 'execute') {
         $("#resultContent").load("../console.html", function() {
             buildConsoleBox(response);
             setSuccess(true);
@@ -68,11 +68,11 @@ function disconnect() {
 function sendQuery() {
     var query = $('#queryTextArea').val();
     var taskId = $('#taskId').text();
-    var mode = $('#option1').is(':checked');
+    var mode = $('#option2').is(':checked');
     if (mode) {
-        mode = 'query';
+        mode = 'real';
     } else {
-        mode = 'execute';
+        mode = 'protected';
     }
     stompClient.send("/app/query", {}, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
 }
