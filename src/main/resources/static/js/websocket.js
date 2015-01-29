@@ -14,6 +14,15 @@ function connect() {
     });
 }
 
+function connectToTeam() {
+    var socket = new SockJS('/inbjz');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function(frame) {
+        console.log('Connected: ' + frame);
+        subscribeToAll();
+    });
+}
+
 function greetingsCallBack(greeting) {
     showGreeting(JSON.parse(greeting.body).content);
 }
