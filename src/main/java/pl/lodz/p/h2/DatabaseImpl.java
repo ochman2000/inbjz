@@ -26,7 +26,7 @@ public class DatabaseImpl implements DatabaseDao {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
         dataSource.setUsername("sa");
-        dataSource.setUrl("jdbc:h2:mem");
+        dataSource.setUrl("jdbc:h2:./mem");
         dataSource.setPassword("");
 
         jdbcTemplate = new JdbcTemplate(dataSource);
