@@ -1,4 +1,4 @@
-package pl.lodz.p.components.api;
+package pl.lodz.p.components.contoller;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
