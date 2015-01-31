@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.security:spring-security-messaging:4.0.0.RC1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-messaging/4.0.0.RC1/f91a43fc8ec5cd7159c900b9d8681abf56b63d23/spring-security-messaging-4.0.0.RC1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-messaging/4.0.0.RC1/8838cc0d2d9da46eb3db8f8b95cb919a9b1fd57a/spring-security-messaging-4.0.0.RC1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

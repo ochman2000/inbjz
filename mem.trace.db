@@ -7634,3 +7634,6 @@ sel [42001-182]
 01-31 15:09:59 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "S[*] "; expected "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"; SQL statement:
 s [42001-182]
+01-31 22:26:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SSS[*] "; expected "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"; SQL statement:
+sss [42001-182]

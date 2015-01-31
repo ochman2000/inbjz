@@ -8,6 +8,7 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * Created by Łukasz Ochmański on 1/30/2015.
@@ -21,9 +22,10 @@ public class HttpSessionIdHandshakeInterceptor implements HandshakeInterceptor {
             throws Exception {
         if (request instanceof ServletServerHttpRequest) {
             ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;
-            HttpSession session = servletRequest.getServletRequest().getSession(false);
+            HttpSession session = servletRequest.getServletRequest().getSession(true);
             if (session != null) {
                 attributes.put("HTTPSESSIONID", session.getId());
+                Logger.getGlobal().info("Session ID: "+session.getId());
             }
         }
         return true;

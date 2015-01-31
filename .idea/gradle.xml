@@ -10,7 +10,27 @@
             <option value="$PROJECT_DIR$" />
           </set>
         </option>
-        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../spring-session" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../spring-session" />
+            <option value="$PROJECT_DIR$/../spring-session/docs" />
+            <option value="$PROJECT_DIR$/../spring-session/samples" />
+            <option value="$PROJECT_DIR$/../spring-session/samples/boot" />
+            <option value="$PROJECT_DIR$/../spring-session/samples/hazelcast" />
+            <option value="$PROJECT_DIR$/../spring-session/samples/httpsession" />
+            <option value="$PROJECT_DIR$/../spring-session/samples/httpsession-xml" />
+            <option value="$PROJECT_DIR$/../spring-session/samples/rest" />
+            <option value="$PROJECT_DIR$/../spring-session/samples/security" />
+            <option value="$PROJECT_DIR$/../spring-session/samples/users" />
+            <option value="$PROJECT_DIR$/../spring-session/samples/websocket" />
+            <option value="$PROJECT_DIR$/../spring-session/spring-session" />
+            <option value="$PROJECT_DIR$/../spring-session/spring-session-data-redis" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>

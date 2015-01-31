@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: redis.embedded:embedded-redis:0.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/redis.embedded/embedded-redis/0.2/8057af0932ee7886d8128cbfc6ee3d97b7ee3939/embedded-redis-0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/redis.embedded/embedded-redis/0.2/b22f87e99eee061eb68a46947bab3a0515718a8c/embedded-redis-0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

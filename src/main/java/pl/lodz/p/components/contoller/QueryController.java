@@ -34,6 +34,7 @@ public class QueryController {
 
     private static final Logger logger = LoggerFactory.getLogger(QueryController.class);
 
+    @Autowired
     public QueryController(QueryService queryService, SimpMessagingTemplate simpMessagingTemplate, HttpSession session) {
         this.queryService = queryService;
         this.simpMessagingTemplate = simpMessagingTemplate;

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.taglibs:taglibs-standard-jstlel:1.2.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.taglibs/taglibs-standard-jstlel/1.2.1/7eb464b709e354ca9394e18fd32511c51c6687f6/taglibs-standard-jstlel-1.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.taglibs/taglibs-standard-jstlel/1.2.1/e1e6e1085f5dad0abeb0b25d7cf6125f4d938fe5/taglibs-standard-jstlel-1.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -3,7 +3,20 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/src/main/INBJZ.iml" filepath="$PROJECT_DIR$/src/main/INBJZ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/boot/boot.iml" filepath="$PROJECT_DIR$/../spring-session/samples/boot/boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/docs/docs.iml" filepath="$PROJECT_DIR$/../spring-session/docs/docs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/hazelcast/hazelcast.iml" filepath="$PROJECT_DIR$/../spring-session/samples/hazelcast/hazelcast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/httpsession/httpsession.iml" filepath="$PROJECT_DIR$/../spring-session/samples/httpsession/httpsession.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/httpsession-xml/httpsession-xml.iml" filepath="$PROJECT_DIR$/../spring-session/samples/httpsession-xml/httpsession-xml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/rest/rest.iml" filepath="$PROJECT_DIR$/../spring-session/samples/rest/rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/samples.iml" filepath="$PROJECT_DIR$/../spring-session/samples/samples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/security/security.iml" filepath="$PROJECT_DIR$/../spring-session/samples/security/security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/spring-session/spring-session.iml" filepath="$PROJECT_DIR$/../spring-session/spring-session/spring-session.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/spring-session-build.iml" filepath="$PROJECT_DIR$/../spring-session/spring-session-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/spring-session-data-redis/spring-session-data-redis.iml" filepath="$PROJECT_DIR$/../spring-session/spring-session-data-redis/spring-session-data-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/../spring-websocket-chat-sample/spring-websocket-chat-sample.iml" filepath="$PROJECT_DIR$/../spring-websocket-chat-sample/spring-websocket-chat-sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/users/users.iml" filepath="$PROJECT_DIR$/../spring-session/samples/users/users.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-session/samples/websocket/websocket.iml" filepath="$PROJECT_DIR$/../spring-session/samples/websocket/websocket.iml" />
     </modules>
   </component>
 </project>
