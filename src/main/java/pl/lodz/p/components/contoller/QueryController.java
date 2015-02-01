@@ -8,9 +8,11 @@ import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.lodz.p.components.model.ChatMessage;
@@ -22,6 +24,10 @@ import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 @Controller
 public class QueryController {
@@ -48,11 +54,22 @@ public class QueryController {
 //        return queryService.select(message);
 //    }
 
-    @MessageMapping("/trade")
+    @MessageMapping("/query")
     @SendToUser("/queue/position-updates")
-    public InbjzResultSet executeTrade(Request message) {
+    public InbjzResultSet executeQuery(Request message, MessageHeaders messageHeaders) {
+        String clientId = getClientString(messageHeaders);
         return queryService.select(message);
     }
+
+    private String getClientString(MessageHeaders messageHeaders) {
+        return getNativeHeaders(messageHeaders).get("client-id").get(0);
+    }
+
+    private LinkedMultiValueMap<String, String> getNativeHeaders(MessageHeaders messageHeaders) {
+        return (LinkedMultiValueMap<String, String>) messageHeaders.get("nativeHeaders");
+    }
+
+
 
 //    @MessageMapping("/chats")
 //    @SendToUser("/queue/chats")
@@ -75,19 +92,19 @@ public class QueryController {
         return this.session.getId();
     }
 
-    @MessageMapping("/hello")
+    @MessageMapping("/teamHello")
     @SendTo("/topic/greetings")
     public InbjzResultSet greeting(Request message) throws Exception {
         return queryService.greeting(message);
     }
 
-    @MessageMapping("/execute")
+    @MessageMapping("/teamExecute")
     @SendTo("/topic/execute")
     public InbjzResultSet execute(Request message) throws Exception {
         return queryService.execute(message);
     }
 
-    @MessageMapping("/query")
+    @MessageMapping("/teamQuery")
     @SendTo("/topic/query")
     public InbjzResultSet select(Request message) throws Exception {
         return queryService.select(message);

@@ -74,12 +74,12 @@ function sendQuery() {
     } else {
         mode = 'protected';
     }
-    stompClient.send("/app/query", {}, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
+    stompClient.send("/app/teamQuery", {}, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
 }
 
 function sendExecuteStmt() {
     var query = $('#queryTextArea').val();
-    stompClient.send("/app/execute", {}, JSON.stringify({ 'query': query }));
+    stompClient.send("/app/teamExecute", {}, JSON.stringify({ 'query': query }));
 }
 
 function buildErrorBox(result) {

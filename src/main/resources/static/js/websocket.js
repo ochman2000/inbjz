@@ -37,7 +37,7 @@ function sendQuery() {
               // additional header
               'client-id': '123456'
             };
-    stompClient.send("/app/trade", headers, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
+    stompClient.send("/app/query", headers, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
 }
 
 function greetingsCallBack(greeting) {
