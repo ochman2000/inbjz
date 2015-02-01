@@ -1,17 +1,13 @@
-create user student password 'abc';
-
-create schema adm;
-
-crate table adm.students (
+create table students (
 	id INT NOT NULL,
 	first_name VARCHAR (100),
 	last_name VARCHAR(100),
 	date_created DATETIME default sysdate
-)
-ALTER TABLE adm.students ADD CONSTRAINT adm.students_id_pk PRIMARY KEY (id);
-CREATE UNIQUE INDEX adm.IDX_STUDENTS_SECTION_NUMBER ON adm.students (section, number);
+);
+ALTER TABLE students ADD CONSTRAINT students_id_pk PRIMARY KEY (id);
 
-create table adm.tasks (
+
+create table tasks (
  id INT NOT NULL
  , section INT NOT NULL
  , number INT NOT NULL
@@ -20,10 +16,11 @@ create table adm.tasks (
  , type VARCHAR (10)
  , author VARCHAR (100)
  , date_created DATETIME default sysdate
-)
-ALTER TABLE adm.tasks ADD CONSTRAINT adm.tasks_id_pk PRIMARY KEY (id);
+);
+ALTER TABLE tasks ADD CONSTRAINT tasks_id_pk PRIMARY KEY (id);
+CREATE UNIQUE INDEX IDX_TASKS_SECTION_NUMBER ON tasks (section, number);
 
-create table adm.logs(
+create table logs(
 	id    INT NOT NULL
     , student_id INT
 	, session_ID VARCHAR(100)
@@ -32,23 +29,27 @@ create table adm.logs(
 	, answer VARCHAR(2000)
 	, correct VARCHAR(5)
 	, log_date DATETIME default sysdate
-)
-ALTER TABLE adm.logs ADD CONSTRAINT adm.logs_log_id_pk PRIMARY KEY (id);
-ALTER TABLE adm.logs ADD CONSTRAINT adm.logs_student_fk FOREIGN KEY (student_id) REFERENCES adm.students(id);
-ALTER TABLE adm.logs ADD CONSTRAINT adm.logs_task_fk FOREIGN KEY (task_id) REFERENCES adm.tasks (id);
+);
+ALTER TABLE logs ADD CONSTRAINT logs_log_id_pk PRIMARY KEY (id);
+ALTER TABLE logs ADD CONSTRAINT logs_student_fk FOREIGN KEY (student_id) REFERENCES students(id);
+ALTER TABLE logs ADD CONSTRAINT logs_task_fk FOREIGN KEY (task_id) REFERENCES tasks (id);
 
+create user student password 'abc';
 --GRANT ALTER ANY SCHEMA TO STUDENT;
-REVOKE Insert on adm.students from STUDENT;
-REVOKE update on adm.students from STUDENT;
-REVOKE delete on adm.students from STUDENT;
+grant select on students to STUDENT;
+REVOKE Insert on students from STUDENT;
+REVOKE update on students from STUDENT;
+REVOKE delete on students from STUDENT;
 
-REVOKE Insert on adm.tasks from STUDENT;
-REVOKE update on adm.tasks from STUDENT;
-REVOKE delete on adm.tasks from STUDENT;
+grant select on tasks to STUDENT;
+REVOKE Insert on tasks from STUDENT;
+REVOKE update on tasks from STUDENT;
+REVOKE delete on tasks from STUDENT;
 
-REVOKE Insert on adm.logs from STUDENT;
-REVOKE update on adm.logs from STUDENT;
-REVOKE delete on adm.logs from STUDENT;
+grant select on logs to STUDENT;
+REVOKE Insert on logs from STUDENT;
+REVOKE update on logs from STUDENT;
+REVOKE delete on logs from STUDENT;
 
 grant all on countries to student;
 grant all on jobs to student;
