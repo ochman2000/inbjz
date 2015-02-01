@@ -51,12 +51,6 @@ REVOKE Insert on logs from STUDENT;
 REVOKE update on logs from STUDENT;
 REVOKE delete on logs from STUDENT;
 
-grant all on countries to student;
-grant all on jobs to student;
-grant all on employees to student;
-grant all on regions to student;
-grant all on departments to student;
-
 --select * from information_schema.rights;
 --select * from information_schema.COLUMN_PRIVILEGES;
 --select * from INFORMATION_SCHEMA.TABLE_PRIVILEGES;
