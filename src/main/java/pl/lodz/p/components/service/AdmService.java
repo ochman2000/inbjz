@@ -14,7 +14,7 @@ import pl.lodz.p.core.Request;
 import pl.lodz.p.core.Status;
 import pl.lodz.p.core.Type;
 import pl.lodz.p.dao.DatabaseDao;
-import pl.lodz.p.h2.DatabaseStudImpl;
+import pl.lodz.p.h2.DatabaseAdmImpl;
 
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -25,15 +25,15 @@ import java.util.List;
  */
 
 @Service
-public class QueryService extends DbService {
+public class AdmService extends DbService {
 
     @Override
     protected DatabaseDao getDatabase(Request request) {
         DatabaseDao database;
         if ("real".equals(request.getMode())) {
-            database = DatabaseStudImpl.getInstance();
+            database = DatabaseAdmImpl.getInstance();
         } else {
-            database = new DatabaseStudImpl();
+            database = new DatabaseAdmImpl();
         }
         return database;
     }

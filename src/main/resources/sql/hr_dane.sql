@@ -1,3 +1,4 @@
+delete from regions;
 INSERT INTO regions  VALUES
         ( 1
         , 'Europe'

@@ -12,14 +12,13 @@ import pl.lodz.p.dao.DatabaseDao;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DatabaseImpl implements DatabaseDao {
+public class DatabaseStudImpl implements DatabaseDao {
 
     private JdbcTemplate jdbcTemplate;
-    private static final Logger logger = LoggerFactory.getLogger(DatabaseImpl.class);
-    private static DatabaseImpl instance;
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseStudImpl.class);
+    private static DatabaseStudImpl instance;
 
-
-    public DatabaseImpl() {
+    public DatabaseStudImpl() {
         SimpleDriverDataSource dataSource = getDataSource(User.SA);
         jdbcTemplate = new JdbcTemplate(dataSource);
         init(jdbcTemplate);
@@ -28,10 +27,10 @@ public class DatabaseImpl implements DatabaseDao {
     private SimpleDriverDataSource getDataSource(User user) {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
+        dataSource.setUrl("jdbc:h2:./adm");
 
         if (user==User.SA) {
             dataSource.setUsername("SA");
-            dataSource.setUrl("jdbc:h2:./mem");
             @SuppressWarnings("unused")
             String salt = "Politechnika";
             @SuppressWarnings("unused")
@@ -42,14 +41,13 @@ public class DatabaseImpl implements DatabaseDao {
         }
         if (user==User.STUDENT) {
             dataSource.setUsername("STUDENT");
-            dataSource.setUrl("jdbc:h2:./mem");
             dataSource.setPassword("abc");
         }
         return dataSource;
     }
 
-    public static DatabaseImpl getInstance() {
-        return instance = instance == null ? new DatabaseImpl() : instance;
+    public static DatabaseStudImpl getInstance() {
+        return instance = instance == null ? new DatabaseStudImpl() : instance;
     }
 
     private void init(JdbcTemplate jdbcTemplate) {
@@ -59,7 +57,7 @@ public class DatabaseImpl implements DatabaseDao {
         logger.info("Inserting data to HR");
         jdbcTemplate.execute(DatabaseUtils.getHrData());
         logger.info("Inserting data finished.");
-        logger.info("Creaating schema test_pracownicy");
+        logger.info("Creating schema test_pracownicy");
         jdbcTemplate.execute(DatabaseUtils.getTworzPracownicy());
         jdbcTemplate.execute(DatabaseUtils.getWstawDanePracownicy());
         logger.info("Inserting data finished.");
