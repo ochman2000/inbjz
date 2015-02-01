@@ -44,7 +44,7 @@ public class InbjzResultSet {
         this.correct = correct;
     }
 
-    public String type() {
+    public String getType() {
         return type;
     }
 

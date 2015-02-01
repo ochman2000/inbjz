@@ -40,12 +40,14 @@ public class QueryService {
         try {
             actual = database.executeQuery(request.getQuery());
             actualHeaders = database.getLabels(request.getQuery());
-        } catch (DuplicateKeyException | UncategorizedSQLException | JdbcSQLException e) {
-            if (e.getMessage().endsWith("[90002-176]")) {
+        } catch (UncategorizedSQLException e) {
+            if (e.getSQLException().getErrorCode()==90002){
                 return fallBackUpdate(request, res);
             } else {
                 return handleException(e, res);
             }
+        } catch (DuplicateKeyException | JdbcSQLException e) {
+            return handleException(e, res);
         } catch (DataIntegrityViolationException | SQLException e) {
             return handleException(e, res);
         } catch (Exception e) {
