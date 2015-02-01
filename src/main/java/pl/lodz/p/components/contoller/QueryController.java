@@ -4,29 +4,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.MessageHeaders;
-import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pl.lodz.p.components.model.ChatMessage;
 import pl.lodz.p.components.service.QueryService;
 import pl.lodz.p.core.InbjzResultSet;
 import pl.lodz.p.core.Request;
 
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -48,28 +40,23 @@ public class QueryController {
         this.session = session;
     }
 
-//    @MessageMapping("/trade")
-//    @SendToUser("/queue/position-updates")
-//    public InbjzResultSet executeTrade(Request message, Principal principal) {
-//        return queryService.select(message);
-//    }
-
     @MessageMapping("/query")
     @SendToUser("/queue/position-updates")
     public InbjzResultSet executeQuery(Request message, MessageHeaders messageHeaders) {
         String clientId = getClientString(messageHeaders);
+        logger.info("Client ID: "+clientId);
         return queryService.select(message);
     }
 
     private String getClientString(MessageHeaders messageHeaders) {
-        return getNativeHeaders(messageHeaders).get("client-id").get(0);
+        if (messageHeaders==null) { return null; }
+        LinkedMultiValueMap<String, String> nativeHeaders =
+                (LinkedMultiValueMap<String, String>) messageHeaders.get("nativeHeaders");
+        if (nativeHeaders==null) { return null; }
+        List<String> strings = nativeHeaders.get("client-id");
+        if (strings==null || strings.size()==0) { return null; }
+        return strings.get(0);
     }
-
-    private LinkedMultiValueMap<String, String> getNativeHeaders(MessageHeaders messageHeaders) {
-        return (LinkedMultiValueMap<String, String>) messageHeaders.get("nativeHeaders");
-    }
-
-
 
 //    @MessageMapping("/chats")
 //    @SendToUser("/queue/chats")

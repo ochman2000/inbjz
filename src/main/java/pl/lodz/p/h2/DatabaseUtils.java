@@ -1,7 +1,7 @@
 package pl.lodz.p.h2;
 
-import pl.lodz.p.config.Application;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,7 +10,6 @@ import java.nio.file.*;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 /**
  * Created by Łukasz Ochmański on 1/15/2015.
@@ -21,6 +20,7 @@ public class DatabaseUtils {
     private static String HR_DATA;
     private static String TWORZ_PRACOWNICY;
     private static String WSTAW_DANE_PRACOWNICY;
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseUtils.class);
 
     public static void refreshAll() {
         HR_SCHEMA = getScript("sql/hr_schemat.sql");
@@ -64,10 +64,10 @@ public class DatabaseUtils {
             Path path = resourceToPath(url);
             lines = Files.readAllLines(path);
         } catch (IOException | URISyntaxException e) {
-            Logger.getGlobal().severe(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         } catch (Throwable t) {
-            Logger.getGlobal().severe(t.getCause().getMessage());
+            logger.error(t.getCause().getMessage());
             return null;
         }
         StringBuilder sb = new StringBuilder();

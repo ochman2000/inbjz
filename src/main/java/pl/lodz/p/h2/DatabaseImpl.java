@@ -4,25 +4,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
 import pl.lodz.p.dao.DatabaseDao;
-import pl.lodz.p.config.Application;
 
 public class DatabaseImpl implements DatabaseDao {
 
     private JdbcTemplate jdbcTemplate;
-    private Logger logger;
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseImpl.class);
     private static DatabaseImpl instance;
 
 
     public DatabaseImpl() {
-        logger = Logger.getGlobal();
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
         dataSource.setUsername("sa");

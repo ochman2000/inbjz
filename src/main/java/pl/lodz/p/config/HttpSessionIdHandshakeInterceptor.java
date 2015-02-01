@@ -1,5 +1,6 @@
 package pl.lodz.p.config;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpRequest;
@@ -15,6 +16,8 @@ import java.util.logging.Logger;
  */
 public class HttpSessionIdHandshakeInterceptor implements HandshakeInterceptor {
 
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(HttpSessionIdHandshakeInterceptor.class);
+
     public boolean beforeHandshake(ServerHttpRequest request,
                                    ServerHttpResponse response,
                                    WebSocketHandler wsHandler,
@@ -25,7 +28,7 @@ public class HttpSessionIdHandshakeInterceptor implements HandshakeInterceptor {
             HttpSession session = servletRequest.getServletRequest().getSession(true);
             if (session != null) {
                 attributes.put("HTTPSESSIONID", session.getId());
-                Logger.getGlobal().info("Session ID: "+session.getId());
+                logger.info("Session ID: " + session.getId());
             }
         }
         return true;

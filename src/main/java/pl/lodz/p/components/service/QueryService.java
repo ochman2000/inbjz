@@ -1,20 +1,24 @@
 package pl.lodz.p.components.service;
 
 import org.h2.jdbc.JdbcSQLException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.lodz.p.core.*;
+import pl.lodz.p.core.InbjzResultSet;
+import pl.lodz.p.core.Request;
+import pl.lodz.p.core.Status;
+import pl.lodz.p.core.Type;
 import pl.lodz.p.dao.DatabaseDao;
 import pl.lodz.p.h2.DatabaseImpl;
 
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Created by Łukasz Ochmański on 1/14/2015.
@@ -23,7 +27,7 @@ import java.util.logging.Logger;
 @Service
 public class QueryService {
 
-    private Logger logger = Logger.getGlobal();
+    private static final Logger logger = LoggerFactory.getLogger(QueryService.class);
 
     @Transactional
     public InbjzResultSet select(Request request) {
@@ -61,7 +65,7 @@ public class QueryService {
     }
 
     private InbjzResultSet handleException(Throwable t, InbjzResultSet res) {
-        logger.severe(t.getClass() + " " + t.getMessage());
+        logger.error(t.getClass() + " " + t.getMessage());
         res.setStatus(Status.ERROR);
         res.setCorrect(false);
         res.setErrorMessage(t.getCause().getMessage());
@@ -112,7 +116,7 @@ public class QueryService {
         try {
             result = database.executeQuery(request.getQuery());
         } catch (SQLException e) {
-            logger.severe(e.getMessage());
+            logger.error(e.getMessage());
         }
         StringBuilder sb = new StringBuilder();
         for (String[] row : result) {

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class Application {
 
     public static void main(String[] args) {
-        getCustomLogger();
+//        getCustomLogger();
         SpringApplication.run(Application.class, args);
     }
 

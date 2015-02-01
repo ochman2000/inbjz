@@ -7701,3 +7701,9 @@ lkjlkj [42000-182]
 02-01 02:24:21 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "LKJKJ[*] "; SQL statement:
 lkjkj [42000-182]
+02-01 12:15:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "LKJLKJ[*] "; SQL statement:
+lkjlkj [42000-182]
+02-01 12:26:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SDFSADF[*] "; expected "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"; SQL statement:
+sdfsadf [42001-182]
