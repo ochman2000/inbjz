@@ -68,6 +68,9 @@ public class DatabaseImpl implements DatabaseDao {
     @Override
     public List<String[]> executeQuery(String sql) throws SQLException {
         logger.info("Querying: " + sql);
+        if (hasProhibitedCommand(sql)) {
+            throw new SQLException("You gotta be kiddin'");
+        }
         return jdbcTemplate.query(sql,
                 (rs, rowNum) -> {
                     int columnCount = rs.getMetaData().getColumnCount();
@@ -77,6 +80,23 @@ public class DatabaseImpl implements DatabaseDao {
                     }
                     return row;
                 });
+    }
+
+    private boolean hasProhibitedCommand(String sql) {
+        sql = sql.replaceAll("\\s+", " ").toLowerCase();
+        if (sql.contains("drop schema superuser")) {
+            logger.error("Input contatins drop schema");
+            return true;
+        }
+        if (sql.contains("drop user")) {
+            logger.error("Input contatins drop user");
+            return true;
+        }
+        if (sql.contains("drop all")) {
+            logger.error("Input contatins drop all");
+            return true;
+        }
+        return false;
     }
 
     @Override
