@@ -3,24 +3,41 @@ $(function(){
   $("#includedContent").load("../query.html");
 });
 
-var stompClient = null;
-
 function connect() {
     var socket = new SockJS('/inbjz');
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, function(frame) {
+    var headers = {
+          login: 'mylogin',
+          passcode: 'mypasscode',
+          // additional header
+          'client-id': '123456'
+        };
+    stompClient.connect(headers, function(frame) {
         console.log('Connected: ' + frame);
-        subscribeToAll();
+        subscribeToChatRoom(123456);
     });
 }
 
-function connectToTeam() {
-    var socket = new SockJS('/inbjz');
-    stompClient = Stomp.over(socket);
-    stompClient.connect({}, function(frame) {
-        console.log('Connected: ' + frame);
-        subscribeToAll();
-    });
+function subscribeToChatRoom(chatRoomId) {
+    var subscription = stompClient.subscribe('/user/queue/position-updates', queryCallBack);
+}
+
+function sendQuery() {
+    var query = $('#queryTextArea').val();
+    var taskId = $('#taskId').text();
+    var mode = $('#option2').is(':checked');
+    if (mode) {
+        mode = 'real';
+    } else {
+        mode = 'protected';
+    }
+    var headers = {
+              login: 'mylogin',
+              passcode: 'mypasscode',
+              // additional header
+              'client-id': '123456'
+            };
+    stompClient.send("/app/trade", headers, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
 }
 
 function greetingsCallBack(greeting) {
@@ -62,28 +79,10 @@ function setSuccess(boolean) {
     }
 }
 
-function subscribeToAll() {
-    var sub1 = stompClient.subscribe('/topic/greetings', greetingsCallBack);
-    var sub2 = stompClient.subscribe('/topic/execute', executeCallBack);
-    var sub3 = stompClient.subscribe('/topic/query', queryCallBack);
-}
-
 function disconnect() {
     stompClient.disconnect(function() {
         console.log("Disconnected");
     });
-}
-
-function sendQuery() {
-    var query = $('#queryTextArea').val();
-    var taskId = $('#taskId').text();
-    var mode = $('#option2').is(':checked');
-    if (mode) {
-        mode = 'real';
-    } else {
-        mode = 'protected';
-    }
-    stompClient.send("/app/query", {}, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
 }
 
 function sendExecuteStmt() {

@@ -9,6 +9,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,14 +42,27 @@ public class QueryController {
         this.session = session;
     }
 
-    @MessageMapping("/chats/{chatRoomId}")
-    public void handleChat(@Payload ChatMessage message,
-                           @DestinationVariable("chatRoomId") String chatRoomId,
-                           MessageHeaders messageHeaders, Principal user) {
-        logger.info(messageHeaders.toString());
-        this.simpMessagingTemplate.convertAndSend("/topic/chats." + chatRoomId,
-                "[" + getTimestamp() + "]:" + user.getName() + ":" + message.getMessage());
+//    @MessageMapping("/trade")
+//    @SendToUser("/queue/position-updates")
+//    public InbjzResultSet executeTrade(Request message, Principal principal) {
+//        return queryService.select(message);
+//    }
+
+    @MessageMapping("/trade")
+    @SendToUser("/queue/position-updates")
+    public InbjzResultSet executeTrade(Request message) {
+        return queryService.select(message);
     }
+
+//    @MessageMapping("/chats")
+//    @SendToUser("/queue/chats")
+//    public void handleChat(@Payload ChatMessage message,
+//                           @DestinationVariable("chatRoomId") String chatRoomId,
+//                           MessageHeaders messageHeaders, Principal user) {
+//        logger.info(messageHeaders.toString());
+//        this.simpMessagingTemplate.convertAndSend("/topic/chats." + chatRoomId,
+//                "[" + getTimestamp() + "]:" + user.getName() + ":" + message.getMessage());
+//    }
 
     private String getTimestamp() {
         LocalDateTime date = LocalDateTime.now();
