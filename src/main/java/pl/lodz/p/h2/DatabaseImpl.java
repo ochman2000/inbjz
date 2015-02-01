@@ -69,7 +69,8 @@ public class DatabaseImpl implements DatabaseDao {
     public List<String[]> executeQuery(String sql) throws SQLException {
         logger.info("Querying: " + sql);
         if (hasProhibitedCommand(sql)) {
-            throw new SQLException("You gotta be kiddin'");
+            Throwable t = new Throwable("Nice try :)");
+            throw new SQLException("Nice try :)", t);
         }
         return jdbcTemplate.query(sql,
                 (rs, rowNum) -> {
