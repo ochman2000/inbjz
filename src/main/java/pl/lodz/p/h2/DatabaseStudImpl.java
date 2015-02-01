@@ -27,7 +27,7 @@ public class DatabaseStudImpl implements DatabaseDao {
     private SimpleDriverDataSource getDataSource(User user) {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
-        dataSource.setUrl("jdbc:h2:./adm");
+        dataSource.setUrl("jdbc:h2:./mem");
 
         if (user==User.SA) {
             dataSource.setUsername("SA");

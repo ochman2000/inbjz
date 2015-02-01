@@ -5,8 +5,12 @@ package pl.lodz.p.core;
  */
 public class Task {
     private int id;
-    private int chapter;
+    private int section;
     private int number;
+    private String question;
+    private String type;
+    private String author;
+    private String answer;
 
     public int getId() {
         return id;
@@ -16,12 +20,12 @@ public class Task {
         this.id = id;
     }
 
-    public int getChapter() {
-        return chapter;
+    public int getSection() {
+        return section;
     }
 
-    public void setChapter(int chapter) {
-        this.chapter = chapter;
+    public void setSection(int section) {
+        this.section = section;
     }
 
     public int getNumber() {
@@ -32,14 +36,6 @@ public class Task {
         this.number = number;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getAnswer() {
         return answer;
     }
@@ -48,6 +44,28 @@ public class Task {
         this.answer = answer;
     }
 
-    private String description;
-    private String answer;
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
 }

@@ -14,7 +14,7 @@ public class TaskRepositoryImpl implements TaskRepository {
 
     public TaskRepositoryImpl(){
         Task t01 = new Task();
-        t01.setChapter(1);
+        t01.setSection(1);
         t01.setId(1);
         t01.setNumber(1);
         t01.setAnswer("se");

@@ -92,7 +92,7 @@ function sendExecuteStmt() {
 
 function buildErrorBox(result) {
     $('#consoleBox').empty();
-    var cosnoleBox = document.getElementById('consoleBox');
+    var consoleBox = document.getElementById('consoleBox');
     var text = document.createTextNode(result.errorMessage);
     consoleBox.appendChild(text);
 
@@ -101,7 +101,7 @@ function buildErrorBox(result) {
 
 function buildConsoleBox(result) {
     $('#consoleBox').empty();
-    var cosnoleBox = document.getElementById('consoleBox');
+    var consoleBox = document.getElementById('consoleBox');
     var text = document.createTextNode(result.consoleOutput);
     consoleBox.appendChild(text);
 

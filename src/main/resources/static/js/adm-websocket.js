@@ -1,17 +1,39 @@
 
 $(function(){
-  $("#includedContent").load("../query.html");
+  $("#includedContent").load("adm/query.html");
 });
-
-var stompClient = null;
 
 function connect() {
     var socket = new SockJS('/inbjz');
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, function(frame) {
+    var headers = {
+          login: 'mylogin',
+          passcode: 'mypasscode',
+          // additional header
+          'client-id': '123456'
+        };
+    stompClient.connect(headers, function(frame) {
         console.log('Connected: ' + frame);
-        subscribeToAll();
+        stompClient.subscribe('/user/queue/position-updates', queryCallBack);
     });
+}
+
+function sendQuery() {
+    var query = $('#queryTextArea').val();
+    var taskId = $('#taskId').text();
+    var mode = $('#option2').is(':checked');
+    if (mode) {
+        mode = 'real';
+    } else {
+        mode = 'protected';
+    }
+    var headers = {
+              login: 'mylogin',
+              passcode: 'mypasscode',
+              // additional header
+              'client-id': '123456'
+            };
+    stompClient.send("/app/task/query", headers, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
 }
 
 function greetingsCallBack(greeting) {
@@ -26,17 +48,17 @@ function queryCallBack(statement) {
     var response = JSON.parse(statement.body);
 
     if (response.status === 'ERROR') {
-        $("#resultContent").load("../console.html", function() {
+        $("#resultContent").load("adm/console.html", function() {
             buildErrorBox(response);
             setSuccess(false);
         });
     } else if (response.type === 'execute') {
-        $("#resultContent").load("../console.html", function() {
+        $("#resultContent").load("adm/console.html", function() {
             buildConsoleBox(response);
             setSuccess(true);
         });
     } else {
-        $("#resultContent").load("../result.html", function() {
+        $("#resultContent").load("adm/result.html", function() {
             buildResultTables(response);
             setSuccess(response.correct);
         });
@@ -53,33 +75,15 @@ function setSuccess(boolean) {
     }
 }
 
-function subscribeToAll() {
-    var sub1 = stompClient.subscribe('/topic/greetings', greetingsCallBack);
-    var sub2 = stompClient.subscribe('/topic/execute', executeCallBack);
-    var sub3 = stompClient.subscribe('/topic/query', queryCallBack);
-}
-
 function disconnect() {
     stompClient.disconnect(function() {
         console.log("Disconnected");
     });
 }
 
-function sendQuery() {
-    var query = $('#queryTextArea').val();
-    var taskId = $('#taskId').text();
-    var mode = $('#option2').is(':checked');
-    if (mode) {
-        mode = 'real';
-    } else {
-        mode = 'protected';
-    }
-    stompClient.send("/app/teamQuery", {}, JSON.stringify({ 'query': query, 'taskId': taskId, 'mode':mode}));
-}
-
 function sendExecuteStmt() {
     var query = $('#queryTextArea').val();
-    stompClient.send("/app/teamExecute", {}, JSON.stringify({ 'query': query }));
+    stompClient.send("/app/task/execute", {}, JSON.stringify({ 'query': query }));
 }
 
 function buildErrorBox(result) {
@@ -114,13 +118,6 @@ function buildResultTables(result) {
     tableBody = getTableBody(result.actual);
     actualTable.appendChild(tableHeader);
     actualTable.appendChild(tableBody);
-
-    $('#expected_table').empty();
-    expectedTable = document.getElementById('expected_table');
-    tableHeader = getTableHeader(result.expectedHeaders);
-    tableBody = getTableBody(result.expected);
-    expectedTable.appendChild(tableHeader);
-    expectedTable.appendChild(tableBody);
 
     $('#sendQueryBtn').button('reset');
 }
