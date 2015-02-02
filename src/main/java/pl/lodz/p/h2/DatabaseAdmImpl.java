@@ -20,8 +20,8 @@ public class DatabaseAdmImpl implements DatabaseDao {
     private static DatabaseAdmImpl instance;
 
 
-    public DatabaseAdmImpl() {
-        SimpleDriverDataSource dataSource = getDataSource(User.SA);
+    private DatabaseAdmImpl(User user) {
+        SimpleDriverDataSource dataSource = getDataSource(user);
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
@@ -47,8 +47,8 @@ public class DatabaseAdmImpl implements DatabaseDao {
         return dataSource;
     }
 
-    public static DatabaseAdmImpl getInstance() {
-        return instance = instance == null ? new DatabaseAdmImpl() : instance;
+    public static DatabaseAdmImpl getInstance(User user) {
+        return instance = instance == null ? new DatabaseAdmImpl(user) : instance;
     }
 
     @Override

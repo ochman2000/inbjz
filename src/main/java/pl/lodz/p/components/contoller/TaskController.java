@@ -12,6 +12,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.lodz.p.components.service.AdmService;
+import pl.lodz.p.components.service.AdmStudentService;
 import pl.lodz.p.core.InbjzResultSet;
 import pl.lodz.p.core.Request;
 import pl.lodz.p.core.Task;
@@ -31,6 +32,8 @@ public class TaskController {
     @Autowired
     private AdmService admService;
     @Autowired
+    AdmStudentService admStudentService;
+    @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
     @Autowired
     private HttpSession session;
@@ -38,8 +41,12 @@ public class TaskController {
     private static final Logger logger = LoggerFactory.getLogger(QueryController.class);
 
     @Autowired
-    public TaskController(AdmService admService, SimpMessagingTemplate simpMessagingTemplate, HttpSession session) {
+    public TaskController(AdmService admService,
+                          AdmStudentService admStudentService,
+                          SimpMessagingTemplate simpMessagingTemplate,
+                          HttpSession session) {
         this.admService = admService;
+        this.admStudentService = admStudentService;
         this.simpMessagingTemplate = simpMessagingTemplate;
         this.session = session;
     }
@@ -49,7 +56,7 @@ public class TaskController {
     public InbjzResultSet executeQuery(Request message, MessageHeaders messageHeaders) {
         String clientId = getClientString(messageHeaders);
         logger.info("Client ID: "+clientId);
-        return admService.select(message);
+        return admStudentService.select(message);
     }
 
     private String getClientString(MessageHeaders messageHeaders) {

@@ -11,10 +11,10 @@ import pl.lodz.p.h2.DatabaseAdmImpl;
  */
 
 @Service
-public class AdmService extends DbService {
+public class AdmStudentService extends DbService {
 
     @Override
     protected DatabaseDao getDatabase(Request request) {
-        return DatabaseAdmImpl.getInstance(User.SA);
+        return DatabaseAdmImpl.getInstance(User.STUDENT);
     }
 }
