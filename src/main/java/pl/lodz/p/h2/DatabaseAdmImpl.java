@@ -14,6 +14,7 @@ import java.util.List;
 
 public class DatabaseAdmImpl implements DatabaseDao {
 
+
     private JdbcTemplate jdbcTemplate;
     private static final Logger logger = LoggerFactory.getLogger(DatabaseAdmImpl.class);
     private static DatabaseAdmImpl instance;
@@ -52,7 +53,11 @@ public class DatabaseAdmImpl implements DatabaseDao {
 
     @Override
     public List<String[]> executeQuery(String sql) throws SQLException {
-        logger.info("Querying: " + sql.substring(0, 200));
+        String trimmed = sql;
+        if (sql.length() > MAX_CHAR) {
+            trimmed = sql.substring(0, MAX_CHAR)+"...";
+        }
+        logger.info("Querying: " + trimmed);
         if (hasProhibitedCommand(sql)) {
             Throwable t = new Throwable("Nice try :)");
             throw new SQLException("Nice try :)", t);

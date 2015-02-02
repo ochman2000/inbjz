@@ -65,7 +65,11 @@ public class DatabaseStudImpl implements DatabaseDao {
 
     @Override
     public List<String[]> executeQuery(String sql) throws SQLException {
-        logger.info("Querying: " + sql.substring(0, 200));
+        String trimmed = sql;
+        if (sql.length() > MAX_CHAR) {
+            trimmed = sql.substring(0, MAX_CHAR)+"...";
+        }
+        logger.info("Querying: " + trimmed);
         if (hasProhibitedCommand(sql)) {
             Throwable t = new Throwable("Nice try :)");
             throw new SQLException("Nice try :)", t);
