@@ -52,7 +52,7 @@ public class DatabaseAdmImpl implements DatabaseDao {
 
     @Override
     public List<String[]> executeQuery(String sql) throws SQLException {
-        logger.info("Querying: " + sql);
+        logger.info("Querying: " + sql.substring(0, 200));
         if (hasProhibitedCommand(sql)) {
             Throwable t = new Throwable("Nice try :)");
             throw new SQLException("Nice try :)", t);
