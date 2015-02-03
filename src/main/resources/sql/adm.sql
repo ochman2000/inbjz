@@ -54,7 +54,9 @@ create table login_events(
 	, session_id INT
 	, login_date DATETIME
 	, login_input VARCHAR(100)
-	, success CHAR(1)
+	, success CHAR(1),
+	, ip VARCHAR(40),
+	, USER_AGENT VARCHAR(500)
 );
 CREATE INDEX IDX_login_events_student_id ON login_events (student_id);
 CREATE INDEX IDX_login_events_session_id ON login_events (session_id);
