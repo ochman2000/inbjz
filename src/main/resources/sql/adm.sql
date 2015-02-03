@@ -58,9 +58,21 @@ create table login_events(
 	, ip VARCHAR(40),
 	, USER_AGENT VARCHAR(500)
 );
+ALTER TABLE login_events ADD CONSTRAINT login_events_id_pk PRIMARY KEY (id);
 CREATE INDEX IDX_login_events_student_id ON login_events (student_id);
 CREATE INDEX IDX_login_events_session_id ON login_events (session_id);
 CREATE INDEX IDX_login_events_login_date ON login_events (login_date);
+
+create table answers (
+	id INT NOT NULL
+	, task_id INT
+	, answer VARCHAR(2000)
+	, DATE_CREATED DATETIME DEFAULT CURRENT_TIMESTAMP()
+	, DATE_MODIFIED DATETIME
+);
+ALTER TABLE answers ADD CONSTRAINT answers_id_pk PRIMARY KEY (id);
+CREATE INDEX IDX_answers_task_id ON answers (task_id);
+ALTER TABLE answers ADD CONSTRAINT answers_task_fk FOREIGN KEY (task_id) REFERENCES tasks (id);
 
 create user student password 'abc';
 --GRANT ALTER ANY SCHEMA TO STUDENT;
