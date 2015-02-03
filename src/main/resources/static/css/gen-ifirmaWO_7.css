@@ -626,14 +626,7 @@ table .alert {
   .form-horizontal .checkbox-inline {
     padding-top: 0 !important;
   }
-  .form-group .form-control,
-  .form-group .radio label,
-  .form-group .checkbox label,
-  .form-group .checkbox-inline,
-  .form-group .input-group,
-  .form-group .btn {
-    margin-top: -7px;
-  }
+
   .form-group .input-group .form-control,
   .form-group .input-group .btn {
     margin-top: 0px !important;
