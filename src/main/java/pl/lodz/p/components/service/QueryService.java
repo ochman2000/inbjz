@@ -81,6 +81,9 @@ public class QueryService extends DbService {
         res.setStatus(Status.OK);
         res.setCorrect("QUERY".equals(definedType) ? equals(actual, expected) : true);
         res.setContent("String representation of this result");
+        if (res.isCorrect()) {
+            admService.logPoint(request.getTaskId(), clientId, request.getQuery());
+        }
         return res;
     }
 }

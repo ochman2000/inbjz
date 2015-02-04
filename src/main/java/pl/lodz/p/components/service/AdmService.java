@@ -88,4 +88,28 @@ public class AdmService extends DbService {
             return null;
         }
     }
+
+    public void logPoint(int taskId, String clientId, String givenAnswer) {
+        DatabaseDao database = getDatabase();
+        try {
+            database.executeStmt("insert into logs (id, student_id, client_id, task_id, answer, correct) values (id, "+
+            clientId +", "+
+    //                session_id + ", "+
+                    clientId + ", "+
+                    taskId + ", " +
+                    givenAnswer +", " +
+                    "TRUE" +");");
+        } catch (SQLException e) {
+            logger.error(e.getCause().getMessage());
+        }
+
+//        ID INT NOT NULL,
+//        STUDENT_ID INT,
+//        SESSION_ID VARCHAR(100),
+//                CLIENT_ID VARCHAR(20),
+//                TASK_ID INT,
+//                ANSWER VARCHAR(2000),
+//                CORRECT VARCHAR(5),
+//                LOG_DATE DATETIME DEFAULT CURRENT_TIMESTAMP()
+    }
 }

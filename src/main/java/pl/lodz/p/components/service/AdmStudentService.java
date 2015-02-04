@@ -22,7 +22,8 @@ public class AdmStudentService extends DbService {
 
     @Override
     protected DatabaseDao getDatabase(Request request) {
-        return DatabaseAdmImpl.getInstance(User.STUDENT);
+//        return DatabaseAdmImpl.getInstance(User.STUDENT);
+        return DatabaseAdmImpl.getInstance(User.SA);
     }
 
 
