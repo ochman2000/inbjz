@@ -45,7 +45,7 @@ public class QueryController {
     public InbjzResultSet executeQuery(Request message, MessageHeaders messageHeaders) {
         String clientId = getClientString(messageHeaders);
         logger.info("Client ID: "+clientId);
-        return queryService.select(message);
+        return queryService.select(message, clientId);
     }
 
     private String getClientString(MessageHeaders messageHeaders) {

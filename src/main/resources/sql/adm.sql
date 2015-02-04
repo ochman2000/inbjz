@@ -116,7 +116,7 @@ where placa<(select avg(placa) from test_pracownicy.pracownicy);', sysdate, sysd
 
 insert into tasks values (308, 3, 8, 'Podaj nazwiska, stanowiska i płace pracowników, którzy zarabiają poniżej średniej w firmie.', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
 insert into answers values (308, 308, 'select nazwisko, stanowisko, placa
-from pracownicy
+from test_pracownicy.pracownicy
 where placa<(select avg(placa) from pracownicy);', sysdate, sysdate);
 
 insert into tasks values (309, 3, 9, 'Podaj ilu pracowników pracuje w każdym dziale.', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
@@ -126,9 +126,7 @@ group by id_dzialu
 order by liczba_pracowników;', sysdate, sysdate);
 
 insert into tasks values (310, 3, 10, 'Wypisz w postaci jednego łańcucha nazwisko pracownika i w jakim pracuje dziale.', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
-insert into answers values (310, 310, 'select p.nazwisko+'' pracuje w dziale: ''+d.nazwa as wyniki
-from test_pracownicy.pracownicy p
-inner join dzialy d on p.id_dzialu=d.id_dzialu;', sysdate, sysdate);
+insert into answers values (310, 310, 'select p.nazwisko||' pracuje w dziale: '||d.nazwa as wyniki from test_pracownicy.pracownicy p inner join test_pracownicy.dzialy d on p.id_dzialu=d.id_dzialu;', sysdate, sysdate);
 
 insert into tasks values (311, 3, 11, 'Ilu pracowników zatrudnia każdy dział, na każdym etacie?', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
 insert into answers values (311, 311, 'select id_dzialu, stanowisko, COUNT(*) as liczba_etatów
@@ -138,11 +136,7 @@ group by id_dzialu, stanowisko;', sysdate, sysdate);
 insert into tasks values (312, 3, 12, 'Podaj nazwiska, nazwę działu, płacę, oraz minimalną i maksymalną płacę, jaką może zarobić pracownik
    na swoim stanowisku, jednakże tylko dla tych stanowisk, dla których płaca minimalna jest większa niż
    1500PLN, a płaca maksymalna mniejsza niż 3500PLN.', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
-insert into answers values (312, 312, 'select p.nazwisko, d.nazwa, p.placa, s.placa_min, s.placa_max
-from test_pracownicy.pracownicy p
-join dzialy d on p.id_dzialu=d.id_dzialu
-join stanowiska s on p.stanowisko=s.stanowisko
-where s.placa_min>1500 and s.placa_max<3500;', sysdate, sysdate);
+insert into answers values (312, 312, 'select p.nazwisko, d.nazwa, p.placa, s.placa_min, s.placa_max from test_pracownicy.pracownicy p join test_pracownicy.dzialy d on p.id_dzialu=d.id_dzialu join test_pracownicy.stanowiska s on p.stanowisko=s.stanowisko where s.placa_min>1500 and s.placa_max<3500;', sysdate, sysdate);
 
 insert into tasks values (313, 3, 13, 'Podaj nazwiska i płace pracowników, ktorzy zarabiają więcej niż którykolwiek pracownik z działu 30.', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
 insert into answers values (313, 313, 'select p.nazwisko, p.placa
@@ -156,10 +150,7 @@ insert into answers values (314, 314, 'select p.nazwisko, p.placa,
 from test_pracownicy.pracownicy p;', sysdate, sysdate);
 
 insert into tasks values (315, 3, 15, 'Wypisz nazwę działu i średnią płacę dla jego pracowników.', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
-insert into answers values (315, 315, 'select d.nazwa, avg(p.placa) as średnia
- from test_pracownicy.pracownicy p
- join dzialy d on p.id_dzialu=d.id_dzialu
-  group by d.nazwa;', sysdate, sysdate);
+insert into answers values (315, 315, 'select d.nazwa, avg(p.placa) as średnia from test_pracownicy.pracownicy p join test_pracownicy.dzialy d on p.id_dzialu=d.id_dzialu group by d.nazwa;', sysdate, sysdate);
 
 insert into tasks values (316, 3, 16, 'Wypisz identyfikator działu, nazwisko i płacę pracowników, którzy zarabiają więcej niż wynosi średnia
    płaca w ich dziale.', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
@@ -178,6 +169,4 @@ from test_pracownicy.pracownicy p
 where p.nr_akt in (select t.kierownik from test_pracownicy.pracownicy t);', sysdate, sysdate);
 
 insert into tasks values (318, 3, 18, 'Podaj identyfikator i nazwę działu, który nie zatrudnia pracowników.', null, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
-insert into answers values (318, 318, 'select d.id_dzialu
-from dzialy d
-where not exists (select p.id_dzialu from test_pracownicy.pracownicy p where p.id_dzialu=d.id_dzialu);', sysdate, sysdate);
+insert into answers values (318, 318, 'select d.id_dzialu from test_pracownicy.dzialy d where not exists (select p.id_dzialu from test_pracownicy.pracownicy p where p.id_dzialu=d.id_dzialu);', sysdate, sysdate);

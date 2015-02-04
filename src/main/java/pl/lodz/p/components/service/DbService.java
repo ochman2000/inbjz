@@ -67,7 +67,7 @@ public class DbService {
         return res;
     }
 
-    private InbjzResultSet handleException(Throwable t, InbjzResultSet res) {
+    protected InbjzResultSet handleException(Throwable t, InbjzResultSet res) {
         logger.error(t.getClass() + " " + t.getMessage());
         res.setStatus(Status.ERROR);
         res.setCorrect(false);
@@ -75,7 +75,7 @@ public class DbService {
         return res;
     }
 
-    private InbjzResultSet fallBackUpdate(Request request,InbjzResultSet res) {
+    protected InbjzResultSet fallBackUpdate(Request request,InbjzResultSet res) {
         try {
             return update(request);
         } catch (DuplicateKeyException e1) {
@@ -87,9 +87,12 @@ public class DbService {
         }
     }
 
-    private boolean equals(List<String[]> actual, List<String[]> expected) {
+    protected boolean equals(List<String[]> actual, List<String[]> expected) {
         if (actual==null && expected==null) {
             return true;
+        }
+        if (actual==null || expected==null) {
+            return false;
         }
         if (actual.size()!=expected.size()) {
             return false;

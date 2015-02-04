@@ -11882,3 +11882,115 @@ create schema 2_biblioteka_2; [42001-182]
 02-03 02:47:57 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SAFSFA[*] "; expected "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"; SQL statement:
 safsfa [42001-182]
+02-03 23:33:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "WITH SREDNIE_ZAROBKI_WG_ODZIALU(DEPARTMENT_ID, SREDNIA)
+AS(
+	SELECT DEPARTMENT_ID, AVG(SALARY)
+	FROM EMPLOYEES
+	GROUP BY DEPARTMENT_ID
+	)
+,[*] NAJLEPIEJ_ZARABIAJACY_ODDZIAL
+AS (
+	SELECT DEPARTMENT_ID
+	FROM SREDNIE_ZAROBKI_WG_ODZIALU
+	WHERE SREDNIA = (SELECT MAX(SREDNIA) FROM SREDNIE_ZAROBKI_WG_ODZIALU)
+	)
+, PLACE_PRACOWNIKOW_NAJLEPIEJ_ZARABIAJACEGO_ODZIALU
+AS (
+	SELECT DEPARTMENT_ID, SALARY
+	FROM EMPLOYEES
+	WHERE DEPARTMENT_ID= (SELECT DEPARTMENT_ID FROM NAJLEPIEJ_ZARABIAJACY_ODDZIAL)
+	)	
+SELECT DISTINCT DEPARTMENT_ID, SALARY
+FROM PLACE_PRACOWNIKOW_NAJLEPIEJ_ZARABIAJACEGO_ODZIALU
+WHERE SALARY = (SELECT MIN(SALARY) FROM PLACE_PRACOWNIKOW_NAJLEPIEJ_ZARABIAJACEGO_ODZIALU); "; expected "(, SELECT, FROM"; SQL statement:
+with srednie_zarobki_wg_odzialu(department_id, srednia)
+as(
+	select department_id, avg(salary)
+	from employees
+	group by department_id
+	)
+, najlepiej_zarabiajacy_oddzial
+as (
+	select department_id
+	from srednie_zarobki_wg_odzialu
+	where srednia = (select max(srednia) from srednie_zarobki_wg_odzialu)
+	)
+, place_pracownikow_najlepiej_zarabiajacego_odzialu
+as (
+	select department_id, salary
+	from employees
+	where department_id= (select department_id from najlepiej_zarabiajacy_oddzial)
+	)	
+select distinct department_id, salary
+from place_pracownikow_najlepiej_zarabiajacego_odzialu
+where salary = (select min(salary) from place_pracownikow_najlepiej_zarabiajacego_odzialu); [42001-182]
+02-03 23:43:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PRACOWNICY" not found; SQL statement:
+select nazwisko, stanowisko, placa from pracownicy where placa<(select avg(placa) from test_pracownicy.pracownicy) [42102-182]
+02-03 23:45:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DZIALY" not found; SQL statement:
+select p.nazwisko+' pracuje w dziale: '+d.nazwa as wyniki from test_pracownicy.pracownicy p inner join dzialy d on p.id_dzialu=d.id_dzialu; [42102-182]
+02-03 23:45:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DZIALY" not found; SQL statement:
+select p.nazwisko || ' pracuje w dziale: ' || d.nazwa as wyniki from test_pracownicy.pracownicy p inner join dzialy d on p.id_dzialu=d.id_dzialu; [42102-182]
+02-03 23:46:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Feature not supported: "VARCHAR +"; SQL statement:
+select p.nazwisko+' pracuje w dziale: '+d.nazwa as wyniki from test_pracownicy.pracownicy p inner join test_pracownicy.dzialy d on p.id_dzialu=d.id_dzialu; [50100-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:216)
+	at org.h2.value.Value.throwUnsupportedExceptionForType(Value.java:1098)
+	at org.h2.value.Value.add(Value.java:461)
+	at org.h2.expression.Operation.getValue(Operation.java:145)
+	at org.h2.expression.Operation.getValue(Operation.java:110)
+	at org.h2.expression.Alias.getValue(Alias.java:36)
+	at org.h2.command.dml.Select.queryFlat(Select.java:539)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:644)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.command.dml.Query.query(Query.java:36)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:90)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:79)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:77)
+	at pl.lodz.p.components.service.DbService.select(DbService.java:42)
+	at pl.lodz.p.components.service.DbService$$FastClassBySpringCGLIB$$e23da067.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:717)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:267)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:653)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$fde0c0d9.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor43.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+02-03 23:48:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DZIALY" not found; SQL statement:
+select p.nazwisko, d.nazwa, p.placa, s.placa_min, s.placa_max from test_pracownicy.pracownicy p join dzialy d on p.id_dzialu=d.id_dzialu join stanowiska s on p.stanowisko=s.stanowisko where s.placa_min>1500 and s.placa_max<3500; [42102-182]
+02-03 23:50:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DZIALY" not found; SQL statement:
+select d.nazwa, avg(p.placa) as średnia from test_pracownicy.pracownicy p join dzialy d on p.id_dzialu=d.id_dzialu group by d.nazwa; [42102-182]
+02-03 23:53:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DZIALY" not found; SQL statement:
+select d.id_dzialu from dzialy d where not exists (select p.id_dzialu from test_pracownicy.pracownicy p where p.id_dzialu=d.id_dzialu); [42102-182]
