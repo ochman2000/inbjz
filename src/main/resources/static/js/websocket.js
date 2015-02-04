@@ -6,11 +6,15 @@ $(function(){
 function connect() {
     var socket = new SockJS('/inbjz');
     stompClient = Stomp.over(socket);
+    var studentId = $('#student_id').val();
+        if (!studentId) {
+            studentId=null;
+        }
     var headers = {
           login: 'mylogin',
           passcode: 'mypasscode',
           // additional header
-          'client-id': '123456'
+          'client-id': studentId
         };
     stompClient.connect(headers, function(frame) {
         console.log('Connected: ' + frame);
@@ -24,6 +28,9 @@ function subscribeToChatRoom(chatRoomId) {
 
 function sendQuery() {
     var studentId = $('#student_id').val();
+    if (!studentId) {
+        studentId=null;
+    }
     var query = $('#queryTextArea').val();
     var taskId = $('#taskId').text();
     var mode = $('#option2').is(':checked');
@@ -36,7 +43,7 @@ function sendQuery() {
               login: 'mylogin',
               passcode: 'mypasscode',
               // additional header
-              'client-id': "'"+studentId+"'"
+              'client-id': studentId
             };
     stompClient.send("/app/query", headers, JSON.stringify({ 'query': query, 'taskId': taskId,
      'mode':mode, 'studentId':studentId}));

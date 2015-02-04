@@ -48,7 +48,7 @@ public class QueryService extends DbService {
         List<String[]> actual;
         String answer = admService.getAnswer(request.getTaskId());
         String definedType = admService.getType(request.getTaskId());
-        String[] expectedHeaders = new String[]{"null"};
+        String[] expectedHeaders = new String[]{"Nie znaleziono odpowiedzi do tego zadania."};
         List<String[]> expected = null;
         InbjzResultSet res = new InbjzResultSet();
         res.setTaskId(request.getTaskId());

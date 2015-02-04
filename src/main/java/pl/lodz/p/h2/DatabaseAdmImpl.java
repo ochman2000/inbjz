@@ -14,11 +14,10 @@ import java.util.List;
 
 public class DatabaseAdmImpl implements DatabaseDao {
 
-
     private JdbcTemplate jdbcTemplate;
     private static final Logger logger = LoggerFactory.getLogger(DatabaseAdmImpl.class);
-    private static DatabaseAdmImpl instance;
-
+    private static DatabaseAdmImpl instanceSA;
+    private static DatabaseAdmImpl instanceStudent;
 
     private DatabaseAdmImpl(User user) {
         SimpleDriverDataSource dataSource = getDataSource(user);
@@ -48,7 +47,11 @@ public class DatabaseAdmImpl implements DatabaseDao {
     }
 
     public static DatabaseAdmImpl getInstance(User user) {
-        return instance = instance == null ? new DatabaseAdmImpl(user) : instance;
+        if (User.SA==user) {
+            return instanceSA = instanceSA == null ? new DatabaseAdmImpl(user) : instanceSA;
+        } else {
+            return instanceStudent = instanceStudent == null ? new DatabaseAdmImpl(user) : instanceStudent;
+        }
     }
 
     @Override
