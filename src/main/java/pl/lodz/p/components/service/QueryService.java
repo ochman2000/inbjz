@@ -1,6 +1,8 @@
 package pl.lodz.p.components.service;
 
 import org.h2.jdbc.JdbcSQLException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
@@ -22,6 +24,8 @@ import java.util.List;
 
 @Service
 public class QueryService extends DbService {
+
+    private static final Logger logger = LoggerFactory.getLogger(QueryService.class);
 
     @Autowired
     private AdmService admService;
@@ -81,8 +85,11 @@ public class QueryService extends DbService {
         res.setStatus(Status.OK);
         res.setCorrect("QUERY".equals(definedType) ? equals(actual, expected) : true);
         res.setContent("String representation of this result");
-        if (res.isCorrect()) {
-            admService.logPoint(request.getTaskId(), clientId, request.getQuery());
+        try {
+            admService.logPoint(request.getTaskId(), clientId, request.getQuery(),
+                    res.isCorrect());
+        } catch (Throwable t) {
+            logger.error("Problem with a logging module.");
         }
         return res;
     }

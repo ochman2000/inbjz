@@ -61,7 +61,7 @@ public class AdmService extends DbService {
     }
 
     private String getQuery(int taskId) {
-        return "select answer from answers where task_id="+taskId;
+        return "select a.answer from tasks t join answers a on t.answer_id=a.id where t.id="+taskId;
     }
 
     public String getType(int taskId) {
@@ -89,27 +89,52 @@ public class AdmService extends DbService {
         }
     }
 
-    public void logPoint(int taskId, String clientId, String givenAnswer) {
+    public int logPoint(int taskId, String clientId, String givenAnswer, boolean correct) {
         DatabaseDao database = getDatabase();
+        int answerId = getNextAnswerSeq();
+        if (answerId==-1) {
+            logger.error("Could not retrieve a sequence number for logged_answer");
+            return -1;
+        }
         try {
-            database.executeStmt("insert into logs (id, student_id, client_id, task_id, answer, correct) values (id, "+
-            clientId +", "+
-    //                session_id + ", "+
+            database.executeStmt("insert into logged_answers values (" +
+                    answerId +", '"+givenAnswer+"');");
+
+            database.executeStmt("insert into logs (id, student_id, client_id, task_id, answer_id, correct) " +
+                    "values (" +
+                    "LOGS_SEQ_ID.nextval," +
+                    clientId +", "+
+//                    session_id + ", "+
                     clientId + ", "+
                     taskId + ", " +
-                    givenAnswer +", " +
-                    "TRUE" +");");
+                    answerId +", " +
+                    (correct ? "'TRUE'" : "'FALSE'")
+                    +");");
         } catch (SQLException e) {
             logger.error(e.getCause().getMessage());
         }
+        logger.info("Student "+clientId+" has answered question ID "+taskId+" correctly.");
+        return 0;
+    }
 
-//        ID INT NOT NULL,
-//        STUDENT_ID INT,
-//        SESSION_ID VARCHAR(100),
-//                CLIENT_ID VARCHAR(20),
-//                TASK_ID INT,
-//                ANSWER VARCHAR(2000),
-//                CORRECT VARCHAR(5),
-//                LOG_DATE DATETIME DEFAULT CURRENT_TIMESTAMP()
+    private int getNextAnswerSeq() {
+        DatabaseDao database = getDatabase();
+        List<String[]> actual = null;
+        try {
+            actual = database.executeQuery("select LOGGED_ANSWERS_SEQ_ID.nextval;");
+        } catch (UncategorizedSQLException e) {
+            logger.error(e.getCause().getMessage());
+        } catch (DuplicateKeyException | JdbcSQLException e) {
+            logger.error(e.getCause().getMessage());
+        } catch (DataIntegrityViolationException | SQLException e) {
+            logger.error(e.getCause().getMessage());
+        } catch (Exception e) {
+            logger.error(e.getCause().getMessage());
+        }
+        if (actual!=null && actual.size()==1 && actual.get(0)!=null && actual.get(0).length==1) {
+            return Integer.parseInt(actual.get(0)[0]);
+        } else {
+            return -1;
+        }
     }
 }

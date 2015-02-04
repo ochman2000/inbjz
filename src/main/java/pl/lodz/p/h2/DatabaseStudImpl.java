@@ -51,16 +51,16 @@ public class DatabaseStudImpl implements DatabaseDao {
     }
 
     private void init(JdbcTemplate jdbcTemplate) {
-        logger.info("Creating tables");
-        logger.info("Creating schema HR");
+//        logger.info("Creating tables");
+//        logger.info("Creating schema HR");
         jdbcTemplate.execute(DatabaseUtils.getHrSchema());
-        logger.info("Inserting data to HR");
+//        logger.info("Inserting data to HR");
         jdbcTemplate.execute(DatabaseUtils.getHrData());
-        logger.info("Inserting data finished.");
-        logger.info("Creating schema test_pracownicy");
+//        logger.info("Inserting data finished.");
+//        logger.info("Creating schema test_pracownicy");
         jdbcTemplate.execute(DatabaseUtils.getTworzPracownicy());
         jdbcTemplate.execute(DatabaseUtils.getWstawDanePracownicy());
-        logger.info("Inserting data finished.");
+//        logger.info("Inserting data finished.");
     }
 
     @Override
