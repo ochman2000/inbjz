@@ -3,6 +3,7 @@ package pl.lodz.p.components.service;
 import org.h2.jdbc.JdbcSQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.BadSqlGrammarException;
@@ -29,6 +30,9 @@ import java.util.List;
 public class DbService {
 
     private static final Logger logger = LoggerFactory.getLogger(DbService.class);
+
+//    @Autowired
+//    private AdmService admService;
 
     @Transactional
     public InbjzResultSet select(Request request) {
@@ -173,6 +177,13 @@ public class DbService {
         res.setCorrect(true);
         res.setConsoleOutput(output);
         res.setContent("String representation of this result");
+        try {
+            getAdmService().logPoint(request.getTaskId(), request.getStudentId(), request.getQuery(),
+                    res.isCorrect());
+        } catch (Throwable t) {
+            logger.error("Problem with a logging module.");
+        }
+        res.setContent("String representation of this result");
         return res;
     }
 
@@ -184,5 +195,9 @@ public class DbService {
             database = new DatabaseStudImpl();
         }
         return database;
+    }
+
+    public AdmService getAdmService() {
+        return null;
     }
 }

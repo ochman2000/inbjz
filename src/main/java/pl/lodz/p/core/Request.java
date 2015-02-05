@@ -4,7 +4,7 @@ public class Request {
 
     private String query;
     private int taskId;
-    private int studentId;
+    private String studentId;
     private String mode;
 
     public String getMode() {
@@ -19,7 +19,7 @@ public class Request {
         return taskId;
     }
 
-    public int getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 

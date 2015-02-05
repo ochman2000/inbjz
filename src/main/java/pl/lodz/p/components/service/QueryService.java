@@ -93,4 +93,8 @@ public class QueryService extends DbService {
         }
         return res;
     }
+
+    public AdmService getAdmService() {
+        return admService;
+    }
 }
