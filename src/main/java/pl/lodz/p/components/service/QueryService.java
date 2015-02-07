@@ -90,6 +90,9 @@ public class QueryService extends DbService {
                     res.isCorrect());
         } catch (Throwable t) {
             logger.error("Problem with a logging module.");
+            if (t.getCause()!=null) {
+                logger.error(t.getCause().getMessage());
+            }
         }
         return res;
     }

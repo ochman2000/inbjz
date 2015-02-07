@@ -59,11 +59,15 @@ public class DatabaseStudImpl implements DatabaseDao {
 
     @Override
     public List<String[]> executeQuery(String sql) throws SQLException {
+        if (sql==null || sql.trim().equalsIgnoreCase("")) {
+            Throwable t = new Throwable("Brak polecenia.");
+            throw new SQLException("Brak polecenia.", t);
+        }
         String trimmed = sql;
         if (sql.length() > MAX_CHAR) {
             trimmed = sql.substring(0, MAX_CHAR)+"...";
         }
-        logger.info("Querying: " + trimmed);
+//        logger.info("Querying: " + trimmed);
         if (hasProhibitedCommand(sql)) {
             Throwable t = new Throwable("Nice try :)");
             throw new SQLException("Nice try :)", t);

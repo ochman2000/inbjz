@@ -23,7 +23,7 @@ import java.util.List;
 
 @Service
 public class AdmService extends DbService {
-
+    private boolean criticalError = false;
     private static final Logger logger = LoggerFactory.getLogger(AdmService.class);
 
     @Override
@@ -96,9 +96,15 @@ public class AdmService extends DbService {
             logger.error("Could not retrieve a sequence number for logged_answer");
             return -1;
         }
+        String answer;
+        if (!criticalError) {
+            answer = givenAnswer.replaceAll("'", "''");
+        } else {
+            answer = convertToUnicode(givenAnswer);
+        }
         try {
             database.executeStmt("insert into logged_answers values (" +
-                    answerId +", '"+givenAnswer+"');");
+                    answerId +", '"+answer+"');");
 
             database.executeStmt("insert into logs (id, student_id, client_id, task_id, answer_id, correct) " +
                     "values (" +
@@ -111,10 +117,28 @@ public class AdmService extends DbService {
                     (correct ? "'TRUE'" : "'FALSE'")
                     +");");
         } catch (SQLException e) {
+            if (!criticalError) {
+                criticalError = true;
+                logger.error("Critical exception has occured. Trying to save as unicode...");
+                logPoint(taskId, clientId, givenAnswer, correct);
+            }
             logger.error(e.getCause().getMessage());
         }
         logger.info("Student "+clientId+" has answered question ID "+taskId+" correctly.");
         return 0;
+    }
+
+    private String convertToUnicode(String s) {
+        StringBuilder sb = new StringBuilder();
+        s.codePoints().forEach((i) -> {
+            sb.append("\\u");
+            sb.append(Integer.toHexString(i));
+        });
+
+        if (s.length()>=2000) {
+            s = s.substring(0, 2000-4);
+        }
+        return s;
     }
 
     private int getNextAnswerSeq() {

@@ -51,8 +51,6 @@ CREATE CACHED TABLE PUBLIC.LOGS(
  LOG_DATE DATETIME DEFAULT CURRENT_TIMESTAMP() 
  );
 ALTER TABLE logs ADD CONSTRAINT logs_log_id_pk PRIMARY KEY (id);
-ALTER TABLE logs ADD CONSTRAINT logs_student_fk FOREIGN KEY (student_id) REFERENCES students(id);
-ALTER TABLE logs ADD CONSTRAINT logs_task_fk FOREIGN KEY (task_id) REFERENCES tasks (id);
 CREATE INDEX IDX_LOGS_STUDENT_ID ON logs (student_id);
 CREATE INDEX IDX_LOGS_SESSION_ID ON logs (session_id);
 CREATE INDEX IDX_LOGS_TASK_ID ON logs (task_id);
@@ -100,17 +98,166 @@ grant select on login_events to STUDENT;
 
 INSERT INTO PUBLIC.STUDENTS(ID, FIRST_NAME, LAST_NAME, DATE_CREATED, LAST_SUCCESS_LOGIN, LAST_ERROR_LOGIN, STATUS, SALT, PASSWORD, ERROR_COUNTER) VALUES (183566, STRINGDECODE('\u0141ukasz'), STRINGDECODE('Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:04:44.356', TIMESTAMP '2015-01-03 00:07:53.086', TIMESTAMP '2014-11-03 00:08:05.127', 'ACTIVE', '6dd5c1e4-ab2f-11e4-89d3-123b93f75cba', '7B7C2F32BED0AD20BCD9985751B4C3C1A44F5080888A87B9A011850CC4731E3C', 0);
 
-insert into answers values (101, 'select * from dual;', sysdate, sysdate);
-insert into answers values (102, 'SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=''PUBLIC'';', sysdate, sysdate);
 
-INSERT INTO PUBLIC.TASKS(ID, SECTION, NUMBER, QUESTION, ANSWER_ID, TYPE, AUTHOR, DATE_CREATED, DATE_MODIFIED, QUESTION_VER, DATABASE_VENDOR, DATABASE_VER) VALUES (101, 1, 1, STRINGDECODE('Wykonaj swoje pierwsze zapytanie i zatwierd\u017a kombinacj\u0105 klawiszy Ctrl+Enter. SELECT * FROM DUAL;'), 101, 'QUERY', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (102, 1, 2, STRINGDECODE('Poka\u017c wszystkie tabele w schemacie ''PUBLIC'', u\u017cywaj\u0105c poni\u017cszej sk\u0142adni SQL:\nSELECT TABLE_SCHEMA, TABLE_NAME\nFROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA=''PUBLIC''; '), 102, 'QUERY', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (103, 1, 3, STRINGDECODE('Utw\u00f3rz schemat <swojenazwisko>_<nr albumu> za pomoc\u0105 polecenia\nCREATE SCHEMA kowalski_123456;'), NULL, 'CREATE', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (104, 1, 4, STRINGDECODE('Usu\u0144 schemat <swojenazwisko>_<nr albumu> za pomoc\u0105 polecenia:\nDROP SCHEMA kowalski_123456;\na nast\u0119pnie stw\u00f3rz go ponownie:\nCREATE SCHEMA kowalski_123456;'), NULL, 'MODIFY', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (105, 1, 5, STRINGDECODE('Stw\u00f3rz tabel\u0119 OSOBY zawieraj\u0105c\u0105 definicj\u0119 klucza g\u0142\u00f3wnego nr_osoby typu int, imi\u0119 \u2013 znakowy o 40 znakach, nazwisko \u2013 analogicznie, adres znakowy o 500 znakach, wiek int.'), NULL, 'CREATE', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (106, 1, 6, STRINGDECODE('Sprawd\u017a, ile rekord\u00f3w znajduje si\u0119 w tabeli OSOBY.'), NULL, 'TEST', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (107, 1, 7, STRINGDECODE('Wstaw do tabeli jeden rekord imi\u0119 Baba, nazwisko: Jaga, adres: Domek z Piernika 100, wiek 154.'), NULL, 'INSERT', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (108, 1, 8, STRINGDECODE('Wy\u015bwietl wszystkie rekordy z tabeli OSOBY.'), NULL, 'TEST', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (109, 1, 9, STRINGDECODE('Sprawd\u017a ponownie, ile rekord\u00f3w jest w tabeli OSOBY.'), NULL, 'TEST', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (110, 1, 10, STRINGDECODE('Utw\u00f3rz drug\u0105 tabel\u0119 DZIECI o nast\u0119puj\u0105cej strukturze:\nnr_dziecka int przyrostowy od 100 co 1,\nnr_osoby int,\nimie znakowy do 40 znak\u00f3w.'), NULL, 'CREATE', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (111, 1, 11, STRINGDECODE('Wstaw do tabeli 2 rekordy dla osoby Baba Jaga i dzieci Ja\u015b oraz Ma\u0142gosia.'), NULL, 'INSERT', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (112, 1, 12, STRINGDECODE('Dodaj do tabeli OSOBY kolumn\u0119 data_wpisu zawieraj\u0105c\u0105 automatycznie dat\u0119 wpisu rekordu.'), NULL, 'INSERT', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)');
-INSERT INTO PUBLIC.TASKS(ID, SECTION, NUMBER, QUESTION, ANSWER_ID, TYPE, AUTHOR, DATE_CREATED, DATE_MODIFIED, QUESTION_VER, DATABASE_VENDOR, DATABASE_VER) VALUES (113, 1, 13, STRINGDECODE('Wstaw do tabeli OSOBY kolejny rekord: imi\u0119: Matka, nazwisko: Chrzestna, adres Wr\u00f3\u017ckolandia, wiek 105.'), NULL, 'INSERT', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (114, 1, 14, STRINGDECODE('Dopisz do tabeli DZIECI Kopciuszka tak, \u017ceby jego id_dziecka = 10.'), NULL, 'ALTER', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (115, 1, 15, STRINGDECODE('Za\u0142\u00f3\u017c ograniczenie, kt\u00f3re od tej pory nie pozwoli na wprowadzanie os\u00f3b starszych ni\u017c 100 lat.'), NULL, 'ALTER', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (116, 1, 16, STRINGDECODE('Sprawd\u017a na przyk\u0142adach, czy ograniczenie dzia\u0142a.'), NULL, 'TEST', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)'), (201, 2, 1, STRINGDECODE('W schemacie <nr albumu>_biblioteka stworzy\u0107 tabel\u0119 \u201eCzytelnicy\u201d z nast\u0119puj\u0105cymi kolumnami:\n\n pole id o 5 znakach powinno sk\u0142ada\u0107 si\u0119 z dw\u00f3ch liter + 3 cyfr, klucz g\u0142\u00f3wny,\n pole nazwisko \u2013 typ znakowy o zmiennej d\u0142ugo\u015bci do 15 znak\u00f3w,\n pole imie \u2013 j.w.,\n pole pesel powinno sk\u0142ada\u0107 si\u0119 z 11 cyfr \u2013 niepuste,\n pole nazwisko, imie, pesel, data_ur \u2013niepuste,\n pole plec 1 znak \u2013 powinno zawiera\u0107 tylko liter\u0119 K lub M,\n pole telefon \u2013 do 15 znak\u00f3w,\n'), NULL, 'CREATE', STRINGDECODE('\u0141ukasz Ochma\u0144ski'), TIMESTAMP '2015-02-03 00:16:59.926', TIMESTAMP '2015-02-03 00:17:07.924', '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+insert into answers values (101, 'select * from dual;', sysdate, sysdate);
+insert into tasks values (101, 1, 1, 'Wykonaj swoje pierwsze zapytanie i zatwierdź kombinacją klawiszy Ctrl+Enter.', 101, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (102, 'SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=''PUBLIC'';', sysdate, sysdate);
+insert into tasks values (102, 1, 2, 'Pokaż wszystkie tabele w schemacie ''PUBLIC'', używając poniższej składni SQL:', 102, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (103, null, sysdate, sysdate);
+insert into tasks values (103, 1, 3, 'Utwórz schemat <swojenazwisko>_<nr albumu> za pomocą polecenia:
+CREATE SCHEMA kowalski_123456;', 103, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (104, null, sysdate, sysdate);
+insert into tasks values (104, 1, 4, 'Usuń schemat <swojenazwisko>_<nr albumu> za pomocą polecenia:
+DROP SCHEMA kowalski_123456;
+a następnie stwórz go ponownie:
+CREATE SCHEMA kowalski_123456;', 104, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (105, null, sysdate, sysdate);
+insert into tasks values (105, 1, 5, '<h4>Stwórz tabelę OSOBY zawierającą:
+                <ul>
+                    <li>definicję klucza głównego nr_osoby typu int,</li>
+                    <li>imię – znakowy o 40 znakach,</li>
+                    <li>nazwisko – analogicznie, adres znakowy o 500 znakach,</li>
+                    <li>wiek int.</li>
+                </ul>
+            </h4>', 105, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (106, null, sysdate, sysdate);
+insert into tasks values (106, 1, 6, 'Sprawdź, ile rekordów znajduje się w tabeli OSOBY.', 106, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (107, null, sysdate, sysdate);
+insert into tasks values (107, 1, 7, '<h4>Wstaw do tabeli jeden rekord:
+                <ul>
+                    <li>imię: Baba,</li>
+                    <li>nazwisko: Jaga,</li>
+                    <li>adres: Domek z Piernika 100,</li>
+                    <li>wiek 154.</li>
+                </ul>
+            </h4>', 107, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (108, null, sysdate, sysdate);
+insert into tasks values (108, 1, 8, 'Wyświetl wszystkie rekordy z tabeli OSOBY.', 108, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (109, null, sysdate, sysdate);
+insert into tasks values (109, 1, 9, 'Sprawdź ponownie, ile rekordów jest w tabeli OSOBY.', 109, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (110, null, sysdate, sysdate);
+insert into tasks values (110, 1, 10, ' <h4>Utwórz drugą tabelę DZIECI o następującej strukturze:
+                <ul>
+                    <li>nr_dziecka; int przyrostowy od 100 co 1,</li>
+                    <li>nr_osoby; int,</li>
+                    <li>imie; znakowy do 40 znaków.</li>
+                </ul>
+            </h4>', 110, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (111, null, sysdate, sysdate);
+insert into tasks values (111, 1, 11, '<h4>Wstaw do tabeli OSOBY jeden rekord:
+                <ul>
+                    <li>Baba Jaga</li>
+                </ul>
+            </h4>', 111, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (112, null, sysdate, sysdate);
+insert into tasks values (112, 1, 12, '<h4>Wstaw do tabeli DZIECI dwa rekordy:
+                <ul>
+                    <li>Jaś</li>
+                    <li>Małgosia</li>
+                </ul>
+            </h4>', 112, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (113, null, sysdate, sysdate);
+insert into tasks values (113, 1, 13, 'Dodaj do tabeli OSOBY kolumnę data_wpisu zawierającą automatycznie datę wpisu rekordu.', 113, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (114, null, sysdate, sysdate);
+insert into tasks values (114, 1, 14, '<h4>Wstaw do tabeli OSOBY kolejny rekord:
+                <ul>
+                    <li>imię: Matka,</li>
+                    <li>nazwisko: Chrzestna,</li>
+                    <li>adres Wróżkolandia,</li>
+                    <li>wiek 105.</li>
+                </ul>
+            </h4>', 114, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (115, null, sysdate, sysdate);
+insert into tasks values (115, 1, 15, 'Dopisz do tabeli DZIECI Kopciuszka tak, żeby jego id_dziecka = 10.', 115, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (116, null, sysdate, sysdate);
+insert into tasks values (116, 1, 16, 'Załóż ograniczenie, które od tej pory nie pozwoli na wprowadzanie osób starszych niż 100 lat.', 116, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (117, null, sysdate, sysdate);
+insert into tasks values (117, 1, 17, 'Sprawdź na przykładach, czy ograniczenie działa.', 117, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (118, 'HELP', sysdate, sysdate);
+insert into tasks values (118, 1, 18, 'Wyświetl dokumentację bazy danych za pomocą polecenia: HELP', 118, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (201, null, sysdate, sysdate);
+insert into tasks values (201, 2, 1, 'Utworzyć schemat o nazwie biblioteka_<nr albumu>.', 201, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (202, null, sysdate, sysdate);
+insert into tasks values (202, 2, 2, '', 202, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (203, null, sysdate, sysdate);
+insert into tasks values (203, 2, 3, '', 203, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (204, null, sysdate, sysdate);
+insert into tasks values (204, 2, 4, '', 204, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (205, null, sysdate, sysdate);
+insert into tasks values (205, 2, 5, '', 205, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (206, null, sysdate, sysdate);
+insert into tasks values (206, 2, 6, '', 206, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (207, null, sysdate, sysdate);
+insert into tasks values (207, 2, 7, '', 207, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (208, null, sysdate, sysdate);
+insert into tasks values (208, 2, 8, '', 208, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (209, null, sysdate, sysdate);
+insert into tasks values (209, 2, 9, '', 209, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (210, null, sysdate, sysdate);
+insert into tasks values (210, 2, 10, '', 210, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (211, null, sysdate, sysdate);
+insert into tasks values (211, 2, 11, '', 211, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (212, null, sysdate, sysdate);
+insert into tasks values (212, 2, 12, '', 212, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (213, null, sysdate, sysdate);
+insert into tasks values (213, 2, 13, '', 213, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (214, null, sysdate, sysdate);
+insert into tasks values (214, 2, 14, '', 214, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (215, null, sysdate, sysdate);
+insert into tasks values (215, 2, 15, '', 215, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (216, null, sysdate, sysdate);
+insert into tasks values (216, 2, 16, '', 216, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (217, null, sysdate, sysdate);
+insert into tasks values (217, 2, 17, '', 217, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (218, null, sysdate, sysdate);
+insert into tasks values (218, 2, 18, '', 218, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (219, null, sysdate, sysdate);
+insert into tasks values (219, 3, 19, '', 219, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (220, null, sysdate, sysdate);
+insert into tasks values (220, 3, 20, '', 220, 'CREATE', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
 
 insert into answers values (301, 'select nazwisko, placa from test_pracownicy.pracownicy;', sysdate, sysdate);
 insert into tasks values (301, 3, 1, 'Podaj nazwiska pracowników i ich płace.', 301, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
 
-insert into answers values ( 302, 'select nazwisko, placa/25 from test_pracownicy.pracownicy;', sysdate, sysdate);
-insert into tasks values (302, 3, 2, 'Podaj nazwiska i wartość dniówek pracowników.', 301, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+insert into answers values (302, 'select nazwisko, placa/25 from test_pracownicy.pracownicy;', sysdate, sysdate);
+insert into tasks values (302, 3, 2, 'Podaj nazwiska i wartość dniówek pracowników.', 302, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
 
 insert into answers values (303, 'select nazwisko, placa/25 as dniówka from test_pracownicy.pracownicy;', sysdate, sysdate);
 insert into tasks values (303, 3, 3, 'Dodaj alias ''dniówka'' do poprzedniego zapytania.', 303, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
@@ -185,3 +332,187 @@ insert into tasks values (317, 3, 17, 'Podaj nazwiska szefów.', 317, 'QUERY', '
 
 insert into answers values (318, 'select d.id_dzialu from test_pracownicy.dzialy d where not exists (select p.id_dzialu from test_pracownicy.pracownicy p where p.id_dzialu=d.id_dzialu);', sysdate, sysdate);
 insert into tasks values (318, 3, 18, 'Podaj identyfikator i nazwę działu, który nie zatrudnia pracowników.', 318, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (401, null, sysdate, sysdate);
+insert into tasks values (401, 4, 1, '', 401, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (402, null, sysdate, sysdate);
+insert into tasks values (402, 4, 2, '', 402, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (403, null, sysdate, sysdate);
+insert into tasks values (403, 4, 3, '', 403, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (404, null, sysdate, sysdate);
+insert into tasks values (404, 4, 4, '', 404, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (405, null, sysdate, sysdate);
+insert into tasks values (405, 4, 5, '', 405, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (406, null, sysdate, sysdate);
+insert into tasks values (406, 4, 6, '', 406, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (407, null, sysdate, sysdate);
+insert into tasks values (407, 4, 7, '', 407, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (408, null, sysdate, sysdate);
+insert into tasks values (408, 4, 8, '', 408, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (409, null, sysdate, sysdate);
+insert into tasks values (409, 4, 9, '', 409, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (410, null, sysdate, sysdate);
+insert into tasks values (410, 4, 10, '', 410, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (411, null, sysdate, sysdate);
+insert into tasks values (411, 4, 11, '', 411, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (412, null, sysdate, sysdate);
+insert into tasks values (412, 4, 12, '', 412, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (413, null, sysdate, sysdate);
+insert into tasks values (413, 4, 13, '', 413, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (414, null, sysdate, sysdate);
+insert into tasks values (414, 4, 14, '', 414, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (415, null, sysdate, sysdate);
+insert into tasks values (415, 4, 15, '', 415, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (416, null, sysdate, sysdate);
+insert into tasks values (416, 4, 16, '', 416, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (417, null, sysdate, sysdate);
+insert into tasks values (417, 4, 17, '', 417, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (418, null, sysdate, sysdate);
+insert into tasks values (418, 4, 18, '', 418, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (419, null, sysdate, sysdate);
+insert into tasks values (419, 4, 19, '', 419, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (420, null, sysdate, sysdate);
+insert into tasks values (420, 4, 20, '', 420, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+
+insert into answers values (501, null, sysdate, sysdate);
+insert into tasks values (501, 5, 1, '', 501, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (502, null, sysdate, sysdate);
+insert into tasks values (502, 5, 2, '', 502, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (503, null, sysdate, sysdate);
+insert into tasks values (503, 5, 3, '', 503, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (504, null, sysdate, sysdate);
+insert into tasks values (504, 5, 4, '', 504, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (505, null, sysdate, sysdate);
+insert into tasks values (505, 5, 5, '', 505, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (506, null, sysdate, sysdate);
+insert into tasks values (506, 5, 6, '', 506, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (507, null, sysdate, sysdate);
+insert into tasks values (507, 5, 7, '', 507, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (508, null, sysdate, sysdate);
+insert into tasks values (508, 5, 8, '', 508, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (509, null, sysdate, sysdate);
+insert into tasks values (509, 5, 9, '', 509, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (510, null, sysdate, sysdate);
+insert into tasks values (510, 5, 10, '', 510, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (511, null, sysdate, sysdate);
+insert into tasks values (511, 5, 11, '', 511, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (512, null, sysdate, sysdate);
+insert into tasks values (512, 5, 12, '', 512, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (513, null, sysdate, sysdate);
+insert into tasks values (513, 5, 13, '', 513, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (514, null, sysdate, sysdate);
+insert into tasks values (514, 5, 14, '', 514, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (515, null, sysdate, sysdate);
+insert into tasks values (515, 5, 15, '', 515, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (516, null, sysdate, sysdate);
+insert into tasks values (516, 5, 16, '', 516, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (517, null, sysdate, sysdate);
+insert into tasks values (517, 5, 17, '', 517, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (518, null, sysdate, sysdate);
+insert into tasks values (518, 5, 18, '', 518, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (519, null, sysdate, sysdate);
+insert into tasks values (519, 5, 19, '', 519, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (520, null, sysdate, sysdate);
+insert into tasks values (520, 5, 20, '', 520, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+
+insert into answers values (601, null, sysdate, sysdate);
+insert into tasks values (601, 6, 1, '', 601, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (602, null, sysdate, sysdate);
+insert into tasks values (602, 6, 2, '', 602, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (603, null, sysdate, sysdate);
+insert into tasks values (603, 6, 3, '', 603, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (604, null, sysdate, sysdate);
+insert into tasks values (604, 6, 4, '', 604, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (605, null, sysdate, sysdate);
+insert into tasks values (605, 6, 5, '', 605, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (606, null, sysdate, sysdate);
+insert into tasks values (606, 6, 6, '', 606, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (607, null, sysdate, sysdate);
+insert into tasks values (607, 6, 7, '', 607, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (608, null, sysdate, sysdate);
+insert into tasks values (608, 6, 8, '', 608, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (609, null, sysdate, sysdate);
+insert into tasks values (609, 6, 9, '', 609, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (610, null, sysdate, sysdate);
+insert into tasks values (610, 6, 10, '', 610, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (611, null, sysdate, sysdate);
+insert into tasks values (611, 6, 11, '', 611, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (612, null, sysdate, sysdate);
+insert into tasks values (612, 6, 12, '', 612, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (613, null, sysdate, sysdate);
+insert into tasks values (613, 6, 13, '', 613, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (614, null, sysdate, sysdate);
+insert into tasks values (614, 6, 14, '', 614, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (615, null, sysdate, sysdate);
+insert into tasks values (615, 6, 15, '', 615, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (616, null, sysdate, sysdate);
+insert into tasks values (616, 6, 16, '', 616, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (617, null, sysdate, sysdate);
+insert into tasks values (617, 6, 17, '', 617, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (618, null, sysdate, sysdate);
+insert into tasks values (618, 6, 18, '', 618, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (619, null, sysdate, sysdate);
+insert into tasks values (619, 6, 19, '', 619, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+insert into answers values (620, null, sysdate, sysdate);
+insert into tasks values (620, 6, 20, '', 620, 'QUERY', 'Łukasz Ochmański', sysdate, sysdate, '1.0.0', 'H2', '1.4.182 (2014-10-17)');
+
+update tasks set question=null where question='';
