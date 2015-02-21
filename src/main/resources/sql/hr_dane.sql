@@ -713,7 +713,7 @@ INSERT INTO employees  VALUES
         , 'King'
         , 'SKING'
         , '515.123.4567'
-        , parsedatetime('17-JUN-1987' , 'dd-MMM-yyyy')
+        , parsedatetime('17-JUN-1987' , 'dd-MMM-yyyy', 'en')
         , 'AD_PRES'
         , 24000
         , NULL
@@ -727,7 +727,7 @@ INSERT INTO employees  VALUES
         , 'Kochhar'
         , 'NKOCHHAR'
         , '515.123.4568'
-        , parsedatetime('21-SEP-1989', 'dd-MMM-yyyy')
+        , parsedatetime('21-SEP-1989', 'dd-MMM-yyyy', 'en')
         , 'AD_VP'
         , 17000
         , NULL
@@ -741,7 +741,7 @@ INSERT INTO employees  VALUES
         , 'De Haan'
         , 'LDEHAAN'
         , '515.123.4569'
-        , parsedatetime('13-JAN-1993', 'dd-MMM-yyyy')
+        , parsedatetime('13-JAN-1993', 'dd-MMM-yyyy', 'en')
         , 'AD_VP'
         , 17000
         , NULL
@@ -755,7 +755,7 @@ INSERT INTO employees  VALUES
         , 'Hunold'
         , 'AHUNOLD'
         , '590.423.4567'
-        , parsedatetime('03-JAN-1990', 'dd-MMM-yyyy')
+        , parsedatetime('03-JAN-1990', 'dd-MMM-yyyy', 'en')
         , 'IT_PROG'
         , 9000
         , NULL
@@ -769,7 +769,7 @@ INSERT INTO employees  VALUES
         , 'Ernst'
         , 'BERNST'
         , '590.423.4568'
-        , parsedatetime('21-MAY-1991', 'dd-MMM-yyyy')
+        , parsedatetime('21-MAY-1991', 'dd-MMM-yyyy', 'en')
         , 'IT_PROG'
         , 6000
         , NULL
@@ -783,7 +783,7 @@ INSERT INTO employees  VALUES
         , 'Austin'
         , 'DAUSTIN'
         , '590.423.4569'
-        , parsedatetime('25-JUN-1997', 'dd-MMM-yyyy')
+        , parsedatetime('25-JUN-1997', 'dd-MMM-yyyy', 'en')
         , 'IT_PROG'
         , 4800
         , NULL
@@ -797,7 +797,7 @@ INSERT INTO employees  VALUES
         , 'Pataballa'
         , 'VPATABAL'
         , '590.423.4560'
-        , parsedatetime('05-FEB-1998', 'dd-MMM-yyyy')
+        , parsedatetime('05-FEB-1998', 'dd-MMM-yyyy', 'en')
         , 'IT_PROG'
         , 4800
         , NULL
@@ -811,7 +811,7 @@ INSERT INTO employees  VALUES
         , 'Lorentz'
         , 'DLORENTZ'
         , '590.423.5567'
-        , parsedatetime('07-FEB-1999', 'dd-MMM-yyyy')
+        , parsedatetime('07-FEB-1999', 'dd-MMM-yyyy', 'en')
         , 'IT_PROG'
         , 4200
         , NULL
@@ -825,7 +825,7 @@ INSERT INTO employees  VALUES
         , 'Greenberg'
         , 'NGREENBE'
         , '515.124.4569'
-        , parsedatetime('17-AUG-1994', 'dd-MMM-yyyy')
+        , parsedatetime('17-AUG-1994', 'dd-MMM-yyyy', 'en')
         , 'FI_MGR'
         , 12000
         , NULL
@@ -839,7 +839,7 @@ INSERT INTO employees  VALUES
         , 'Faviet'
         , 'DFAVIET'
         , '515.124.4169'
-        , parsedatetime('16-AUG-1994', 'dd-MMM-yyyy')
+        , parsedatetime('16-AUG-1994', 'dd-MMM-yyyy', 'en')
         , 'FI_ACCOUNT'
         , 9000
         , NULL
@@ -853,7 +853,7 @@ INSERT INTO employees  VALUES
         , 'Chen'
         , 'JCHEN'
         , '515.124.4269'
-        , parsedatetime('28-SEP-1997', 'dd-MMM-yyyy')
+        , parsedatetime('28-SEP-1997', 'dd-MMM-yyyy', 'en')
         , 'FI_ACCOUNT'
         , 8200
         , NULL
@@ -867,7 +867,7 @@ INSERT INTO employees  VALUES
         , 'Sciarra'
         , 'ISCIARRA'
         , '515.124.4369'
-        , parsedatetime('30-SEP-1997', 'dd-MMM-yyyy')
+        , parsedatetime('30-SEP-1997', 'dd-MMM-yyyy', 'en')
         , 'FI_ACCOUNT'
         , 7700
         , NULL
@@ -881,7 +881,7 @@ INSERT INTO employees  VALUES
         , 'Urman'
         , 'JMURMAN'
         , '515.124.4469'
-        , parsedatetime('07-MAR-1998', 'dd-MMM-yyyy')
+        , parsedatetime('07-MAR-1998', 'dd-MMM-yyyy', 'en')
         , 'FI_ACCOUNT'
         , 7800
         , NULL
@@ -895,7 +895,7 @@ INSERT INTO employees  VALUES
         , 'Popp'
         , 'LPOPP'
         , '515.124.4567'
-        , parsedatetime('07-DEC-1999', 'dd-MMM-yyyy')
+        , parsedatetime('07-DEC-1999', 'dd-MMM-yyyy', 'en')
         , 'FI_ACCOUNT'
         , 6900
         , NULL
@@ -909,7 +909,7 @@ INSERT INTO employees  VALUES
         , 'Raphaely'
         , 'DRAPHEAL'
         , '515.127.4561'
-        , parsedatetime('07-DEC-1994', 'dd-MMM-yyyy')
+        , parsedatetime('07-DEC-1994', 'dd-MMM-yyyy', 'en')
         , 'PU_MAN'
         , 11000
         , NULL
@@ -923,7 +923,7 @@ INSERT INTO employees  VALUES
         , 'Khoo'
         , 'AKHOO'
         , '515.127.4562'
-        , parsedatetime('18-MAY-1995', 'dd-MMM-yyyy')
+        , parsedatetime('18-MAY-1995', 'dd-MMM-yyyy', 'en')
         , 'PU_CLERK'
         , 3100
         , NULL
@@ -937,7 +937,7 @@ INSERT INTO employees  VALUES
         , 'Baida'
         , 'SBAIDA'
         , '515.127.4563'
-        , parsedatetime('24-DEC-1997', 'dd-MMM-yyyy')
+        , parsedatetime('24-DEC-1997', 'dd-MMM-yyyy', 'en')
         , 'PU_CLERK'
         , 2900
         , NULL
@@ -951,7 +951,7 @@ INSERT INTO employees  VALUES
         , 'Tobias'
         , 'STOBIAS'
         , '515.127.4564'
-        , parsedatetime('24-JUL-1997', 'dd-MMM-yyyy')
+        , parsedatetime('24-JUL-1997', 'dd-MMM-yyyy', 'en')
         , 'PU_CLERK'
         , 2800
         , NULL
@@ -965,7 +965,7 @@ INSERT INTO employees  VALUES
         , 'Himuro'
         , 'GHIMURO'
         , '515.127.4565'
-        , parsedatetime('15-NOV-1998', 'dd-MMM-yyyy')
+        , parsedatetime('15-NOV-1998', 'dd-MMM-yyyy', 'en')
         , 'PU_CLERK'
         , 2600
         , NULL
@@ -979,7 +979,7 @@ INSERT INTO employees  VALUES
         , 'Colmenares'
         , 'KCOLMENA'
         , '515.127.4566'
-        , parsedatetime('10-AUG-1999', 'dd-MMM-yyyy')
+        , parsedatetime('10-AUG-1999', 'dd-MMM-yyyy', 'en')
         , 'PU_CLERK'
         , 2500
         , NULL
@@ -993,7 +993,7 @@ INSERT INTO employees  VALUES
         , 'Weiss'
         , 'MWEISS'
         , '650.123.1234'
-        , parsedatetime('18-JUL-1996', 'dd-MMM-yyyy')
+        , parsedatetime('18-JUL-1996', 'dd-MMM-yyyy', 'en')
         , 'ST_MAN'
         , 8000
         , NULL
@@ -1007,7 +1007,7 @@ INSERT INTO employees  VALUES
         , 'Fripp'
         , 'AFRIPP'
         , '650.123.2234'
-        , parsedatetime('10-APR-1997', 'dd-MMM-yyyy')
+        , parsedatetime('10-APR-1997', 'dd-MMM-yyyy', 'en')
         , 'ST_MAN'
         , 8200
         , NULL
@@ -1021,7 +1021,7 @@ INSERT INTO employees  VALUES
         , 'Kaufling'
         , 'PKAUFLIN'
         , '650.123.3234'
-        , parsedatetime('01-MAY-1995', 'dd-MMM-yyyy')
+        , parsedatetime('01-MAY-1995', 'dd-MMM-yyyy', 'en')
         , 'ST_MAN'
         , 7900
         , NULL
@@ -1035,7 +1035,7 @@ INSERT INTO employees  VALUES
         , 'Vollman'
         , 'SVOLLMAN'
         , '650.123.4234'
-        , parsedatetime('10-OCT-1997', 'dd-MMM-yyyy')
+        , parsedatetime('10-OCT-1997', 'dd-MMM-yyyy', 'en')
         , 'ST_MAN'
         , 6500
         , NULL
@@ -1049,7 +1049,7 @@ INSERT INTO employees  VALUES
         , 'Mourgos'
         , 'KMOURS'
         , '650.123.5234'
-        , parsedatetime('16-NOV-1999', 'dd-MMM-yyyy')
+        , parsedatetime('16-NOV-1999', 'dd-MMM-yyyy', 'en')
         , 'ST_MAN'
         , 5800
         , NULL
@@ -1063,7 +1063,7 @@ INSERT INTO employees  VALUES
         , 'Nayer'
         , 'JNAYER'
         , '650.124.1214'
-        , parsedatetime('16-JUL-1997', 'dd-MMM-yyyy')
+        , parsedatetime('16-JUL-1997', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 3200
         , NULL
@@ -1077,7 +1077,7 @@ INSERT INTO employees  VALUES
         , 'Mikkilineni'
         , 'IMIKKILI'
         , '650.124.1224'
-        , parsedatetime('28-SEP-1998', 'dd-MMM-yyyy')
+        , parsedatetime('28-SEP-1998', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2700
         , NULL
@@ -1091,7 +1091,7 @@ INSERT INTO employees  VALUES
         , 'Landry'
         , 'JLANDRY'
         , '650.124.1334'
-        , parsedatetime('14-JAN-1999', 'dd-MMM-yyyy')
+        , parsedatetime('14-JAN-1999', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2400
         , NULL
@@ -1105,7 +1105,7 @@ INSERT INTO employees  VALUES
         , 'Markle'
         , 'SMARKLE'
         , '650.124.1434'
-        , parsedatetime('08-MAR-2000', 'dd-MMM-yyyy')
+        , parsedatetime('08-MAR-2000', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2200
         , NULL
@@ -1119,7 +1119,7 @@ INSERT INTO employees  VALUES
         , 'Bissot'
         , 'LBISSOT'
         , '650.124.5234'
-        , parsedatetime('20-AUG-1997', 'dd-MMM-yyyy')
+        , parsedatetime('20-AUG-1997', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 3300
         , NULL
@@ -1133,7 +1133,7 @@ INSERT INTO employees  VALUES
         , 'Atkinson'
         , 'MATKINSO'
         , '650.124.6234'
-        , parsedatetime('30-OCT-1997', 'dd-MMM-yyyy')
+        , parsedatetime('30-OCT-1997', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2800
         , NULL
@@ -1147,7 +1147,7 @@ INSERT INTO employees  VALUES
         , 'Marlow'
         , 'JAMRLOW'
         , '650.124.7234'
-        , parsedatetime('16-FEB-1997', 'dd-MMM-yyyy')
+        , parsedatetime('16-FEB-1997', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2500
         , NULL
@@ -1161,7 +1161,7 @@ INSERT INTO employees  VALUES
         , 'Olson'
         , 'TJOLSON'
         , '650.124.8234'
-        , parsedatetime('10-APR-1999', 'dd-MMM-yyyy')
+        , parsedatetime('10-APR-1999', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2100
         , NULL
@@ -1175,7 +1175,7 @@ INSERT INTO employees  VALUES
         , 'Mallin'
         , 'JMALLIN'
         , '650.127.1934'
-        , parsedatetime('14-JUN-1996', 'dd-MMM-yyyy')
+        , parsedatetime('14-JUN-1996', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 3300
         , NULL
@@ -1189,7 +1189,7 @@ INSERT INTO employees  VALUES
         , 'Rogers'
         , 'MROGERS'
         , '650.127.1834'
-        , parsedatetime('26-AUG-1998', 'dd-MMM-yyyy')
+        , parsedatetime('26-AUG-1998', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2900
         , NULL
@@ -1203,7 +1203,7 @@ INSERT INTO employees  VALUES
         , 'Gee'
         , 'KGEE'
         , '650.127.1734'
-        , parsedatetime('12-DEC-1999', 'dd-MMM-yyyy')
+        , parsedatetime('12-DEC-1999', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2400
         , NULL
@@ -1217,7 +1217,7 @@ INSERT INTO employees  VALUES
         , 'Philtanker'
         , 'HPHILTAN'
         , '650.127.1634'
-        , parsedatetime('06-FEB-2000', 'dd-MMM-yyyy')
+        , parsedatetime('06-FEB-2000', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2200
         , NULL
@@ -1231,7 +1231,7 @@ INSERT INTO employees  VALUES
         , 'Ladwig'
         , 'RLADWIG'
         , '650.121.1234'
-        , parsedatetime('14-JUL-1995', 'dd-MMM-yyyy')
+        , parsedatetime('14-JUL-1995', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 3600
         , NULL
@@ -1245,7 +1245,7 @@ INSERT INTO employees  VALUES
         , 'Stiles'
         , 'SSTILES'
         , '650.121.2034'
-        , parsedatetime('26-OCT-1997', 'dd-MMM-yyyy')
+        , parsedatetime('26-OCT-1997', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 3200
         , NULL
@@ -1259,7 +1259,7 @@ INSERT INTO employees  VALUES
         , 'Seo'
         , 'JSEO'
         , '650.121.2019'
-        , parsedatetime('12-FEB-1998', 'dd-MMM-yyyy')
+        , parsedatetime('12-FEB-1998', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2700
         , NULL
@@ -1273,7 +1273,7 @@ INSERT INTO employees  VALUES
         , 'Patel'
         , 'JPATEL'
         , '650.121.1834'
-        , parsedatetime('06-APR-1998', 'dd-MMM-yyyy')
+        , parsedatetime('06-APR-1998', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2500
         , NULL
@@ -1287,7 +1287,7 @@ INSERT INTO employees  VALUES
         , 'Rajs'
         , 'TRAJS'
         , '650.121.8009'
-        , parsedatetime('17-OCT-1995', 'dd-MMM-yyyy')
+        , parsedatetime('17-OCT-1995', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 3500
         , NULL
@@ -1301,7 +1301,7 @@ INSERT INTO employees  VALUES
         , 'Davies'
         , 'CDAVIES'
         , '650.121.2994'
-        , parsedatetime('29-JAN-1997', 'dd-MMM-yyyy')
+        , parsedatetime('29-JAN-1997', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 3100
         , NULL
@@ -1315,7 +1315,7 @@ INSERT INTO employees  VALUES
         , 'Matos'
         , 'RMATOS'
         , '650.121.2874'
-        , parsedatetime('15-MAR-1998', 'dd-MMM-yyyy')
+        , parsedatetime('15-MAR-1998', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2600
         , NULL
@@ -1329,7 +1329,7 @@ INSERT INTO employees  VALUES
         , 'Vargas'
         , 'PVARGAS'
         , '650.121.2004'
-        , parsedatetime('09-JUL-1998', 'dd-MMM-yyyy')
+        , parsedatetime('09-JUL-1998', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 2500
         , NULL
@@ -1343,7 +1343,7 @@ INSERT INTO employees  VALUES
         , 'Russell'
         , 'JRUSSEL'
         , '011.44.1344.429268'
-        , parsedatetime('01-OCT-1996', 'dd-MMM-yyyy')
+        , parsedatetime('01-OCT-1996', 'dd-MMM-yyyy', 'en')
         , 'SA_MAN'
         , 14000
         , .4
@@ -1357,7 +1357,7 @@ INSERT INTO employees  VALUES
         , 'Partners'
         , 'KPARTNER'
         , '011.44.1344.467268'
-        , parsedatetime('05-JAN-1997', 'dd-MMM-yyyy')
+        , parsedatetime('05-JAN-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_MAN'
         , 13500
         , .3
@@ -1371,7 +1371,7 @@ INSERT INTO employees  VALUES
         , 'Errazuriz'
         , 'AERRAZUR'
         , '011.44.1344.429278'
-        , parsedatetime('10-MAR-1997', 'dd-MMM-yyyy')
+        , parsedatetime('10-MAR-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_MAN'
         , 12000
         , .3
@@ -1385,7 +1385,7 @@ INSERT INTO employees  VALUES
         , 'Cambrault'
         , 'GCAMBRAU'
         , '011.44.1344.619268'
-        , parsedatetime('15-OCT-1999', 'dd-MMM-yyyy')
+        , parsedatetime('15-OCT-1999', 'dd-MMM-yyyy', 'en')
         , 'SA_MAN'
         , 11000
         , .3
@@ -1399,7 +1399,7 @@ INSERT INTO employees  VALUES
         , 'Zlotkey'
         , 'EZLOTKEY'
         , '011.44.1344.429018'
-        , parsedatetime('29-JAN-2000', 'dd-MMM-yyyy')
+        , parsedatetime('29-JAN-2000', 'dd-MMM-yyyy', 'en')
         , 'SA_MAN'
         , 10500
         , .2
@@ -1413,7 +1413,7 @@ INSERT INTO employees  VALUES
         , 'Tucker'
         , 'PTUCKER'
         , '011.44.1344.129268'
-        , parsedatetime('30-JAN-1997', 'dd-MMM-yyyy')
+        , parsedatetime('30-JAN-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 10000
         , .3
@@ -1427,7 +1427,7 @@ INSERT INTO employees  VALUES
         , 'Bernstein'
         , 'DBERNSTE'
         , '011.44.1344.345268'
-        , parsedatetime('24-MAR-1997', 'dd-MMM-yyyy')
+        , parsedatetime('24-MAR-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 9500
         , .25
@@ -1441,7 +1441,7 @@ INSERT INTO employees  VALUES
         , 'Hall'
         , 'PHALL'
         , '011.44.1344.478968'
-        , parsedatetime('20-AUG-1997', 'dd-MMM-yyyy')
+        , parsedatetime('20-AUG-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 9000
         , .25
@@ -1455,7 +1455,7 @@ INSERT INTO employees  VALUES
         , 'Olsen'
         , 'COLSEN'
         , '011.44.1344.498718'
-        , parsedatetime('30-MAR-1998', 'dd-MMM-yyyy')
+        , parsedatetime('30-MAR-1998', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 8000
         , .2
@@ -1469,7 +1469,7 @@ INSERT INTO employees  VALUES
         , 'Cambrault'
         , 'NCAMBRAU'
         , '011.44.1344.987668'
-        , parsedatetime('09-DEC-1998', 'dd-MMM-yyyy')
+        , parsedatetime('09-DEC-1998', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 7500
         , .2
@@ -1483,7 +1483,7 @@ INSERT INTO employees  VALUES
         , 'Tuvault'
         , 'OTUVAULT'
         , '011.44.1344.486508'
-        , parsedatetime('23-NOV-1999', 'dd-MMM-yyyy')
+        , parsedatetime('23-NOV-1999', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 7000
         , .15
@@ -1497,7 +1497,7 @@ INSERT INTO employees  VALUES
         , 'King'
         , 'JKING'
         , '011.44.1345.429268'
-        , parsedatetime('30-JAN-1996', 'dd-MMM-yyyy')
+        , parsedatetime('30-JAN-1996', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 10000
         , .35
@@ -1511,7 +1511,7 @@ INSERT INTO employees  VALUES
         , 'Sully'
         , 'PSULLY'
         , '011.44.1345.929268'
-        , parsedatetime('04-MAR-1996', 'dd-MMM-yyyy')
+        , parsedatetime('04-MAR-1996', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 9500
         , .35
@@ -1525,7 +1525,7 @@ INSERT INTO employees  VALUES
         , 'McEwen'
         , 'AMCEWEN'
         , '011.44.1345.829268'
-        , parsedatetime('01-AUG-1996', 'dd-MMM-yyyy')
+        , parsedatetime('01-AUG-1996', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 9000
         , .35
@@ -1539,7 +1539,7 @@ INSERT INTO employees  VALUES
         , 'Smith'
         , 'LSMITH'
         , '011.44.1345.729268'
-        , parsedatetime('10-MAR-1997', 'dd-MMM-yyyy')
+        , parsedatetime('10-MAR-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 8000
         , .3
@@ -1553,7 +1553,7 @@ INSERT INTO employees  VALUES
         , 'Doran'
         , 'LDORAN'
         , '011.44.1345.629268'
-        , parsedatetime('15-DEC-1997', 'dd-MMM-yyyy')
+        , parsedatetime('15-DEC-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 7500
         , .3
@@ -1567,7 +1567,7 @@ INSERT INTO employees  VALUES
         , 'Sewall'
         , 'SSEWALL'
         , '011.44.1345.529268'
-        , parsedatetime('03-NOV-1998', 'dd-MMM-yyyy')
+        , parsedatetime('03-NOV-1998', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 7000
         , .25
@@ -1581,7 +1581,7 @@ INSERT INTO employees  VALUES
         , 'Vishney'
         , 'CVISHNEY'
         , '011.44.1346.129268'
-        , parsedatetime('11-NOV-1997', 'dd-MMM-yyyy')
+        , parsedatetime('11-NOV-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 10500
         , .25
@@ -1595,7 +1595,7 @@ INSERT INTO employees  VALUES
         , 'Greene'
         , 'DGREENE'
         , '011.44.1346.229268'
-        , parsedatetime('19-MAR-1999', 'dd-MMM-yyyy')
+        , parsedatetime('19-MAR-1999', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 9500
         , .15
@@ -1609,7 +1609,7 @@ INSERT INTO employees  VALUES
         , 'Marvins'
         , 'MMARVINS'
         , '011.44.1346.329268'
-        , parsedatetime('24-JAN-2000', 'dd-MMM-yyyy')
+        , parsedatetime('24-JAN-2000', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 7200
         , .10
@@ -1623,7 +1623,7 @@ INSERT INTO employees  VALUES
         , 'Lee'
         , 'DLEE'
         , '011.44.1346.529268'
-        , parsedatetime('23-FEB-2000', 'dd-MMM-yyyy')
+        , parsedatetime('23-FEB-2000', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 6800
         , .1
@@ -1637,7 +1637,7 @@ INSERT INTO employees  VALUES
         , 'Ande'
         , 'SANDE'
         , '011.44.1346.629268'
-        , parsedatetime('24-MAR-2000', 'dd-MMM-yyyy')
+        , parsedatetime('24-MAR-2000', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 6400
         , .10
@@ -1651,7 +1651,7 @@ INSERT INTO employees  VALUES
         , 'Banda'
         , 'ABANDA'
         , '011.44.1346.729268'
-        , parsedatetime('21-APR-2000', 'dd-MMM-yyyy')
+        , parsedatetime('21-APR-2000', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 6200
         , .10
@@ -1665,7 +1665,7 @@ INSERT INTO employees  VALUES
         , 'Ozer'
         , 'LOZER'
         , '011.44.1343.929268'
-        , parsedatetime('11-MAR-1997', 'dd-MMM-yyyy')
+        , parsedatetime('11-MAR-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 11500
         , .25
@@ -1679,7 +1679,7 @@ INSERT INTO employees  VALUES
         , 'Bloom'
         , 'HBLOOM'
         , '011.44.1343.829268'
-        , parsedatetime('23-MAR-1998', 'dd-MMM-yyyy')
+        , parsedatetime('23-MAR-1998', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 10000
         , .20
@@ -1693,7 +1693,7 @@ INSERT INTO employees  VALUES
         , 'Fox'
         , 'TFOX'
         , '011.44.1343.729268'
-        , parsedatetime('24-JAN-1998', 'dd-MMM-yyyy')
+        , parsedatetime('24-JAN-1998', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 9600
         , .20
@@ -1707,7 +1707,7 @@ INSERT INTO employees  VALUES
         , 'Smith'
         , 'WSMITH'
         , '011.44.1343.629268'
-        , parsedatetime('23-FEB-1999', 'dd-MMM-yyyy')
+        , parsedatetime('23-FEB-1999', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 7400
         , .15
@@ -1721,7 +1721,7 @@ INSERT INTO employees  VALUES
         , 'Bates'
         , 'EBATES'
         , '011.44.1343.529268'
-        , parsedatetime('24-MAR-1999', 'dd-MMM-yyyy')
+        , parsedatetime('24-MAR-1999', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 7300
         , .15
@@ -1735,7 +1735,7 @@ INSERT INTO employees  VALUES
         , 'Kumar'
         , 'SKUMAR'
         , '011.44.1343.329268'
-        , parsedatetime('21-APR-2000', 'dd-MMM-yyyy')
+        , parsedatetime('21-APR-2000', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 6100
         , .10
@@ -1749,7 +1749,7 @@ INSERT INTO employees  VALUES
         , 'Abel'
         , 'EABEL'
         , '011.44.1644.429267'
-        , parsedatetime('11-MAY-1996', 'dd-MMM-yyyy')
+        , parsedatetime('11-MAY-1996', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 11000
         , .30
@@ -1763,7 +1763,7 @@ INSERT INTO employees  VALUES
         , 'Hutton'
         , 'AHUTTON'
         , '011.44.1644.429266'
-        , parsedatetime('19-MAR-1997', 'dd-MMM-yyyy')
+        , parsedatetime('19-MAR-1997', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 8800
         , .25
@@ -1777,7 +1777,7 @@ INSERT INTO employees  VALUES
         , 'Taylor'
         , 'JTAYLOR'
         , '011.44.1644.429265'
-        , parsedatetime('24-MAR-1998', 'dd-MMM-yyyy')
+        , parsedatetime('24-MAR-1998', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 8600
         , .20
@@ -1791,7 +1791,7 @@ INSERT INTO employees  VALUES
         , 'Livingston'
         , 'JLIVINGS'
         , '011.44.1644.429264'
-        , parsedatetime('23-APR-1998', 'dd-MMM-yyyy')
+        , parsedatetime('23-APR-1998', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 8400
         , .20
@@ -1805,7 +1805,7 @@ INSERT INTO employees  VALUES
         , 'Grant'
         , 'KGRANT'
         , '011.44.1644.429263'
-        , parsedatetime('24-MAY-1999', 'dd-MMM-yyyy')
+        , parsedatetime('24-MAY-1999', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 7000
         , .15
@@ -1819,7 +1819,7 @@ INSERT INTO employees  VALUES
         , 'Johnson'
         , 'CJOHNSON'
         , '011.44.1644.429262'
-        , parsedatetime('04-JAN-2000', 'dd-MMM-yyyy')
+        , parsedatetime('04-JAN-2000', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 6200
         , .10
@@ -1833,7 +1833,7 @@ INSERT INTO employees  VALUES
         , 'Taylor'
         , 'WTAYLOR'
         , '650.507.9876'
-        , parsedatetime('24-JAN-1998', 'dd-MMM-yyyy')
+        , parsedatetime('24-JAN-1998', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3200
         , NULL
@@ -1847,7 +1847,7 @@ INSERT INTO employees  VALUES
         , 'Fleaur'
         , 'JFLEAUR'
         , '650.507.9877'
-        , parsedatetime('23-FEB-1998', 'dd-MMM-yyyy')
+        , parsedatetime('23-FEB-1998', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3100
         , NULL
@@ -1861,7 +1861,7 @@ INSERT INTO employees  VALUES
         , 'Sullivan'
         , 'MSULLIVA'
         , '650.507.9878'
-        , parsedatetime('21-JUN-1999', 'dd-MMM-yyyy')
+        , parsedatetime('21-JUN-1999', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 2500
         , NULL
@@ -1875,7 +1875,7 @@ INSERT INTO employees  VALUES
         , 'Geoni'
         , 'GGEONI'
         , '650.507.9879'
-        , parsedatetime('03-FEB-2000', 'dd-MMM-yyyy')
+        , parsedatetime('03-FEB-2000', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 2800
         , NULL
@@ -1889,7 +1889,7 @@ INSERT INTO employees  VALUES
         , 'Sarchand'
         , 'NSARCHAN'
         , '650.509.1876'
-        , parsedatetime('27-JAN-1996', 'dd-MMM-yyyy')
+        , parsedatetime('27-JAN-1996', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 4200
         , NULL
@@ -1903,7 +1903,7 @@ INSERT INTO employees  VALUES
         , 'Bull'
         , 'ABULL'
         , '650.509.2876'
-        , parsedatetime('20-FEB-1997', 'dd-MMM-yyyy')
+        , parsedatetime('20-FEB-1997', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 4100
         , NULL
@@ -1917,7 +1917,7 @@ INSERT INTO employees  VALUES
         , 'Dellinger'
         , 'JDELLING'
         , '650.509.3876'
-        , parsedatetime('24-JUN-1998', 'dd-MMM-yyyy')
+        , parsedatetime('24-JUN-1998', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3400
         , NULL
@@ -1931,7 +1931,7 @@ INSERT INTO employees  VALUES
         , 'Cabrio'
         , 'ACABRIO'
         , '650.509.4876'
-        , parsedatetime('07-FEB-1999', 'dd-MMM-yyyy')
+        , parsedatetime('07-FEB-1999', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3000
         , NULL
@@ -1945,7 +1945,7 @@ INSERT INTO employees  VALUES
         , 'Chung'
         , 'KCHUNG'
         , '650.505.1876'
-        , parsedatetime('14-JUN-1997', 'dd-MMM-yyyy')
+        , parsedatetime('14-JUN-1997', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3800
         , NULL
@@ -1959,7 +1959,7 @@ INSERT INTO employees  VALUES
         , 'Dilly'
         , 'JDILLY'
         , '650.505.2876'
-        , parsedatetime('13-AUG-1997', 'dd-MMM-yyyy')
+        , parsedatetime('13-AUG-1997', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3600
         , NULL
@@ -1973,7 +1973,7 @@ INSERT INTO employees  VALUES
         , 'Gates'
         , 'TGATES'
         , '650.505.3876'
-        , parsedatetime('11-JUL-1998', 'dd-MMM-yyyy')
+        , parsedatetime('11-JUL-1998', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 2900
         , NULL
@@ -1987,7 +1987,7 @@ INSERT INTO employees  VALUES
         , 'Perkins'
         , 'RPERKINS'
         , '650.505.4876'
-        , parsedatetime('19-DEC-1999', 'dd-MMM-yyyy')
+        , parsedatetime('19-DEC-1999', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 2500
         , NULL
@@ -2001,7 +2001,7 @@ INSERT INTO employees  VALUES
         , 'Bell'
         , 'SBELL'
         , '650.501.1876'
-        , parsedatetime('04-FEB-1996', 'dd-MMM-yyyy')
+        , parsedatetime('04-FEB-1996', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 4000
         , NULL
@@ -2015,7 +2015,7 @@ INSERT INTO employees  VALUES
         , 'Everett'
         , 'BEVERETT'
         , '650.501.2876'
-        , parsedatetime('03-MAR-1997', 'dd-MMM-yyyy')
+        , parsedatetime('03-MAR-1997', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3900
         , NULL
@@ -2029,7 +2029,7 @@ INSERT INTO employees  VALUES
         , 'McCain'
         , 'SMCCAIN'
         , '650.501.3876'
-        , parsedatetime('01-JUL-1998', 'dd-MMM-yyyy')
+        , parsedatetime('01-JUL-1998', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3200
         , NULL
@@ -2043,7 +2043,7 @@ INSERT INTO employees  VALUES
         , 'Jones'
         , 'VJONES'
         , '650.501.4876'
-        , parsedatetime('17-MAR-1999', 'dd-MMM-yyyy')
+        , parsedatetime('17-MAR-1999', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 2800
         , NULL
@@ -2057,7 +2057,7 @@ INSERT INTO employees  VALUES
         , 'Walsh'
         , 'AWALSH'
         , '650.507.9811'
-        , parsedatetime('24-APR-1998', 'dd-MMM-yyyy')
+        , parsedatetime('24-APR-1998', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3100
         , NULL
@@ -2071,7 +2071,7 @@ INSERT INTO employees  VALUES
         , 'Feeney'
         , 'KFEENEY'
         , '650.507.9822'
-        , parsedatetime('23-MAY-1998', 'dd-MMM-yyyy')
+        , parsedatetime('23-MAY-1998', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 3000
         , NULL
@@ -2085,7 +2085,7 @@ INSERT INTO employees  VALUES
         , 'OConnell'
         , 'DOCONNEL'
         , '650.507.9833'
-        , parsedatetime('21-JUN-1999', 'dd-MMM-yyyy')
+        , parsedatetime('21-JUN-1999', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 2600
         , NULL
@@ -2099,7 +2099,7 @@ INSERT INTO employees  VALUES
         , 'Grant'
         , 'DGRANT'
         , '650.507.9844'
-        , parsedatetime('13-JAN-2000', 'dd-MMM-yyyy')
+        , parsedatetime('13-JAN-2000', 'dd-MMM-yyyy', 'en')
         , 'SH_CLERK'
         , 2600
         , NULL
@@ -2113,7 +2113,7 @@ INSERT INTO employees  VALUES
         , 'Whalen'
         , 'JWHALEN'
         , '515.123.4444'
-        , parsedatetime('17-SEP-1987', 'dd-MMM-yyyy')
+        , parsedatetime('17-SEP-1987', 'dd-MMM-yyyy', 'en')
         , 'AD_ASST'
         , 4400
         , NULL
@@ -2127,7 +2127,7 @@ INSERT INTO employees  VALUES
         , 'Hartstein'
         , 'MHARTSTE'
         , '515.123.5555'
-        , parsedatetime('17-FEB-1996', 'dd-MMM-yyyy')
+        , parsedatetime('17-FEB-1996', 'dd-MMM-yyyy', 'en')
         , 'MK_MAN'
         , 13000
         , NULL
@@ -2141,7 +2141,7 @@ INSERT INTO employees  VALUES
         , 'Fay'
         , 'PFAY'
         , '603.123.6666'
-        , parsedatetime('17-AUG-1997', 'dd-MMM-yyyy')
+        , parsedatetime('17-AUG-1997', 'dd-MMM-yyyy', 'en')
         , 'MK_REP'
         , 6000
         , NULL
@@ -2155,7 +2155,7 @@ INSERT INTO employees  VALUES
         , 'Mavris'
         , 'SMAVRIS'
         , '515.123.7777'
-        , parsedatetime('07-JUN-1994', 'dd-MMM-yyyy')
+        , parsedatetime('07-JUN-1994', 'dd-MMM-yyyy', 'en')
         , 'HR_REP'
         , 6500
         , NULL
@@ -2169,7 +2169,7 @@ INSERT INTO employees  VALUES
         , 'Baer'
         , 'HBAER'
         , '515.123.8888'
-        , parsedatetime('07-JUN-1994', 'dd-MMM-yyyy')
+        , parsedatetime('07-JUN-1994', 'dd-MMM-yyyy', 'en')
         , 'PR_REP'
         , 10000
         , NULL
@@ -2183,7 +2183,7 @@ INSERT INTO employees  VALUES
         , 'Higgins'
         , 'SHIGGINS'
         , '515.123.8080'
-        , parsedatetime('07-JUN-1994', 'dd-MMM-yyyy')
+        , parsedatetime('07-JUN-1994', 'dd-MMM-yyyy', 'en')
         , 'AC_MGR'
         , 12000
         , NULL
@@ -2197,7 +2197,7 @@ INSERT INTO employees  VALUES
         , 'Gietz'
         , 'WGIETZ'
         , '515.123.8181'
-        , parsedatetime('07-JUN-1994', 'dd-MMM-yyyy')
+        , parsedatetime('07-JUN-1994', 'dd-MMM-yyyy', 'en')
         , 'AC_ACCOUNT'
         , 8300
         , NULL
@@ -2208,76 +2208,76 @@ INSERT INTO employees  VALUES
 
 INSERT INTO job_history
  VALUES (102
-       , parsedatetime('13-JAN-1993', 'dd-MMM-yyyy')
-       , parsedatetime('24-JUL-1998', 'dd-MMM-yyyy')
+       , parsedatetime('13-JAN-1993', 'dd-MMM-yyyy', 'en')
+       , parsedatetime('24-JUL-1998', 'dd-MMM-yyyy', 'en')
        , 'IT_PROG'
        , 60);
 
 INSERT INTO job_history
  VALUES (101
-       , parsedatetime('21-SEP-1989', 'dd-MMM-yyyy')
-       , parsedatetime('27-OCT-1993', 'dd-MMM-yyyy')
+       , parsedatetime('21-SEP-1989', 'dd-MMM-yyyy', 'en')
+       , parsedatetime('27-OCT-1993', 'dd-MMM-yyyy', 'en')
        , 'AC_ACCOUNT'
        , 110);
 
 INSERT INTO job_history
  VALUES (101
-       , parsedatetime('28-OCT-1993', 'dd-MMM-yyyy')
-       , parsedatetime('15-MAR-1997', 'dd-MMM-yyyy')
+       , parsedatetime('28-OCT-1993', 'dd-MMM-yyyy', 'en')
+       , parsedatetime('15-MAR-1997', 'dd-MMM-yyyy', 'en')
        , 'AC_MGR'
        , 110);
 
 INSERT INTO job_history
  VALUES (201
-       , parsedatetime('17-FEB-1996', 'dd-MMM-yyyy')
-       , parsedatetime('19-DEC-1999', 'dd-MMM-yyyy')
+       , parsedatetime('17-FEB-1996', 'dd-MMM-yyyy', 'en')
+       , parsedatetime('19-DEC-1999', 'dd-MMM-yyyy', 'en')
        , 'MK_REP'
        , 20);
 
 INSERT INTO job_history
  VALUES  (114
-        , parsedatetime('24-MAR-1998', 'dd-MMM-yyyy')
-        , parsedatetime('31-DEC-1999', 'dd-MMM-yyyy')
+        , parsedatetime('24-MAR-1998', 'dd-MMM-yyyy', 'en')
+        , parsedatetime('31-DEC-1999', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 50
         );
 
 INSERT INTO job_history
  VALUES  (122
-        , parsedatetime('01-JAN-1999', 'dd-MMM-yyyy')
-        , parsedatetime('31-DEC-1999', 'dd-MMM-yyyy')
+        , parsedatetime('01-JAN-1999', 'dd-MMM-yyyy', 'en')
+        , parsedatetime('31-DEC-1999', 'dd-MMM-yyyy', 'en')
         , 'ST_CLERK'
         , 50
         );
 
 INSERT INTO job_history
  VALUES  (200
-        , parsedatetime('17-SEP-1987', 'dd-MMM-yyyy')
-        , parsedatetime('17-JUN-1993', 'dd-MMM-yyyy')
+        , parsedatetime('17-SEP-1987', 'dd-MMM-yyyy', 'en')
+        , parsedatetime('17-JUN-1993', 'dd-MMM-yyyy', 'en')
         , 'AD_ASST'
         , 90
         );
 
 INSERT INTO job_history
  VALUES  (176
-        , parsedatetime('24-MAR-1998', 'dd-MMM-yyyy')
-        , parsedatetime('31-DEC-1998', 'dd-MMM-yyyy')
+        , parsedatetime('24-MAR-1998', 'dd-MMM-yyyy', 'en')
+        , parsedatetime('31-DEC-1998', 'dd-MMM-yyyy', 'en')
         , 'SA_REP'
         , 80
         );
 
 INSERT INTO job_history
  VALUES  (176
-        , parsedatetime('01-JAN-1999', 'dd-MMM-yyyy')
-        , parsedatetime('31-DEC-1999', 'dd-MMM-yyyy')
+        , parsedatetime('01-JAN-1999', 'dd-MMM-yyyy', 'en')
+        , parsedatetime('31-DEC-1999', 'dd-MMM-yyyy', 'en')
         , 'SA_MAN'
         , 80
         );
 
 INSERT INTO job_history
  VALUES  (200
-        , parsedatetime('01-JUL-1994', 'dd-MMM-yyyy')
-        , parsedatetime('31-DEC-1998', 'dd-MMM-yyyy')
+        , parsedatetime('01-JUL-1994', 'dd-MMM-yyyy', 'en')
+        , parsedatetime('31-DEC-1998', 'dd-MMM-yyyy', 'en')
         , 'AC_ACCOUNT'
         , 90
         );
