@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="interactive sql tutorial">
+    <meta name="author" content="Łukasz Ochmański">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/gen-ifirmaWO_7.css">
+    <title>Interaktywne nauczanie bazodanowych języków zapytań</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/sockjs-0.3.4.js"></script>
+    <script type="text/javascript" src="../js/stomp.js"></script>
+    <script type="text/javascript" src="../js/adm-websocket.js"></script>
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">INBJZ</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="tasks.html">Zadania</a></li>
+                <li><a href="about.html">O projekcie</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="news.html">Komunikaty</a></li>
+                <li><a href="onlive.html">Praca zespołowa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Pomoce naukowe
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://www.w3schools.com/sql/">W3Schools</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Oracle</li>
+                        <li><a href="http://www.techonthenet.com/oracle/">Tech ON THE Net</a></li>
+                        <li><a href="http://psoug.org/browse.htm?cid=4">PSOUG.org</a></li>
+                        <li><a href="https://asktom.oracle.com">Ask Tom Oracle</a></li>
+                        <li><a href="http://www.dba-oracle.com">Burleson Consulting</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">SQL Server</li>
+                        <li><a href="http://msdn.microsoft.com/en-us/library/ms167593%28v=sql.105%29.aspx">MSDN</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">H2</li>
+                        <li><a href="http://www.h2database.com/html/tutorial.html">H2 Database</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">PostreSQL</li>
+                        <li><a href="http://www.postgresqltutorial.com">PostreSQL tutorial</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Dokumentacja API
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://docs.oracle.com/database/121/index.htm">Oracle</a></li>
+                        <li><a href="http://msdn.microsoft.com/en-us/library/bb545450.aspx">SQL Server</a></li>
+                        <li><a href="http://www.h2database.com/html/main.html">H2</a></li>
+                        <li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
+                        <li><a href="">DB2</a></li>
+                        <li><a href="">Derby</a></li>
+                        <li><a href="">HSQLDB</a></li>
+                        <li><a href="">MySQL</a></li>
+                        <li><a href="">ODBC</a></li>
+                        <li><a href="">SQLite</a></li>
+                        <li><a href="">Sybase</a></li>
+                    </ul>
+                </li>
+                <li class="active dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ustawienia
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="profile.html">Profil</a></li>
+                        <li><a href="tasks.html">Zadania</a></li>
+                        <li><a href="grades.html">Twoje oceny</a></li>
+                        <li><a href="stats.html">Statystyka ocen</a></li>
+                        <li><a href="deadlines.html">Terminy</a></li>
+                        <li><a href="history.html">Historia</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Zaawansowane</a></li>
+                        <li><a href="help.html">Pomoc</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Wyloguj</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <svg version="1.1" id="svgElement" viewBox="0 0" height="400" width="100%" xmlns="http://www.w3.org/2000/svg">
+
+            <rect class="slupki" id="rec1" x="0" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="8" y="219">21.99</text>
+            <text style="font-size:12; text-anchor:start" x="18" y="390">1</text>
+
+            <rect class="slupki" id="rec2" x="60" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="68" y="219">21.99</text>
+            <text style="font-size:12; text-anchor:start" x="78" y="390">2</text>
+
+            <rect class="slupki" id="rec3" x="120" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="128" y="171">27.99</text>
+            <text style="font-size:12; text-anchor:start" x="138" y="390">3</text>
+
+            <rect class="slupki" id="rec4" x="180" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="188" y="283">13.99</text>
+            <text style="font-size:12; text-anchor:start" x="198" y="390">4</text>
+
+            <rect class="slupki" id="rec5" x="240" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="248" y="195">24.99</text>
+            <text style="font-size:12; text-anchor:start" x="258" y="390">5</text>
+
+            <rect class="slupki" id="rec6" x="300" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="308" y="155">29.99</text>
+            <text style="font-size:12; text-anchor:start" x="318" y="390">6</text>
+
+            <rect class="slupki" id="rec7" x="360" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="368" y="259">16.99</text>
+            <text style="font-size:12; text-anchor:start" x="378" y="390">7</text>
+
+            <rect class="slupki" id="rec8" x="420" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="428" y="91">37.99</text>
+            <text style="font-size:12; text-anchor:start" x="438" y="390">8</text>
+
+            <rect class="slupki" id="rec9" x="480" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="488" y="163">28.99</text>
+            <text style="font-size:12; text-anchor:start" x="498" y="390">9</text>
+
+            <rect class="slupki" id="rec10" x="540" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="548" y="123">33.99</text>
+            <text style="font-size:12; text-anchor:start" x="558" y="390">10</text>
+
+            <rect class="slupki" id="rec11" x="600" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="608" y="147">30.99</text>
+            <text style="font-size:12; text-anchor:start" x="618" y="390">11</text>
+
+            <rect class="slupki" id="rec12" x="660" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="668" y="299">11.99</text>
+            <text style="font-size:12; text-anchor:start" x="678" y="390">12</text>
+
+            <rect class="slupki" id="rec13" x="720" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="728" y="131">32.99</text>
+            <text style="font-size:12; text-anchor:start" x="738" y="390">13</text>
+
+            <rect class="slupki" id="rec14" x="780" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="788" y="115">34.99</text>
+            <text style="font-size:12; text-anchor:start" x="798" y="390">14</text>
+
+            <rect class="slupki" id="rec15" x="840" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="848" y="115">34.99</text>
+            <text style="font-size:12; text-anchor:start" x="858" y="390">15</text>
+
+            <rect class="slupki" id="rec16" x="900" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="908" y="75">39.99</text>
+            <text style="font-size:12; text-anchor:start" x="918" y="390">16</text>
+
+            <rect class="slupki" id="rec17" x="960" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="968" y="155">29.99</text>
+            <text style="font-size:12; text-anchor:start" x="978" y="390">17</text>
+
+            <rect class="slupki" id="rec18" x="1020" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="1028" y="187">25.99</text>
+            <text style="font-size:12; text-anchor:start" x="1038" y="390">18</text>
+
+            <rect class="slupki" id="rec19" x="1080" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="1088" y="83">38.99</text>
+            <text style="font-size:12; text-anchor:start" x="1098" y="390">19</text>
+
+            <rect class="slupki" id="rec20" x="1140" y="400" width="50" height="0" style="fill:lime"></rect>
+            <text class="legenda" style="font-size:12; text-anchor:start" x="1148" y="235">23.33</text>
+            <text style="font-size:12; text-anchor:start" x="1158" y="390">20</text>
+        </svg>
+        <p>
+            <b>Note:</b> Wykres przedstawia oceny najlepszych uczniów bieżącym semestrze.</p>
+        <div>
+            <input type="button" id="guzik01" value="Pokaż legendę.">
+            <input type="button" id="guzik02" value="Rozwiń słupki">
+            <input type="button" id="guzik03" value="Zwiń słupki">
+        </div>
+        <p id="p01">1. Waleczne serce<br>
+            2. Ojciec Chrzestny<br>
+            3. Forrest Gump<br>
+            4. Lot nad kukułczym gniazdem<br>
+            5. Pulp Fiction<br>
+            6. Milczenie Owiec<br>
+            7. Siedem<br>
+            8. Władca Pierścieni<br>
+            9. Jurassic Park<br>
+            10. Człowiek z blizną<br>
+            11. Podziemny krąg<br>
+            12. Piękny umysł<br>
+            13. Incepcja<br>
+            14. Kr&oacute;l Lew<br>
+            15. Pianista<br>
+            16. Leon Zawodowiec<br>
+            17. Więzień nienawiści<br>
+            18. Szeregowiec Ryan<br>
+            19. Dobry, zły i brzydki<br>
+            20. Dawno temu w Ameryce<br>
+
+        </p>
+    </div>
+</div>
+<!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="../js/bootstrap.js"></script>
+
+</body>
+</html>
