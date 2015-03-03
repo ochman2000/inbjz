@@ -3,7 +3,9 @@ package pl.lodz.p.config;
 /**
  * Created by Łukasz Ochmański on 2/22/2015.
  */
-import org.springframework.boot.context.embedded.*;
+
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.stereotype.Component;
 
 @Component
