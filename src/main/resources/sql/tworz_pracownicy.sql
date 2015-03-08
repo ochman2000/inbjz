@@ -32,8 +32,7 @@ placa DECIMAL(10,2),
 dod_funkcyjny DECIMAL(10,2), 
 prowizja DECIMAL(10,2), 
 id_dzialu	INT,
-CONSTRAINT prac_primary_key PRIMARY KEY (nr_akt), 
-CONSTRAINT prac_foreign_key FOREIGN KEY (id_dzialu) REFERENCES dzialy (id_dzialu)
+CONSTRAINT prac_primary_key PRIMARY KEY (nr_akt),
 );
 
 CREATE TABLE test_pracownicy.prac_archiw (
