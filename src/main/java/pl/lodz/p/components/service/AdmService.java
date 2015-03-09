@@ -124,7 +124,9 @@ public class AdmService extends DbService {
             }
             logger.error(e.getCause().getMessage());
         }
-        logger.info("Student "+clientId+" has answered question ID "+taskId+" correctly.");
+        if (correct) {
+            logger.info("Student " + clientId + " has answered question ID " + taskId + " correctly.");
+        }
         return 0;
     }
 

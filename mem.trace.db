@@ -12671,3 +12671,18 @@ org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM TEST_
 FULL JOIN[*] TEST_PRACOWNICY.DZIALY D ON P.ID_DZIALU=D.ID_DZIALU "; SQL statement:
 select * from test_pracownicy.pracownicy p
 full join test_pracownicy.dzialy d on p.id_dzialu=d.id_dzialu [42000-182]
+03-08 23:52:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PRACOWNICY" not found; SQL statement:
+select p.nazwisko
+from pracownicy p
+where p.nr_akt in (select t.kierownik from pracownicy t) [42102-182]
+03-08 23:53:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PRACOWNICY" not found; SQL statement:
+select p.nazwisko
+from test_pracownicy.pracownicy p
+where p.nr_akt in (select t.kierownik from pracownicy t) [42102-182]
+03-09 00:00:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PRACOWNICY" not found; SQL statement:
+select p.nr_akt, d.*
+from pracownicy p
+join dzialy d [42102-182]
