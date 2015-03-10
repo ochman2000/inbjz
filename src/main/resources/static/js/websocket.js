@@ -30,7 +30,7 @@ function sendQuery() {
     if (!studentId) {
         studentId=null;
     }
-    var query = getSelectionText();
+    var query = getSelectedText();
     if (!query) {
         query = $('#queryTextArea').val();
     }
@@ -187,13 +187,28 @@ function showGreeting(message) {
     $('#sendQueryBtn').button('reset');
 }
 
-function getSelectionText() {
-    var text = "";
-//    if (window.getSelection) {
-//        text = window.getSelection().toString();
-//    } else
-    if (document.selection && document.selection.type != "Control") {
-        text = document.selection.createRange().text;
+function getSelectedText(){
+  var userSelection, ta;
+  if (window.getSelection && document.activeElement){
+    if (document.activeElement.nodeName == "TEXTAREA" ||
+        (document.activeElement.nodeName == "INPUT" &&
+        document.activeElement.getAttribute("type").toLowerCase() == "text")){
+      ta = document.activeElement;
+      userSelection = ta.value.substring(ta.selectionStart, ta.selectionEnd);
+    } else {
+      userSelection = window.getSelection();
     }
-    return text;
+    return userSelection.toString();
+  } else {
+    // all browsers, except IE before version 9
+    if (document.getSelection){
+        userSelection = document.getSelection();
+        return userSelection.toString();
+    }
+    // IE below version 9
+    else if (document.selection && document.selection.type != "Control"){
+        userSelection = document.selection.createRange();
+        return userSelection.text;
+    }
+  }
 }

@@ -12961,3 +12961,9 @@ dual [42001-182]
 03-10 21:37:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "FROM DUAL;[*] "; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
 from dual; [42001-182]
+03-10 23:01:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ROM[*] DU "; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REPLACE, {"; SQL statement:
+rom du [42001-182]
+03-10 23:02:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ROM[*] DUAL "; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REPLACE, {"; SQL statement:
+rom dual [42001-182]
