@@ -28,31 +28,15 @@
             $('#sendQueryBtn').on('click', function () {
                 var $btn = $(this).button('loading');
                 sendQuery();
-                console.log('click');
             });
-            console.log('00. document.ready()');
             $('#queryTextArea').keydown(function (e) {
-            console.log('01. '+ e.keyCode);
                 if (e.ctrlKey && e.keyCode == 13) {
-                    console.log('05. e.ctrlKey && e.keyCode == 13');
-                    var $btn = $('#sendQueryBtn').button('loading');
-                    sendQuery();
+                var btn = $('#sendQueryBtn');
+                    if (btn && !btn.is(':disabled')) {
+                        btn.button('loading');
+                        sendQuery();
+                    }
                 }
-                if (e.keyCode==17 && e.keyCode==13) {
-                    console.log('06. e.keyCode==17 && e.keyCode ==13');
-                    var $btn = $('#sendQueryBtn').button('loading');
-                    sendQuery();
-                }
-                if (e.keyCode==17) {
-                    console.log('02. e.keycode=17');
-                }
-                if (e.ctrlKey) {
-                    console.log('03. e.keycode==crtlKey');
-                }
-                if (e.keyCode == 13) {
-                    console.log('e.keycode=13');
-                }
-                console.log('04. event.keydown');
             });
         });
     </script>
