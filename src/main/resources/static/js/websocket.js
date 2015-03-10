@@ -1,4 +1,3 @@
-
 $(function(){
   $("#includedContent").load("../query.html");
 });
@@ -31,7 +30,10 @@ function sendQuery() {
     if (!studentId) {
         studentId=null;
     }
-    var query = $('#queryTextArea').val();
+    var query = getSelectionText();
+    if (!query) {
+        query = $('#queryTextArea').val();
+    }
     var taskId = $('#taskId').text();
     var mode = $('#option2').is(':checked');
     if (mode) {
@@ -95,7 +97,10 @@ function disconnect() {
 }
 
 function sendExecuteStmt() {
-    var query = $('#queryTextArea').val();
+    var query = getSelectionText();
+    if (!query) {
+        query = $('#queryTextArea').val();
+    }
     stompClient.send("/app/execute", {}, JSON.stringify({ 'query': query }));
 }
 
@@ -180,4 +185,15 @@ function showGreeting(message) {
     response.appendChild(p);
 
     $('#sendQueryBtn').button('reset');
+}
+
+function getSelectionText() {
+    var text = "";
+//    if (window.getSelection) {
+//        text = window.getSelection().toString();
+//    } else
+    if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
+    }
+    return text;
 }
