@@ -13042,3 +13042,838 @@ om dual [42000-182]
 03-10 23:47:16 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "AL[*] "; expected "ALTER, ANALYZE, {"; SQL statement:
 al [42001-182]
+03-10 23:59:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT (MAX_SALARY-MIN_SALARY) FROM JOBS
+ORDER BY  [*]"; expected "=, NOT, EXISTS, INTERSECTS"; SQL statement:
+select (max_salary-min_salary) from jobs
+order by  [42001-182]
+03-11 00:01:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT (IFNULL(MAX_SALARY, 0)-(IFNULL(MIN_SALARY, 0)) FROM[*] JOBS "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+select (IFNULL(max_salary, 0)-(IFNULL(min_salary, 0)) from jobs [42001-182]
+03-11 00:25:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Feature not supported: "VARCHAR +"; SQL statement:
+select first_name +' '+ last_name as pracownicy
+from employees
+where last_name like '__a%'; [50100-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:216)
+	at org.h2.value.Value.throwUnsupportedExceptionForType(Value.java:1098)
+	at org.h2.value.Value.add(Value.java:461)
+	at org.h2.expression.Operation.getValue(Operation.java:145)
+	at org.h2.expression.Operation.getValue(Operation.java:110)
+	at org.h2.expression.Alias.getValue(Alias.java:36)
+	at org.h2.command.dml.Select.queryFlat(Select.java:539)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:644)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.command.dml.Query.query(Query.java:36)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:90)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:79)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 00:48:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT DEPARTMENT_ID
+	FROM (SELECT DEPARTMENT_ID, AVG(SALARY)
+	FROM EMPLOYEES
+	GROUP BY DEPARTMENT_ID)SZWG
+	WHERE SREDNIA = (SELECT MAX(SREDNIA) FROM SELECT[*] DEPARTMENT_ID, AVG(SALARY)
+	FROM EMPLOYEES
+	GROUP BY DEPARTMENT_ID); "; expected "identifier"; SQL statement:
+select department_id
+	from (select department_id, avg(salary)
+	from employees
+	group by department_id)szwg
+	where srednia = (select max(srednia) from select department_id, avg(salary)
+	from employees
+	group by department_id); [42001-182]
+03-11 00:48:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT MAX(SREDNIA) FROM SELECT[*] DEPARTMENT_ID, AVG(SALARY)
+	FROM EMPLOYEES
+	GROUP BY DEPARTMENT_ID "; expected "identifier"; SQL statement:
+select max(srednia) from select department_id, avg(salary)
+	from employees
+	group by department_id [42001-182]
+03-11 00:49:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "SREDNIA" not found; SQL statement:
+select max(srednia) from (select department_id, avg(salary)
+	from employees
+	group by department_id) [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:365)
+	at org.h2.command.dml.Select.prepare(Select.java:829)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 00:54:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT MAX(SREDNIA) FROM (SELECT DEPARTMENT_ID, AVG(SALARY)
+	FROM EMPLOYEES
+	GROUP BY DEPARTMENT_ID [*]"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select max(srednia) from (select department_id, avg(salary)
+	from employees
+	group by department_id [42001-182]
+03-11 00:54:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "SREDNIA" not found; SQL statement:
+select max(srednia) from (select department_id, avg(salary)
+	from employees
+	group by department_id) [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:365)
+	at org.h2.command.dml.Select.prepare(Select.java:829)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 00:54:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT MAX(SREDNIA) FROM (SELECT DEPARTMENT_ID, AVG(SALARY)
+	FROM EMPLOYEES
+	GROUP BY DEPARTMENT_ID)
+	)[*]; "; SQL statement:
+select max(srednia) from (select department_id, avg(salary)
+	from employees
+	group by department_id)
+	); [42000-182]
+03-11 00:54:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "SREDNIA" not found; SQL statement:
+(select max(srednia) from (select department_id, avg(salary)
+	from employees
+	group by department_id)
+	); [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:365)
+	at org.h2.command.dml.Select.prepare(Select.java:829)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 00:54:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "SREDNIA" not found; SQL statement:
+select max(srednia) from (select department_id, avg(salary)
+	from employees
+	group by department_id) [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:365)
+	at org.h2.command.dml.Select.prepare(Select.java:829)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 00:55:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT MAX(SREDNIA) FROM (SELECT DEPARTMENT_ID, AVG(SALARY)
+	FROM EMPLOYEES
+	GROUP BY DEPARTMENT_ID [*]"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select max(srednia) from (select department_id, avg(salary)
+	from employees
+	group by department_id [42001-182]
+03-11 00:55:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "SREDNIA" not found; SQL statement:
+select max(srednia) from (select department_id, avg(salary)
+	from employees
+	group by department_id) [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:365)
+	at org.h2.command.dml.Select.prepare(Select.java:829)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 01:07:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Function "DATEPART" not found; SQL statement:
+select DATEPART(DW, hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DATEPART(DW, hire_date) [90022-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readJavaFunction(Parser.java:2333)
+	at org.h2.command.Parser.readFunction(Parser.java:2385)
+	at org.h2.command.Parser.readTerm(Parser.java:2719)
+	at org.h2.command.Parser.readFactor(Parser.java:2251)
+	at org.h2.command.Parser.readSum(Parser.java:2238)
+	at org.h2.command.Parser.readConcat(Parser.java:2208)
+	at org.h2.command.Parser.readCondition(Parser.java:2058)
+	at org.h2.command.Parser.readAnd(Parser.java:2030)
+	at org.h2.command.Parser.readExpression(Parser.java:2022)
+	at org.h2.command.Parser.parseSelectSimpleSelectPart(Parser.java:1934)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:1966)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1860)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1681)
+	at org.h2.command.Parser.parseSelect(Parser.java:1669)
+	at org.h2.command.Parser.parsePrepared(Parser.java:433)
+	at org.h2.command.Parser.parse(Parser.java:305)
+	at org.h2.command.Parser.parse(Parser.java:277)
+	at org.h2.command.Parser.prepareCommand(Parser.java:242)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 01:12:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Function "DATENAME" not found; SQL statement:
+select first_name, last_name, hire_date,  DATENAME(WEEKDAY, hire_date) as dzien_tygodnia
+from employees [90022-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readJavaFunction(Parser.java:2333)
+	at org.h2.command.Parser.readFunction(Parser.java:2385)
+	at org.h2.command.Parser.readTerm(Parser.java:2719)
+	at org.h2.command.Parser.readFactor(Parser.java:2251)
+	at org.h2.command.Parser.readSum(Parser.java:2238)
+	at org.h2.command.Parser.readConcat(Parser.java:2208)
+	at org.h2.command.Parser.readCondition(Parser.java:2058)
+	at org.h2.command.Parser.readAnd(Parser.java:2030)
+	at org.h2.command.Parser.readExpression(Parser.java:2022)
+	at org.h2.command.Parser.parseSelectSimpleSelectPart(Parser.java:1934)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:1966)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1860)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1681)
+	at org.h2.command.Parser.parseSelect(Parser.java:1669)
+	at org.h2.command.Parser.parsePrepared(Parser.java:433)
+	at org.h2.command.Parser.parse(Parser.java:305)
+	at org.h2.command.Parser.parse(Parser.java:277)
+	at org.h2.command.Parser.prepareCommand(Parser.java:242)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 01:30:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "4"; SQL statement:
+select DAYNAME(dzien_t) from (
+	select dzien_t, count
+	from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	))
+	)
+where count = select max(count) from (
+	select dzien_t, count
+	from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	))
+	); [22007-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.value.Value.getDate(Value.java:399)
+	at org.h2.expression.Function.getSimpleValue(Function.java:808)
+	at org.h2.expression.Function.getValueWithArgs(Function.java:1176)
+	at org.h2.expression.Function.getValue(Function.java:576)
+	at org.h2.command.dml.Select.queryFlat(Select.java:539)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:644)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.command.dml.Query.query(Query.java:36)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:90)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:79)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: 4
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:264)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 38 more
+03-11 01:36:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT DZIEN_T, COUNT
+	FROM (
+	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	)
+	WHERE COUNT = (SELECT MAX(COUNT) FROM (
+	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	))
+	)[*] "; SQL statement:
+select dzien_t, count
+	from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	))
+	) [42000-182]
+03-11 01:36:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT DZIEN_T, COUNT
+	FROM (
+	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	)
+	WHERE COUNT = (SELECT MAX(COUNT) FROM (
+	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	))
+	)[*]) "; SQL statement:
+select dzien_t, count
+	from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	))
+	)) [42000-182]
+03-11 01:37:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	)[*]
+	WHERE COUNT = (SELECT MAX(COUNT) FROM (
+	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	)) "; SQL statement:
+select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)) [42000-182]
+03-11 01:38:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	WHERE[*] COUNT = (SELECT MAX(COUNT) FROM (
+	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	)
+	)) "; SQL statement:
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)
+	)) [42000-182]
+03-11 01:39:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	WHERE[*] COUNT = (SELECT MAX(COUNT) FROM (
+	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	)) "; SQL statement:
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)) [42000-182]
+03-11 01:39:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "COUNT" not found; SQL statement:
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	))
+	group by DAY_OF_WEEK(hire_date); [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Select.prepare(Select.java:832)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 01:39:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "COUNT" not found; SQL statement:
+	select * -- DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)) [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Select.prepare(Select.java:832)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 01:40:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "COUNT" not found; SQL statement:
+	select *
+	from employees
+	where count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)) [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Select.prepare(Select.java:832)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 01:41:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "	SELECT DAY_OF_WEEK(HIRE_DATE) AS DZIEN_T, COUNT(*) AS COUNT
+	FROM EMPLOYEES
+	GROUP BY DAY_OF_WEEK(HIRE_DATE)
+	WHERE[*] COUNT = 21 "; SQL statement:
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	where count = 21 [42000-182]
+03-11 01:46:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "COUNT" not found; SQL statement:
+select first_name, last_name, hire_date
+from employees
+where DAY_OF_WEEK(hire_date) = (select DAY_OF_WEEK(hire_date)
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	having count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	))); [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Select.prepare(Select.java:829)
+	at org.h2.expression.Subquery.optimize(Subquery.java:73)
+	at org.h2.expression.Comparison.optimize(Comparison.java:180)
+	at org.h2.command.dml.Select.prepare(Select.java:832)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+03-11 01:47:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "COUNT" not found; SQL statement:
+select DAY_OF_WEEK(hire_date)
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	having count = (select max(count) from (
+	select DAY_OF_WEEK(hire_date) as dzien_t, count(*) as count
+	from employees
+	group by DAY_OF_WEEK(hire_date)
+	)) [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Select.prepare(Select.java:829)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:455)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:405)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:471)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:481)
+	at pl.lodz.p.h2.DatabaseStudImpl.executeQuery(DatabaseStudImpl.java:75)
+	at pl.lodz.p.components.service.QueryService.select(QueryService.java:61)
+	at pl.lodz.p.components.service.QueryService$$FastClassBySpringCGLIB$$9ce6e2bd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:649)
+	at pl.lodz.p.components.service.QueryService$$EnhancerBySpringCGLIB$$bc0143b.select(<generated>)
+	at pl.lodz.p.components.contoller.QueryController.executeQuery(QueryController.java:48)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:185)
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:104)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:452)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:448)
+	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:83)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:413)
+	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:351)
+	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:135)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
