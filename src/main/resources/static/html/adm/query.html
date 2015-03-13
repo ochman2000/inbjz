@@ -2,12 +2,12 @@
 <div style="min-width: 100px; width: 100%;" class="input-group" id="conversationDiv">
 
     <!--<div data-toggle="buttons" class="btn-group">-->
-        <!--<label class="btn btn-primary active">-->
-            <!--<input type="radio" name="options" id="option1" autocomplete="off" checked> Tryb chroniony-->
-        <!--</label>-->
-        <!--<label class="btn btn-primary">-->
-            <!--<input type="radio" name="options" id="option2" autocomplete="off"> Tryb rzeczywisty-->
-        <!--</label>-->
+    <!--<label class="btn btn-primary active">-->
+    <!--<input type="radio" name="options" id="option1" autocomplete="off" checked> Tryb chroniony-->
+    <!--</label>-->
+    <!--<label class="btn btn-primary">-->
+    <!--<input type="radio" name="options" id="option2" autocomplete="off"> Tryb rzeczywisty-->
+    <!--</label>-->
     <!--</div>-->
     <span id="succesLabel" class="label label-success pull-right" style="display:none;">Sukces</span>
     <span id="failLabel" class="label label-danger pull-right" style="display:none;">Błąd</span>
@@ -15,7 +15,7 @@
 
     <div>
         <textarea aria-describedby="basic-addon1" placeholder="Wpisz zapytanie"
-                  style="resize: none;" rows="4"
+                  style="max-width: 100%" rows="8"
                   class="form-control text-left" id="queryTextArea"></textarea>
         <button style="margin-top:10px"
                 autocomplete="off" class="btn btn-primary pull-right"
@@ -24,15 +24,20 @@
     </div>
 
     <script>
-        $('#sendQueryBtn').on('click', function () {
-            var $btn = $(this).button('loading');
-            sendQuery();
-        });
-        $('#queryTextArea').keypress(function (e) {
-            if (e.ctrlKey && e.keyCode == 13) {
-                var $btn = $('#sendQueryBtn').button('loading');
+        $(document).ready(function() {
+            $('#sendQueryBtn').on('click', function () {
+                var $btn = $(this).button('loading');
                 sendQuery();
-            }
+            });
+            $('#queryTextArea').keydown(function (e) {
+                if (e.ctrlKey && e.keyCode == 13) {
+                var btn = $('#sendQueryBtn');
+                    if (btn && !btn.is(':disabled')) {
+                        btn.button('loading');
+                        sendQuery();
+                    }
+                }
+            });
         });
     </script>
     <p id="response"></p>

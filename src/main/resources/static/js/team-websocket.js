@@ -66,7 +66,10 @@ function disconnect() {
 }
 
 function sendQuery() {
-    var query = $('#queryTextArea').val();
+    var query = getSelectedText();
+    if (!query) {
+        query = $('#queryTextArea').val();
+    }
     var taskId = $('#taskId').text();
     var mode = $('#option2').is(':checked');
     if (mode) {
@@ -163,4 +166,31 @@ function showGreeting(message) {
     response.appendChild(p);
 
     $('#sendQueryBtn').button('reset');
+}
+
+
+function getSelectedText(){
+  var userSelection, ta;
+  if (window.getSelection && document.activeElement){
+    if (document.activeElement.nodeName == "TEXTAREA" ||
+        (document.activeElement.nodeName == "INPUT" &&
+        document.activeElement.getAttribute("type").toLowerCase() == "text")){
+      ta = document.activeElement;
+      userSelection = ta.value.substring(ta.selectionStart, ta.selectionEnd);
+    } else {
+      userSelection = window.getSelection();
+    }
+    return userSelection.toString();
+  } else {
+    // all browsers, except IE before version 9
+    if (document.getSelection){
+        userSelection = document.getSelection();
+        return userSelection.toString();
+    }
+    // IE below version 9
+    else if (document.selection && document.selection.type != "Control"){
+        userSelection = document.selection.createRange();
+        return userSelection.text;
+    }
+  }
 }
