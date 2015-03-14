@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pl">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="interactive sql tutorial">
     <meta name="author" content="Łukasz Ochmański">
-    <title>Interaktywne nauczanie bazodanowych języków zapytań</title>
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../../css/gen-ifirmaWO_7.css">
+
+    <title>Interaktywne nauczanie bazodanowych języków zapytań</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../../../css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -23,14 +23,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" src="../../../js/jquery.js"></script>
-    <script type="text/javascript" src="../../../js/sockjs-0.3.4.js"></script>
-    <script type="text/javascript" src="../../../js/stomp.js"></script>
-    <script type="text/javascript" src="../../../js/websocket.js"></script>
 </head>
 
-<body class="WlascicielEdit TrybModyfikacja Status-N" lang="pl-PL">
-<!-- Fixed navbar -->
+<body>
+    <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -45,23 +41,15 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="../../../index.html">Home</a></li>
-                    <li class="active dropdown">                     <a href="../../tasks.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">                         Zadania                         <span class="caret"></span></a>                     <ul class="dropdown-menu" role="menu">                         <li><a href="../part1/page101.html">Część 1</a></li>                         <li><a href="../part2/page101.html">Część 2</a></li>                         <li><a href="../part3/page101.html">Część 3</a></li>                         <li><a href="../part4/page101.html">Część 4</a></li>                         <li><a href="../part5/page101.html">Część 5</a></li>                         <li><a href="../part6/page101.html">Część 6</a></li>                     </ul>                 </li>
-
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="tasks.html">Zadania</a></li>
+                    <li><a href="about.html">O projekcie</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="news.html">Komunikaty</a></li>
+                    <li><a href="onlive.html">Praca zespołowa</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Informacje
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="../../about.html">O projekcie</a></li>
-                            <li><a href="../../contact.html">Kontakt</a></li>
-                            <li><a href="../../news.html">Komunikaty</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="../../onlive.html">Praca zespołowa</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Pomoce naukowe
+                        Pomoce naukowe
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="http://www.w3schools.com/sql/">W3Schools</a></li>
@@ -84,7 +72,7 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Dokumentacja API
+                        Dokumentacja API
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="http://docs.oracle.com/database/121/index.htm">Oracle</a></li>
@@ -101,79 +89,44 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ustawienia
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Ustawienia
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
 
-
-                            <li><a href="../../stats.html">Statystyka ocen</a></li>
-                            <li><a href="../../deadlines.html">Terminy</a></li>
+                            <li><a href="stats.html">Statystyka ocen</a></li>
+                            <li><a href="deadlines.html">Terminy</a></li>
 
                             <li class="divider"></li>
-                            <li><a href="../../advanced.html">Zaawansowane</a></li>
-                            <li><a href="../../help.html">Pomoc</a></li>
+                            <li><a href="advanced.html">Zaawansowane</a></li>
+                            <li><a href="help.html">Pomoc</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Wyloguj</a></li>
                         </ul>
                     </li>
                 </ul>
-                <form role="search" class="navbar-form navbar-right">
-                            <div class="form-group">
-                                <input type="text" placeholder="nr albumu" class="form-control" id="student_id">
-                            </div>
-                            <!--<button type="submit" class="btn btn-default">Login</button>-->
-                        </form>
             </div>
             <!--/.nav-collapse -->
         </div>
     </nav>
 
     <div class="container">
+
+        <!-- Main component for a primary marketing message or call to action -->
         <div class="jumbotron">
-            <div id="taskId" style="display:none">620</div>
-            <h2>Część 6</h2>
-            <nav>
-                <ul class="pagination">
-                    <li><a href="page119.html" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                    <li><a href="page101.html">1</a></li>
-                    <li><a href="page102.html">2</a></li>
-                    <li><a href="page103.html">3</a></li>
-                    <li><a href="page104.html">4</a></li>
-                    <li><a href="page105.html">5</a></li>
-                    <li><a href="page106.html">6</a></li>
-                    <li><a href="page107.html">7</a></li>
-                    <li><a href="page108.html">8</a></li>
-                    <li><a href="page109.html">9</a></li>
-                    <li><a href="page110.html">10</a></li>
-                    <li><a href="page111.html">11</a></li>
-                    <li><a href="page112.html">12</a></li>
-                    <li><a href="page113.html">13</a></li>
-                    <li><a href="page114.html">14</a></li>
-                    <li><a href="page115.html">15</a></li>
-                    <li><a href="page116.html">16</a></li>
-                    <li><a href="page117.html">17</a></li>
-                    <li><a href="page118.html">18</a></li>
-                    <li><a href="page119.html">19</a></li>
-                    <li class="active"><a href="#">20<span class="sr-only">(current)</span></a></li>
-                    <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+            <h1>Terminy</h1>
+            <br>
+            <h4>
+                <ul>
+                    <li>1 część do 2015-04-15 godzina 23:59</li>
+                    <li>2 część do 2015-04-30 godzina 23:59</li>
+                    <li>3 część do 2015-05-15 godzina 23:59</li>
+                    <li>4 część do 2015-05-31 godzina 23:59</li>
+                    <li>5 część do 2015-06-15 godzina 23:59</li>
+                    <li>6 część do 2015-06-30 godzina 23:59</li>
                 </ul>
-            </nav>
-            <h3>Zadanie 20</h3><br>
-            <h4>Treść:</h4>
-            <h4>brak polecenia</h4>
-            <div id="includedContent"></div>
-            <div id="content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="content-wrapper">
-                            <div id="titleUpdateContainer">
-                                <div id="resultContent" class="wrapper"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </h4>
         </div>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
@@ -186,6 +139,7 @@
                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
+
         </script>
         <noscript>
             Please enable JavaScript to view the
@@ -202,12 +156,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="../../../js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $().ready(function() {
-            connect();
-        });
-    </script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
 
-</body>
+    </body>
 </html>
