@@ -31,47 +31,47 @@ $(document).ready(function(){
 });
 
 function initialize() {
-rect[0] = document.getElementById("rec1");
-rect[1] = document.getElementById("rec2");
-rect[2] = document.getElementById("rec3");
-rect[3] = document.getElementById("rec4");
-rect[4] = document.getElementById("rec5");
-rect[5] = document.getElementById("rec6");
-rect[6] = document.getElementById("rec7");
-rect[7] = document.getElementById("rec8");
-rect[8] = document.getElementById("rec9");
-rect[9] = document.getElementById("rec10");
-rect[10] = document.getElementById("rec11");
-rect[11] = document.getElementById("rec12");
-rect[12] = document.getElementById("rec13");
-rect[13] = document.getElementById("rec14");
-rect[14] = document.getElementById("rec15");
-rect[15] = document.getElementById("rec16");
-rect[16] = document.getElementById("rec17");
-rect[17] = document.getElementById("rec18");
-rect[18] = document.getElementById("rec19");
-rect[19] = document.getElementById("rec20");
+rect[0] = document.getElementById("rec0");
+rect[1] = document.getElementById("rec1");
+rect[2] = document.getElementById("rec2");
+rect[3] = document.getElementById("rec3");
+rect[4] = document.getElementById("rec4");
+rect[5] = document.getElementById("rec5");
+rect[6] = document.getElementById("rec6");
+rect[7] = document.getElementById("rec7");
+rect[8] = document.getElementById("rec8");
+rect[9] = document.getElementById("rec9");
+rect[10] = document.getElementById("rec10");
+rect[11] = document.getElementById("rec11");
+rect[12] = document.getElementById("rec12");
+rect[13] = document.getElementById("rec13");
+rect[14] = document.getElementById("rec14");
+rect[15] = document.getElementById("rec15");
+rect[16] = document.getElementById("rec16");
+rect[17] = document.getElementById("rec17");
+rect[18] = document.getElementById("rec18");
+rect[19] = document.getElementById("rec19");
 
-h[0]= 228;// 172
-h[1]= 176;// 224;
-h[2]= 288;// 112;
-h[3]= 200;// 200;
-h[4]= 160;// 240;
-h[5]= 264;// 136;
-h[6]= 96; // 304;
-h[7]= 168;// 232;
-h[8]= 128;// 272;
-h[9]= 152;// 248;
-h[10]=304;// 96;
-h[11]=136;// 264;
-h[12]=120;// 280;
-h[13]=120;// 280;
-h[14]=80; // 320;
-h[15]=160;// 240;
-h[16]=192;// 208;
-h[17]=88; // 312;
-h[18]=240;// 160;
-h[19]=72; // 328;
+h[0]= 72;// 228;// 172
+h[1]= 80;//176;// 224;
+h[2]= 88;//288;// 112;
+h[3]= 96;//200;// 200;
+h[4]= 120;//160;// 240;
+h[5]= 120;//264;// 136;
+h[6]= 128;//96; // 304;
+h[7]= 136;//168;// 232;
+h[8]= 152;//128;// 272;
+h[9]= 160;//152;// 248;
+h[10]=160;//304;// 96;
+h[11]=168;//136;// 264;
+h[12]=176;//120;// 280;
+h[13]=192;;//120;// 280;
+h[14]=200;//80; // 320;
+h[15]=228;//160;// 240;
+h[16]=240;//192;// 208;
+h[17]=264;//88; // 312;
+h[18]=288;//240;// 160;
+h[19]=304;//72// 328;
 }
 
 function rozwin(i) {
