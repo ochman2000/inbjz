@@ -37,8 +37,8 @@ public class DbService {
     @Transactional
     public InbjzResultSet select(Request request) {
         DatabaseDao database = getDatabase(request);
-        List<String[]> actual = null;
-        String[] actualHeaders = new String[]{"null"};
+        List<String[]> actual;
+        String[] actualHeaders;
         InbjzResultSet res = new InbjzResultSet();
         res.setTaskId(request.getTaskId());
         res.setType(Type.QUERY);

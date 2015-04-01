@@ -18,10 +18,6 @@ import pl.lodz.p.h2.DatabaseStudImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created by Łukasz Ochmański on 1/14/2015.
- */
-
 @Service
 public class QueryService extends DbService {
 
@@ -83,16 +79,15 @@ public class QueryService extends DbService {
         res.setExpectedHeaders(expectedHeaders);
         res.setTaskId(request.getTaskId());
         res.setStatus(Status.OK);
-        res.setCorrect("QUERY".equals(definedType) ? equals(actual, expected) : true);
+        res.setCorrect(!"QUERY".equals(definedType) || equals(actual, expected));
         res.setContent("String representation of this result");
         try {
             admService.logPoint(request.getTaskId(), clientId, request.getQuery(),
                     res.isCorrect());
         } catch (Throwable t) {
             logger.error("Problem with a logging module.");
-            if (t.getCause()!=null) {
-                logger.error(t.getCause().getMessage());
-            }
+            if (t.getCause() == null) { return res; }
+            logger.error(t.getCause().getMessage());
         }
         return res;
     }

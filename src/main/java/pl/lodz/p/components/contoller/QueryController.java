@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
@@ -27,16 +26,13 @@ public class QueryController {
     @Autowired
     private QueryService queryService;
     @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
-    @Autowired
     private HttpSession session;
 
     private static final Logger logger = LoggerFactory.getLogger(QueryController.class);
 
     @Autowired
-    public QueryController(QueryService queryService, SimpMessagingTemplate simpMessagingTemplate, HttpSession session) {
+    public QueryController(QueryService queryService, HttpSession session) {
         this.queryService = queryService;
-        this.simpMessagingTemplate = simpMessagingTemplate;
         this.session = session;
     }
 
@@ -57,16 +53,6 @@ public class QueryController {
         if (strings==null || strings.size()==0) { return null; }
         return strings.get(0);
     }
-
-//    @MessageMapping("/chats")
-//    @SendToUser("/queue/chats")
-//    public void handleChat(@Payload ChatMessage message,
-//                           @DestinationVariable("chatRoomId") String chatRoomId,
-//                           MessageHeaders messageHeaders, Principal user) {
-//        logger.info(messageHeaders.toString());
-//        this.simpMessagingTemplate.convertAndSend("/topic/chats." + chatRoomId,
-//                "[" + getTimestamp() + "]:" + user.getName() + ":" + message.getMessage());
-//    }
 
     private String getTimestamp() {
         LocalDateTime date = LocalDateTime.now();

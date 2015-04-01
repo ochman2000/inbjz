@@ -7,9 +7,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.stereotype.Service;
-import pl.lodz.p.core.InbjzResultSet;
 import pl.lodz.p.core.Request;
-import pl.lodz.p.core.Type;
 import pl.lodz.p.core.User;
 import pl.lodz.p.dao.DatabaseDao;
 import pl.lodz.p.h2.DatabaseAdmImpl;
@@ -17,13 +15,8 @@ import pl.lodz.p.h2.DatabaseAdmImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created by Łukasz Ochmański on 1/14/2015.
- */
-
 @Service
 public class AdmService extends DbService {
-    private boolean criticalError = false;
     private static final Logger logger = LoggerFactory.getLogger(AdmService.class);
 
     @Override
@@ -37,7 +30,7 @@ public class AdmService extends DbService {
 
     public String getAnswer(int taskId) {
         DatabaseDao database = getDatabase();
-        List<String[]> actual = null;
+        List<String[]> actual;
         try {
             actual = database.executeQuery(getQuery(taskId));
         } catch (UncategorizedSQLException e) {
@@ -66,7 +59,7 @@ public class AdmService extends DbService {
 
     public String getType(int taskId) {
         DatabaseDao database = getDatabase();
-        List<String[]> actual = null;
+        List<String[]> actual;
         try {
             actual = database.executeQuery("select type from tasks where id="+taskId);
         } catch (UncategorizedSQLException e) {
@@ -90,6 +83,11 @@ public class AdmService extends DbService {
     }
 
     public int logPoint(int taskId, String clientId, String givenAnswer, boolean correct) {
+        return logPoint(taskId, clientId, givenAnswer, correct, false);
+    }
+
+    private int logPoint(int taskId, String clientId, String givenAnswer,
+                         boolean correct, boolean criticalError) {
         DatabaseDao database = getDatabase();
         int answerId = getNextAnswerSeq();
         if (answerId==-1) {
@@ -97,11 +95,7 @@ public class AdmService extends DbService {
             return -1;
         }
         String answer;
-        if (!criticalError) {
-            answer = givenAnswer.replaceAll("'", "''");
-        } else {
-            answer = convertToUnicode(givenAnswer);
-        }
+        answer = criticalError ? convertToUnicode(givenAnswer) : givenAnswer.replaceAll("'", "''");
         try {
             database.executeStmt("insert into logged_answers values (" +
                     answerId +", '"+answer+"');");
@@ -118,9 +112,8 @@ public class AdmService extends DbService {
                     +");");
         } catch (SQLException e) {
             if (!criticalError) {
-                criticalError = true;
                 logger.error("Critical exception has occured. Trying to save as unicode...");
-                logPoint(taskId, clientId, givenAnswer, correct);
+                logPoint(taskId, clientId, givenAnswer, correct, true);
             }
             logger.error(e.getCause().getMessage());
         }
@@ -132,13 +125,13 @@ public class AdmService extends DbService {
 
     private String convertToUnicode(String s) {
         StringBuilder sb = new StringBuilder();
-        s.codePoints().forEach((i) -> {
+        s.codePoints().forEach(i -> {
             sb.append("\\u");
             sb.append(Integer.toHexString(i));
         });
 
-        if (s.length()>=2000) {
-            s = s.substring(0, 2000-4);
+        if (sb.length()>=2000) {
+            s = sb.substring(0, 2000-4);
         }
         return s;
     }
@@ -148,12 +141,6 @@ public class AdmService extends DbService {
         List<String[]> actual = null;
         try {
             actual = database.executeQuery("select LOGGED_ANSWERS_SEQ_ID.nextval;");
-        } catch (UncategorizedSQLException e) {
-            logger.error(e.getCause().getMessage());
-        } catch (DuplicateKeyException | JdbcSQLException e) {
-            logger.error(e.getCause().getMessage());
-        } catch (DataIntegrityViolationException | SQLException e) {
-            logger.error(e.getCause().getMessage());
         } catch (Exception e) {
             logger.error(e.getCause().getMessage());
         }

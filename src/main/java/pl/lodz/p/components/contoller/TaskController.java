@@ -5,13 +5,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pl.lodz.p.components.service.AdmService;
 import pl.lodz.p.components.service.AdmStudentService;
 import pl.lodz.p.core.InbjzResultSet;
 import pl.lodz.p.core.Request;
@@ -22,32 +20,20 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-/**
- * Created by Łukasz Ochmański on 1/13/2015.
- */
-
 @Controller
 public class TaskController {
 
     @Autowired
-    private AdmService admService;
-    @Autowired
-    AdmStudentService admStudentService;
-    @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
+    private AdmStudentService admStudentService;
     @Autowired
     private HttpSession session;
 
     private static final Logger logger = LoggerFactory.getLogger(QueryController.class);
 
     @Autowired
-    public TaskController(AdmService admService,
-                          AdmStudentService admStudentService,
-                          SimpMessagingTemplate simpMessagingTemplate,
+    public TaskController(AdmStudentService admStudentService,
                           HttpSession session) {
-        this.admService = admService;
         this.admStudentService = admStudentService;
-        this.simpMessagingTemplate = simpMessagingTemplate;
         this.session = session;
     }
 
