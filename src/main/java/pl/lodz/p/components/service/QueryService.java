@@ -79,7 +79,7 @@ public class QueryService extends DbService {
         res.setExpectedHeaders(expectedHeaders);
         res.setTaskId(request.getTaskId());
         res.setStatus(Status.OK);
-        res.setCorrect(!"QUERY".equals(definedType) || equals(actual, expected));
+        res.setCorrect(expected == null || !"QUERY".equals(definedType) || equals(actual, expected));
         res.setContent("String representation of this result");
         try {
             admService.logPoint(request.getTaskId(), clientId, request.getQuery(),

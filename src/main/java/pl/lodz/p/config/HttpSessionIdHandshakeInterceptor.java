@@ -1,5 +1,6 @@
 package pl.lodz.p.config;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
@@ -9,14 +10,13 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * Created by Łukasz Ochmański on 1/30/2015.
  */
 public class HttpSessionIdHandshakeInterceptor implements HandshakeInterceptor {
 
-    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(HttpSessionIdHandshakeInterceptor.class);
+    private static final Logger logger = LoggerFactory.getLogger(HttpSessionIdHandshakeInterceptor.class);
 
     public boolean beforeHandshake(ServerHttpRequest request,
                                    ServerHttpResponse response,

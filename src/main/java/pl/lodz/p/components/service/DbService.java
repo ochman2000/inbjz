@@ -3,7 +3,6 @@ package pl.lodz.p.components.service;
 import org.h2.jdbc.JdbcSQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.BadSqlGrammarException;
@@ -15,24 +14,16 @@ import pl.lodz.p.core.Request;
 import pl.lodz.p.core.Status;
 import pl.lodz.p.core.Type;
 import pl.lodz.p.dao.DatabaseDao;
-import pl.lodz.p.h2.DatabaseAdmImpl;
 import pl.lodz.p.h2.DatabaseStudImpl;
 
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Łukasz Ochmański on 1/14/2015.
- */
-
 @Service
 public class DbService {
 
     private static final Logger logger = LoggerFactory.getLogger(DbService.class);
-
-//    @Autowired
-//    private AdmService admService;
 
     @Transactional
     public InbjzResultSet select(Request request) {
@@ -129,9 +120,13 @@ public class DbService {
             logger.error(e.getMessage());
         }
         StringBuilder sb = new StringBuilder();
-        for (String[] row : result) {
-            sb.append(Arrays.toString(row));
-            sb.append("\n");
+        if (result != null) {
+            for (String[] row : result) {
+                sb.append(Arrays.toString(row));
+                sb.append("\n");
+            }
+        } else {
+            sb.append("Nie znaleziono żadnych wyników zapytania.");
         }
         return new InbjzResultSet(sb.toString());
     }
