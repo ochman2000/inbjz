@@ -49,17 +49,19 @@ public class DbService {
         } catch (Exception e) {
             return handleException(e, res);
         }
+        setValues(request, actual, actualHeaders, res);
+        return res;
+    }
+
+    private void setValues(Request request, List<String[]> actual, String[] actualHeaders, InbjzResultSet res) {
         res.setActualHeaders(actualHeaders);
         res.setActual(actual);
-        String[] expectedHeaders = actualHeaders;
-        res.setExpectedHeaders(expectedHeaders);
-        List<String[]> expected = actual;
-        res.setExpected(expected);
         res.setTaskId(request.getTaskId());
+        res.setExpectedHeaders(res.getActualHeaders());
+        res.setExpected(res.getActual());
         res.setStatus(Status.OK);
-        res.setCorrect(equals(actual, expected));
+        res.setCorrect(true);
         res.setContent("String representation of this result");
-        return res;
     }
 
     protected InbjzResultSet handleException(Throwable t, InbjzResultSet res) {

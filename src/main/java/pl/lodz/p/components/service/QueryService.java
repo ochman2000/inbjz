@@ -79,7 +79,7 @@ public class QueryService extends DbService {
         res.setExpectedHeaders(expectedHeaders);
         res.setTaskId(request.getTaskId());
         res.setStatus(Status.OK);
-        res.setCorrect(expected == null || !"QUERY".equals(definedType) || equals(actual, expected));
+        res.setCorrect(evaluateAnswer(actual, definedType, expected));
         res.setContent("String representation of this result");
         try {
             admService.logPoint(request.getTaskId(), clientId, request.getQuery(),
@@ -90,6 +90,10 @@ public class QueryService extends DbService {
             logger.error(t.getCause().getMessage());
         }
         return res;
+    }
+
+    private boolean evaluateAnswer(List<String[]> actual, String definedType, List<String[]> expected) {
+        return expected == null || !"QUERY".equals(definedType) || equals(actual, expected);
     }
 
     public AdmService getAdmService() {
