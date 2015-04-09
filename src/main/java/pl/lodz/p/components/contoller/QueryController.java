@@ -46,12 +46,15 @@ public class QueryController {
 
     private String getClientString(MessageHeaders messageHeaders) {
         if (messageHeaders==null) { return null; }
-        LinkedMultiValueMap<String, String> nativeHeaders =
-                (LinkedMultiValueMap<String, String>) messageHeaders.get("nativeHeaders");
+        LinkedMultiValueMap<String, String> nativeHeaders = getNativeHeaders(messageHeaders);
         if (nativeHeaders==null) { return null; }
         List<String> strings = nativeHeaders.get("client-id");
         if (strings==null || strings.size()==0) { return null; }
         return strings.get(0);
+    }
+
+    private LinkedMultiValueMap<String, String> getNativeHeaders(MessageHeaders messageHeaders) {
+        return (LinkedMultiValueMap<String, String>) messageHeaders.get("nativeHeaders");
     }
 
     private String getTimestamp() {

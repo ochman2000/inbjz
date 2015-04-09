@@ -30,6 +30,9 @@ public class HttpSessionIdHandshakeInterceptor implements HandshakeInterceptor {
                 attributes.put("HTTPSESSIONID", session.getId());
                 logger.info("Session ID: " + session.getId());
             }
+            if (request != null) {
+                logger.info("IP: "+request.getRemoteAddress());
+            }
         }
         return true;
     }
