@@ -1,9 +1,5 @@
 package pl.lodz.p.config;
 
-/**
- * Created by Łukasz Ochmański on 2/22/2015.
- */
-
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.stereotype.Component;
@@ -13,6 +9,6 @@ public class CustomizationBean implements EmbeddedServletContainerCustomizer {
 
     @Override
     public void customize(ConfigurableEmbeddedServletContainer container) {
-        container.setPort(4545);
+        container.setPort(80);
     }
 }

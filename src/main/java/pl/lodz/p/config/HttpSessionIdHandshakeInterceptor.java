@@ -11,9 +11,6 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
-/**
- * Created by Łukasz Ochmański on 1/30/2015.
- */
 public class HttpSessionIdHandshakeInterceptor implements HandshakeInterceptor {
 
     private static final Logger logger = LoggerFactory.getLogger(HttpSessionIdHandshakeInterceptor.class);
